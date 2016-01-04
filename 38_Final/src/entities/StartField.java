@@ -1,8 +1,8 @@
 package entities;
 
-public class Start extends Felt {
+public class StartField extends Felt {
 
-	public Start(String feltNavn) {
+	public StartField(String feltNavn) {
 		super(feltNavn);
 	}
 
