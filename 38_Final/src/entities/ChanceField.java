@@ -1,8 +1,8 @@
 package entities;
 
-public class Chance extends Felt {
+public class ChanceField extends Felt {
 
-	public Chance(String feltNavn) {
+	public ChanceField(String feltNavn) {
 		super(feltNavn);
 		// TODO Auto-generated constructor stub
 	}
