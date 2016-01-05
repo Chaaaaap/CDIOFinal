@@ -26,29 +26,47 @@ public class GameBoard {
 	
 	//Initializes the fields as their respective type.
 //	private Felt[] createLogicFields() {
-//		Felt[] logiskeFelter = new Felt[22];
-//		logiskeFelter[0] = new Startfield("Start");
-//		logiskeFelter[1] = new Territory(1000, 100, "Tribe Encampment", this);
-//		logiskeFelter[2] = new Territory(1500, 300, "Crater", this);
-//		logiskeFelter[3] = new Territory(2000, 500, "Mountain", this);
-//		logiskeFelter[4] = new Territory(3000, 700, "Cold Desert", this);
-//		logiskeFelter[5] = new Territory(4000, 1000, "Black cave", this);
-//		logiskeFelter[6] = new Territory(4300, 1300, "The Werewall", this);
-//		logiskeFelter[7] = new Territory(4750, 1600, "Mountain village", this);
-//		logiskeFelter[8] = new Territory(5000, 2000, "South Citadel", this);
-//		logiskeFelter[9] = new Territory(5500, 2600, "Palace gates", this);
-//		logiskeFelter[10] = new Territory(6000, 3200, "Tower", this);
-//		logiskeFelter[11] = new Territory(8000, 4000, "Castle", this);
-//		logiskeFelter[12] = new Refuge(5000, "Walled City");
-//		logiskeFelter[13] = new Refuge(500, "Monastery");
-//		logiskeFelter[14] = new LaborCamp(2500, "Huts in the mountain", diceCup, this);
-//		logiskeFelter[15] = new LaborCamp(2500, "The pit", diceCup, this);
-//		logiskeFelter[16] = new Tax(2000, "Goldmine");
-//		logiskeFelter[17] = new Tax(4000, "Caravan");
-//		logiskeFelter[18] = new Fleet(4000, "Second Sail", this);
-//		logiskeFelter[19] = new Fleet(4000, "Sea Grover", this);
-//		logiskeFelter[20] = new Fleet(4000, "The Buccaneers", this);
-//		logiskeFelter[21] = new Fleet(4000, "Privateer armade", this);
+//		Felt[] logiskeFelter = new Felt[40];
+//		logiskeFelter[0] = new StartField("Start");
+//		logiskeFelter[1] = new Territory(1200, 50, "Rødovrevej", this);
+//		logiskeFelter[2] = new Chance();
+//		logiskeFelter[3] = new Territory(1200, 50, "Hvidovrevej", this);
+//		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat");
+//		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this);
+//		logiskeFelter[6] = new Territory(2000, 100, "Roskildevej", this);
+//		logiskeFelter[7] = new Chance();
+//		logiskeFelter[8] = new Territory(2000, 100, "Valby Langgade", this);
+//		logiskeFelter[9] = new Territory(2400, 150, "Allégade", this);
+//		logiskeFelter[10] = new Jail();
+//		logiskeFelter[11] = new Territory(2800, 200, "Frederiksberg Allé", this);
+//		logiskeFelter[12] = new Brewery(3000, "Tuborg", diceCup, this);
+//		logiskeFelter[13] = new Territory(2800, 200, "Bülowsvej", this);
+//		logiskeFelter[14] = new Territory(3200, 250,  "Gl. Kongevej", this);
+//		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this);
+//		logiskeFelter[16] = new Territory(3600, 300, "Bernstorffsvej", this);
+//		logiskeFelter[17] = new Chance();
+//		logiskeFelter[18] = new Territory(3600, 300, "Hellerupvej", this);
+//		logiskeFelter[19] = new Territory(4000, 350, "Strandvej", this);
+//		logiskeFelter[20] = new Parking();
+//		logiskeFelter[21] = new Territory(4400, 350, "Trianglen", this);
+//		logiskeFelter[22] = new Chance();
+//		logiskeFelter[23] = new Territory(4400, 350, "Østerbrogade", this);
+//		logiskeFelter[24] = new Territory(4800, 400, "Grønningen", this);
+//		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this);
+//		logiskeFelter[26] = new Territory(5200, 450, "Bredgade", this);
+//		logiskeFelter[27] = new Territory(5200, 450, "Kgs. Nytorv", this);
+//		logiskeFelter[28] = new Brewery(3000, "Coca-Cola", diceCup, this);
+//		logiskeFelter[29] = new Territory(5600, 500, "Østergade", this);
+//		logiskeFelter[30] = new GoToJail();
+//		logiskeFelter[31] = new Territory(6000, 550, "Amagertorv", this);
+//		logiskeFelter[32] = new Territory(6000, 550, "Vimmelskaftet", this);
+//		logsikeFelter[33] = new Chance();
+//		logiskeFelter[34] = new Territory(6400, 600, "Nygade", this);
+//		logsikeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this);
+//		logiskeFelter[36] = new Chance();
+//		logiskeFelter[37] = new Territory(7000, 700, "Frederiksberggade", this);
+//		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat");
+//		logiskeFelter[39] = new Territory(8000, 1000, "Rådhuspladsen", this);
 //	
 //		return logiskeFelter;
 //	}
@@ -58,6 +76,12 @@ public class GameBoard {
 		//Creates the fields, making them ready to plot into the GUI.
 				Field[] newGuiFields = new Field[40];
 				newGuiFields[0] = new Start.Builder().setBgColor(Color.RED).build();
+				
+				Field blueField = new Start.Builder().setBgColor(Color.BLUE).build();
+				newGuiFields[1] = blueField;
+				newGuiFields[3] = blueField;
+				
+				Field blackField = 
 				
 				for(int i=1; i < 22; i++) {
 					Field greyField = new Start.Builder().setBgColor(Color.GRAY).build();
@@ -78,28 +102,49 @@ public class GameBoard {
 		
 		//Initializes every field with Title and description.
 
-		guiFields[0].setTitle("Start"); guiFields[0].setDescription("All players start here."); guiFields[0].setSubText("Start"); 
-		guiFields[1].setTitle("Tribe Encampment"); guiFields[1].setDescription("Territory\nPrice: 1000"); guiFields[1].setSubText("Territory");
-		guiFields[2].setTitle("Crater"); guiFields[2].setDescription("Territory\nPrice: 1500"); guiFields[2].setSubText("Territory");
-		guiFields[3].setTitle("Mountain"); guiFields[3].setDescription("Territory\nPrice: 2000"); guiFields[3].setSubText("Territory");
-		guiFields[4].setTitle("Cold Desert"); guiFields[4].setDescription("Territory\nPrice: 3000"); guiFields[4].setSubText("Territory");
-		guiFields[5].setTitle("Black Cave"); guiFields[5].setDescription("Territory\nPrice: 4000"); guiFields[5].setSubText("Territory");
-		guiFields[6].setTitle("The Werewall"); guiFields[6].setDescription("Territory\nPrice: 4300"); guiFields[6].setSubText("Territory");
-		guiFields[7].setTitle("Mountain Village"); guiFields[7].setDescription("Territory\nPrice: 4750"); guiFields[7].setSubText("Territory");
-		guiFields[8].setTitle("South Citadel"); guiFields[8].setDescription("Territory\nPrice: 5000"); guiFields[8].setSubText("Territory");
-		guiFields[9].setTitle("Palace gates"); guiFields[9].setDescription("Territory\nPrice: 5500"); guiFields[9].setSubText("Territory");
-		guiFields[10].setTitle("Tower"); guiFields[10].setDescription("Territory\nPrice: 6000"); guiFields[10].setSubText("Territory");
-		guiFields[11].setTitle("Castle"); guiFields[11].setDescription("Territory\nPrice: 8000"); guiFields[11].setSubText("Territory");
-		guiFields[12].setTitle("Walled City"); guiFields[12].setDescription("Refuge\nYou receive 5000"); guiFields[12].setSubText("Refuge");
-		guiFields[13].setTitle("Monastery"); guiFields[13].setDescription("Refuge\nYou receive 500"); guiFields[13].setSubText("Refuge");
-		guiFields[14].setTitle("Huts in the mountain"); guiFields[14].setDescription("Labor camp\nPrice: 2500"); guiFields[14].setSubText("Labor Camp");
-		guiFields[15].setTitle("The pit"); guiFields[15].setDescription("Labor camp\nPrice: 2500"); guiFields[15].setSubText("Labor Camp");
-		guiFields[16].setTitle("Goldmine"); guiFields[16].setDescription("Tax\nChoose between paying 2000 or 10% of your total assets"); guiFields[16].setSubText("Tax");
-		guiFields[17].setTitle("Caravan"); guiFields[17].setDescription("Tax\nChoose between paying 4000 or 10% of your total assets"); guiFields[17].setSubText("Tax");
-		guiFields[18].setTitle("Second Sail"); guiFields[18].setDescription("Fleet\nPrice: 4000"); guiFields[18].setSubText("Fleet");
-		guiFields[19].setTitle("Sea Grover"); guiFields[19].setDescription("Fleet\nPrice: 4000"); guiFields[19].setSubText("Fleet");
-		guiFields[20].setTitle("The Buccaneers"); guiFields[20].setDescription("Fleet\nPrice: 4000"); guiFields[20].setSubText("Fleet");
-		guiFields[21].setTitle("Privateer armade"); guiFields[21].setDescription("Fleet\nPrice: 4000"); guiFields[21].setSubText("Fleet");
+		guiFields[0].setTitle("Start"); guiFields[0].setDescription("Start\nHvergang De passere modtag kr. 4000"); guiFields[0].setSubText("Start"); 
+		guiFields[1].setTitle("Rødovrevej"); guiFields[1].setDescription("Territory\nPris: 1200\nLeje: 100\nHus: 1000\nHotel: 1000"); guiFields[1].setSubText("Territory");
+		guiFields[2].setTitle("Prøv Lykken"); guiFields[2].setDescription("Chance\nTræk et kort"); guiFields[2].setSubText("Chance");
+		guiFields[3].setTitle("Hvidovrevej"); guiFields[3].setDescription("Territory\nPris: 1200\nLeje: 100\nHus: 1000\nHotel: 1000"); guiFields[3].setSubText("Territory");
+		guiFields[4].setTitle("Betal indkomstskat"); guiFields[4].setDescription("Tax\nBetal indkomstskat 10% eller kr. 4000"); guiFields[4].setSubText("Tax");
+		guiFields[5].setTitle("SFL-Færgerne"); guiFields[5].setDescription("Shipping Company\nPris: 4000\nLeje: 500"); guiFields[5].setSubText("Shipping Company");
+		guiFields[6].setTitle("Roskildevej"); guiFields[6].setDescription("Territory\nPris: 2000\nLeje: 100\nHus: 1000\nHotel: 1000"); guiFields[6].setSubText("Territory");
+		guiFields[7].setTitle("Prøv Lykken"); guiFields[7].setDescription("Chance\nTræk et kort"); guiFields[7].setSubText("Chance");
+		guiFields[8].setTitle("Valby Langgade"); guiFields[8].setDescription("Territory\nPris: 2000\nLeje: 100\nHus: 1000\nHotel: 1000"); guiFields[8].setSubText("Territory");
+		guiFields[9].setTitle("Allégade"); guiFields[9].setDescription("Territory\nPris: 2400\nLeje: 150\nHus: 1000\nHotel: 1000"); guiFields[9].setSubText("Territory");
+		guiFields[10].setTitle("I Fængsel"); guiFields[10].setDescription("Jail"); guiFields[10].setSubText("Jail");
+		guiFields[11].setTitle("Frederiksberg Allé"); guiFields[11].setDescription("Territory\nPris: 2800\nLeje: 200\nHus: 2000\nHotel: 2000"); guiFields[11].setSubText("Territory");
+		guiFields[12].setTitle("Tuborg Bryggeri"); guiFields[12].setDescription("Brewery\nLeje: 100 x antal øjne"); guiFields[12].setSubText("Brewery");
+		guiFields[13].setTitle("Bülowsvej"); guiFields[13].setDescription("Territory\nPris: 2800\nLeje: 200\nHus: 2000\nHotel: 2000"); guiFields[13].setSubText("Territory");
+		guiFields[14].setTitle("Gl. Kongevej"); guiFields[14].setDescription("Territory\nPris: 3200\nLeje: 250\nHus: 2000\nHotel: 2000"); guiFields[14].setSubText("Territory");
+		guiFields[15].setTitle("DSB Kalundborg/Århus"); guiFields[15].setDescription("Shipping Company\nPris: 4000\nLeje: 500"); guiFields[15].setSubText("Shipping Company");
+		guiFields[16].setTitle("Bernstorffvej"); guiFields[16].setDescription("Territory\nPris: 3600\nLeje: 300\nHus: 2000\nHotel: 2000"); guiFields[16].setSubText("Territory");
+		guiFields[17].setTitle("Prøv Lykken"); guiFields[17].setDescription("Chance\nTræk et kort"); guiFields[17].setSubText("Chance");
+		guiFields[18].setTitle("Hellerupvej"); guiFields[18].setDescription("Territory\nPris: 3600\nLeje: 300\nHus: 2000\nHotel: 2000"); guiFields[18].setSubText("Territory");
+		guiFields[19].setTitle("Strandvej"); guiFields[19].setDescription("Territory\nPris: 4000\nLeje: 350\nHus: 2000\nHotel: 2000"); guiFields[19].setSubText("Territory");
+		guiFields[20].setTitle("Parkering"); guiFields[20].setDescription("Parking\nDer sker ingenting her!"); guiFields[20].setSubText("Parking");
+		guiFields[21].setTitle("Trianglen"); guiFields[21].setDescription("Territory\nPris: 4400\nLeje: 350\nHus: 3000\nHotel: 3000"); guiFields[21].setSubText("Territory");
+		guiFields[22].setTitle("Prøv Lykken"); guiFields[22].setDescription("Chance\nTræk et kort"); guiFields[22].setSubText("Chance");
+		guiFields[23].setTitle("Østerbrogade"); guiFields[23].setDescription("Territory\nPris: 4400\nLeje: 350\nHus: 3000\nHotel: 3000"); guiFields[23].setSubText("Territory");
+		guiFields[24].setTitle("Grønningen"); guiFields[24].setDescription("Territory\nPris: 4800\nLeje: 400\nHus: 3000\nHotel: 3000"); guiFields[24].setSubText("Territory");
+		guiFields[25].setTitle("DFDS Seaways"); guiFields[25].setDescription("Shipping Company\nPris: 4000\nLeje: 500"); guiFields[25].setSubText("Shipping Company");
+		guiFields[26].setTitle("Bredgade"); guiFields[26].setDescription("Territory\nPris: 5200\nLeje: 450\nHus: 3000\nHotel: 3000"); guiFields[26].setSubText("Territory");
+		guiFields[27].setTitle("Kgs. Nytorv"); guiFields[27].setDescription("Territory\nPris: 5200\nLeje: 450\nHus: 3000\nHotel: 3000"); guiFields[27].setSubText("Territory");
+		guiFields[28].setTitle("Coca-Cola Tapperi"); guiFields[28].setDescription("Brewery\nLeje: 100 x antal øjne"); guiFields[28].setSubText("Brewery");
+		guiFields[29].setTitle("Østergade"); guiFields[29].setDescription("Territory\nPris: 5600\nLeje: 500\nHus: 3000\nHotel: 3000"); guiFields[29].setSubText("Territory");
+		guiFields[30].setTitle("De Fængsles"); guiFields[30].setDescription("Go To Jail\nDu bliver overført til fængslet"); guiFields[30].setSubText("GoToJail");
+		guiFields[31].setTitle("Amagertorv"); guiFields[31].setDescription("Territory\nPris: 6000\nLeje: 550\nHus: 4000\nHotel: 4000"); guiFields[31].setSubText("Territory");
+		guiFields[32].setTitle("Vimmelskaftet"); guiFields[32].setDescription("Territory\nPris: 6000\nLeje: 550\nHus: 4000\nHotel: 4000"); guiFields[32].setSubText("Territory");
+		guiFields[33].setTitle("Prøv Lykken"); guiFields[33].setDescription("Chance\nTræk et kort"); guiFields[33].setSubText("Chance");
+		guiFields[34].setTitle("Nygade"); guiFields[34].setDescription("Territory\nPris: 6400\nLeje: 600\nHus: 4000\nHotel: 4000"); guiFields[34].setSubText("Territory");
+		guiFields[35].setTitle("DSB Halsskov/Knudshoved"); guiFields[35].setDescription("Shipping Company\nPris: 4000\nLeje: 500"); guiFields[35].setSubText("Shipping Company");
+		guiFields[36].setTitle("Prøv Lykken"); guiFields[36].setDescription("Chance\nTræk et kort"); guiFields[36].setSubText("Chance");
+		guiFields[37].setTitle("Frederiksberggade"); guiFields[37].setDescription("Territory\nPris: 7000\nLeje: 700\nHus: 4000\nHotel: 4000"); guiFields[37].setSubText("Territory");
+		guiFields[38].setTitle("Ekstraordinær statsskat"); guiFields[38].setDescription("Tax\nEkstraordinær statsskat betal kr. 2000"); guiFields[38].setSubText("Tax");
+		guiFields[39].setTitle("Rådhuspladsen"); guiFields[39].setDescription("Territory\nPris: 8000\nLeje: 1000\nHus: 4000\nHotel: 4000"); guiFields[39].setSubText("Territory");
+
+
+
 
 	}
 	
