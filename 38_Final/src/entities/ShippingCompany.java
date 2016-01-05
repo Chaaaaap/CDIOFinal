@@ -39,4 +39,22 @@ public class ShippingCompany extends Ownable {
 		return null;
 	}
 
+	@Override
+	public void sellHouse(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pawnField(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buyHouse(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
