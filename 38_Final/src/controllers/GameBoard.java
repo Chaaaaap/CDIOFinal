@@ -14,8 +14,8 @@ import desktop_resources.GUI;
 public class GameBoard {
 
 	private DiceCup diceCup;
-	Field[] guiFields;
-	Felt[] logicFields;
+	private Field[] guiFields;
+	private Felt[] logicFields;
 
 	
 	//GameBoard constructor
@@ -205,8 +205,8 @@ public class GameBoard {
 		logicFields[i].landOnField(player);
 	}
 	
-	public Felt[] getFields() {
-		return logicFields;
+	public Field[] getGUIFields() {
+		return guiFields;
 	}
 
 	public Felt[] getlogicFields() {
@@ -214,5 +214,6 @@ public class GameBoard {
 		return logicFields;
 	}
 
+	
 }
 
