@@ -22,7 +22,7 @@ public class GameBoard {
 	public GameBoard(DiceCup cup) {
 		guiFields = createGUIFields();;
 		diceCup = cup;
-//		initFields();
+		initFields();
 		logicFields = createLogicFields();
 		initGUI();
 	}
@@ -130,12 +130,17 @@ public class GameBoard {
 				newGuiFields[7] = blackField;
 				newGuiFields[17] = blackField;
 				newGuiFields[22] = blackField;
+				newGuiFields[33] = blackField;
 				newGuiFields[34] = blackField;
 				newGuiFields[36] = blackField;
 				
 				Field darkGrayField = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
 				newGuiFields[4] = darkGrayField;
 				newGuiFields[38] = darkGrayField;
+				
+				Field pinkField = new Start.Builder().setBgColor(Color.PINK).build();
+				newGuiFields[12] = pinkField;
+				newGuiFields[28] = pinkField;
 
 				return newGuiFields;
 				
