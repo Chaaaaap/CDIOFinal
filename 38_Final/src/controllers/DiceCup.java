@@ -5,22 +5,22 @@ import entities.Dice;
 public class DiceCup 
 {
 
-	//Global variables of this class,
-	//which also called fields.
-	//This private fields can only be seen in this class.	
+	//Global variables for this class,
+	//which is also called fields.
+	//These private fields can only be seen in this class.	
 	private Dice diceOne;
 	private Dice diceTwo;
 
 	//DiceCup class constructor
-	//which takes two class of Dice
+	//which takes two classes of Dice
 	public DiceCup() 
 	{
 		this.diceOne = new Dice();
 		this.diceTwo = new Dice();
 	}
 
-	//This Shake method is used for randomly choose
-	//a random number between the numbers of the dice.
+	//This Shake method is used to randomly choose
+	//a number between the numbers of the dice.
 	//Shake method returns a Dice[] => which is a Dice array.
 	public void shake()
 	{
