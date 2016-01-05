@@ -87,7 +87,7 @@ public class Territory extends Ownable {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
-			gameBoard.guiFields[player.getCurrentField()].setSubText(player.getPlayerName());
+			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
 	
