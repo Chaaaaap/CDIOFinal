@@ -22,7 +22,7 @@ public class GameBoard {
 	public GameBoard(DiceCup cup) {
 		guiFields = createGUIFields();;
 		diceCup = cup;
-		initFields();
+//		initFields();
 		logicFields = createLogicFields();
 		initGUI();
 	}
