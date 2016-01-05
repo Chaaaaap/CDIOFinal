@@ -96,12 +96,6 @@ public class Territory extends Ownable {
 		
 	}
 
-	@Override
-	public void pawnField(Player player) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void buyHouse(Player player) {
 		// TODO Auto-generated method stub
 		

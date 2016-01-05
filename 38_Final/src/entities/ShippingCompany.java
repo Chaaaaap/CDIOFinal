@@ -38,10 +38,4 @@ public class ShippingCompany extends Ownable {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void pawnField(Player player) {
-		// TODO Auto-generated method stub
-		
-	}
 }
