@@ -1,7 +1,10 @@
 package controllers;
 
+import entities.*;
 import entities.Felt;
 import entities.Player;
+import entities.StartField;
+
 import java.awt.Color;
 import desktop_fields.Empty;
 import desktop_fields.Field;
@@ -20,56 +23,56 @@ public class GameBoard {
 		guiFields = createGUIFields();;
 		diceCup = cup;
 		initFields();
-//		logicFields = createLogicFields();
+		logicFields = createLogicFields();
 		initGUI();
 	}
 	
 	//Initializes the fields as their respective type.
-//	private Felt[] createLogicFields() {
-//		Felt[] logiskeFelter = new Felt[40];
-//		logiskeFelter[0] = new StartField("Start");
-//		logiskeFelter[1] = new Territory(1200, 50, "Rødovrevej", this);
-//		logiskeFelter[2] = new Chance();
-//		logiskeFelter[3] = new Territory(1200, 50, "Hvidovrevej", this);
-//		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat");
-//		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this);
-//		logiskeFelter[6] = new Territory(2000, 100, "Roskildevej", this);
-//		logiskeFelter[7] = new Chance();
-//		logiskeFelter[8] = new Territory(2000, 100, "Valby Langgade", this);
-//		logiskeFelter[9] = new Territory(2400, 150, "Allégade", this);
-//		logiskeFelter[10] = new Jail();
-//		logiskeFelter[11] = new Territory(2800, 200, "Frederiksberg Allé", this);
-//		logiskeFelter[12] = new Brewery(3000, "Tuborg", diceCup, this);
-//		logiskeFelter[13] = new Territory(2800, 200, "Bülowsvej", this);
-//		logiskeFelter[14] = new Territory(3200, 250,  "Gl. Kongevej", this);
-//		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this);
-//		logiskeFelter[16] = new Territory(3600, 300, "Bernstorffsvej", this);
-//		logiskeFelter[17] = new Chance();
-//		logiskeFelter[18] = new Territory(3600, 300, "Hellerupvej", this);
-//		logiskeFelter[19] = new Territory(4000, 350, "Strandvej", this);
-//		logiskeFelter[20] = new Parking();
-//		logiskeFelter[21] = new Territory(4400, 350, "Trianglen", this);
-//		logiskeFelter[22] = new Chance();
-//		logiskeFelter[23] = new Territory(4400, 350, "Østerbrogade", this);
-//		logiskeFelter[24] = new Territory(4800, 400, "Grønningen", this);
-//		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this);
-//		logiskeFelter[26] = new Territory(5200, 450, "Bredgade", this);
-//		logiskeFelter[27] = new Territory(5200, 450, "Kgs. Nytorv", this);
-//		logiskeFelter[28] = new Brewery(3000, "Coca-Cola", diceCup, this);
-//		logiskeFelter[29] = new Territory(5600, 500, "Østergade", this);
-//		logiskeFelter[30] = new GoToJail();
-//		logiskeFelter[31] = new Territory(6000, 550, "Amagertorv", this);
-//		logiskeFelter[32] = new Territory(6000, 550, "Vimmelskaftet", this);
-//		logsikeFelter[33] = new Chance();
-//		logiskeFelter[34] = new Territory(6400, 600, "Nygade", this);
-//		logsikeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this);
-//		logiskeFelter[36] = new Chance();
-//		logiskeFelter[37] = new Territory(7000, 700, "Frederiksberggade", this);
-//		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat");
-//		logiskeFelter[39] = new Territory(8000, 1000, "Rådhuspladsen", this);
-//	
-//		return logiskeFelter;
-//	}
+	private Felt[] createLogicFields() {
+		Felt[] logiskeFelter = new Felt[40];
+		logiskeFelter[0] = new StartField("Start");
+		logiskeFelter[1] = new Territory(1200, "Rødovrevej", this);
+		logiskeFelter[2] = new Chance("Prøv Lykken");
+		logiskeFelter[3] = new Territory(1200, "Hvidovrevej", this);
+		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat");
+		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this);
+		logiskeFelter[6] = new Territory(2000, "Roskildevej", this);
+		logiskeFelter[7] = new Chance("Prøv Lykken");
+		logiskeFelter[8] = new Territory(2000, "Valby Langgade", this);
+		logiskeFelter[9] = new Territory(2400, "Allégade", this);
+		logiskeFelter[10] = new Jail("I Fængsel");
+		logiskeFelter[11] = new Territory(2800, "Frederiksberg Allé", this);
+		logiskeFelter[12] = new Brewery(3000, "Tuborg", this);
+		logiskeFelter[13] = new Territory(2800, "Bülowsvej", this);
+		logiskeFelter[14] = new Territory(3200, "Gl. Kongevej", this);
+		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this);
+		logiskeFelter[16] = new Territory(3600, "Bernstorffsvej", this);
+		logiskeFelter[17] = new Chance("Prøv Lykken");
+		logiskeFelter[18] = new Territory(3600, "Hellerupvej", this);
+		logiskeFelter[19] = new Territory(4000, "Strandvej", this);
+		logiskeFelter[20] = new Parking("Parkering");
+		logiskeFelter[21] = new Territory(4400, "Trianglen", this);
+		logiskeFelter[22] = new Chance("Prøv Lykken");
+		logiskeFelter[23] = new Territory(4400, "Østerbrogade", this);
+		logiskeFelter[24] = new Territory(4800, "Grønningen", this);
+		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this);
+		logiskeFelter[26] = new Territory(5200, "Bredgade", this);
+		logiskeFelter[27] = new Territory(5200, "Kgs. Nytorv", this);
+		logiskeFelter[28] = new Brewery(3000, "Coca-Cola", this);
+		logiskeFelter[29] = new Territory(5600, "Østergade", this);
+		logiskeFelter[30] = new GoToJail("De Fængsles");
+		logiskeFelter[31] = new Territory(6000, "Amagertorv", this);
+		logiskeFelter[32] = new Territory(6000, "Vimmelskaftet", this);
+		logiskeFelter[33] = new Chance("Prøv Lykken");
+		logiskeFelter[34] = new Territory(6400, "Nygade", this);
+		logiskeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this);
+		logiskeFelter[36] = new Chance("Prøv Lykken");
+		logiskeFelter[37] = new Territory(7000, "Frederiksberggade", this);
+		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat");
+		logiskeFelter[39] = new Territory(8000, "Rådhuspladsen", this);
+	
+		return logiskeFelter;
+	}
 
 
 	private Field[] createGUIFields(){
