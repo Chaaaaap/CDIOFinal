@@ -2,7 +2,7 @@ package entities;
 
 public class Tax extends Felt {
 
-	public Tax(String feltNavn) {
+	public Tax(int rent, String feltNavn) {
 		super(feltNavn);
 		// TODO Auto-generated constructor stub
 	}
