@@ -6,7 +6,6 @@ import entities.Player;
 import entities.StartField;
 
 import java.awt.Color;
-import desktop_fields.Empty;
 import desktop_fields.Field;
 import desktop_fields.Start;
 import desktop_resources.GUI;
