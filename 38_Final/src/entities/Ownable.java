@@ -1,5 +1,7 @@
 package entities;
 
+import controllers.GameBoard;
+
 public abstract class Ownable extends Felt{
 	
 	//This is an abstract class that extends from the abstract Felt class.
@@ -7,8 +9,9 @@ public abstract class Ownable extends Felt{
 	//from this class. Its the body of all classes, that are ownable.
 	private Player owner;
 	private int pris;
+	
 
-	public Ownable(int pris, String feltNavn) {
+	public Ownable(int pris, String feltNavn, GameBoard gb) {
 		super(feltNavn);
 		this.owner = null;
 		this.pris = pris;
