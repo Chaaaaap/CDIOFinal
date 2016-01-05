@@ -1,15 +1,28 @@
 package entities;
 
+import desktop_resources.GUI;
+
 public class ChanceField extends Felt {
+
+	private ChanceCards chanceCard;
+	private String cardText;
 
 	public ChanceField(String feltNavn) {
 		super(feltNavn);
-		// TODO Auto-generated constructor stub
+		chanceCard.shuffle();
 	}
 
 	@Override
 	public void landOnField(Player player) {
-		// TODO Auto-generated method stub
+		getFeltBesked(player);
+		chanceCard.drawCard();
+		cardText = chanceCard.toString();
+		
+		switch(cardText) {
+		case "ChanceAktie": GUI.showMessage(""); player.adjustBalance(player, 1000); break;
+		case "ChancePayFine": GUI.showMessage(""); player.adjustBalance(player, -1000); break;
+		case "ChanceJail": GUI.showMessage(""); player.isJailed = true; player.setCurrentField(11); GUI.setCar(player.getCurrentField(), player.getPlayerName());
+		}
 		
 	}
 
