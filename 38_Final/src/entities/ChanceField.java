@@ -10,8 +10,8 @@ public class ChanceField extends Felt {
 
 	public ChanceField(String feltNavn) {
 		super(feltNavn);
-		chanceCard.shuffle();
-		chanceCards = chanceCard.getCards();
+//		chanceCard.shuffle();
+//		chanceCards = chanceCard.getCards();
 		
 	}
 
