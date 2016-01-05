@@ -5,11 +5,14 @@ import desktop_resources.GUI;
 public class ChanceField extends Felt {
 
 	private ChanceCards chanceCard;
+	private String[] chanceCards;
 	private String cardText;
 
 	public ChanceField(String feltNavn) {
 		super(feltNavn);
 		chanceCard.shuffle();
+		chanceCards = chanceCard.getCards();
+		
 	}
 
 	@Override

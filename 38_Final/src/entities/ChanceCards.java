@@ -6,7 +6,7 @@ public class ChanceCards {
 	
 	Random generator;
 
-	String[] chanceCards = new String[] {
+	private String[] chanceCards = new String[] {
 	"ChanceFerry",
 	"ChanceJail",
 	"ChancePayFine",
@@ -61,6 +61,10 @@ public class ChanceCards {
 		for(int i=0;i<51;i++){
 			chanceCards[i]=chanceCards[i+1];
 		}
+	}
+	
+	public String[] getCards() {
+		return chanceCards;
 	}
 
 }
