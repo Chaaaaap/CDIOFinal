@@ -8,6 +8,7 @@ public class Player
 	private String playerName;
 	private PlayerAccount playerAccount;
 	private int currentField=1, fleetCounter;
+	public boolean isJailed;
 
 	public Player() 
 	{

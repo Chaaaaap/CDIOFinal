@@ -1,14 +1,23 @@
 package entities;
 
+import desktop_resources.GUI;
+
 public class GoToJail extends Felt {
 
 	public GoToJail(String feltNavn) {
 		super(feltNavn);
 	}
+	
+	private void goToJail(Player player) {
+		player.isJailed = true;
+		player.setCurrentField(11);
+		GUI.setCar(11, player.getPlayerName());
+	}
 
 	@Override
 	public void landOnField(Player player) {
-
+		goToJail(player);
+		getFeltBesked(player);
 	}
 
 	@Override
