@@ -11,7 +11,7 @@ public class GoToJail extends Felt {
 	private void goToJail(Player player) {
 		player.isJailed = true;
 		player.setCurrentField(11);
-		GUI.setCar(11, player.getPlayerName());
+		GUI.setCar(player.getCurrentField(), player.getPlayerName());
 	}
 
 	@Override
