@@ -1,6 +1,10 @@
 package entities;
 
+import java.util.Random;
+
 public class ChanceCards {
+	
+	Random generator;
 
 	String[] chanceCards = new String[] {
 	"ChanceFerry",
@@ -38,5 +42,25 @@ public class ChanceCards {
 	"ChanceRepair"
 	};
 
+	public ChanceCards() {
+		
+	}
+	
+	public void shuffle() {
+		for(int i = 0; i < chanceCards.length; i++) {
+			int j = generator.nextInt(chanceCards.length);
+			String tmp = chanceCards[i];
+			chanceCards[i] = chanceCards[j];
+			chanceCards[j] = tmp;
+		}
+	}
+	
+	public void drawCard() {
+		String drawn;
+		drawn = chanceCards[0];
+		for(int i=0;i<51;i++){
+			chanceCards[i]=chanceCards[i+1];
+		}
+	}
 
 }
