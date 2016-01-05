@@ -48,4 +48,16 @@ public class Player
 	public int getFleetCounter(Player player) {
 		return fleetCounter;
 	}
+	
+	public int getBalance(Player player) {
+		return player.getPlayerAccount().getBalance();
+	}
+	
+	public void adjustBalance(Player player, int amount) {
+		player.getPlayerAccount().adjustBalance(amount);
+	}
+	
+	public void setBalance(Player player, int amount) {
+		player.getPlayerAccount().setBalance(amount);
+	}
 }
