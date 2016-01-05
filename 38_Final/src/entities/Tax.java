@@ -1,22 +1,28 @@
 package entities;
 
 public class Tax extends Felt {
+	
+	private int rent;
 
 	public Tax(int rent, String feltNavn) {
 		super(feltNavn);
-		// TODO Auto-generated constructor stub
+		this.rent = rent;
 	}
 
 	@Override
 	public void landOnField(Player player) {
-		// TODO Auto-generated method stub
+		getFeltBesked(player);
+		getRent(player);
 		
 	}
 
 	@Override
 	public String getFeltBesked(Player player) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private int getRent(Player player) {
+		return rent;
 	}
 
 }
