@@ -81,16 +81,59 @@ public class GameBoard {
 				newGuiFields[1] = blueField;
 				newGuiFields[3] = blueField;
 				
-				Field blackField = 
+				Field orangeField = new Start.Builder().setBgColor(Color.ORANGE).build();
+				newGuiFields[6] = orangeField;
+				newGuiFields[8] = orangeField;
+				newGuiFields[9] = orangeField;
 				
-				for(int i=1; i < 22; i++) {
-					Field greyField = new Start.Builder().setBgColor(Color.GRAY).build();
-					newGuiFields[i] = greyField;
-				}
-				for(int i=22; i < 40; i++) {
-					Field greyField = new Empty.Builder().build();
-					newGuiFields[i] = greyField;
-				}
+				Field greenField = new Start.Builder().setBgColor(Color.GREEN).build();
+				newGuiFields[11] = greenField;
+				newGuiFields[13] = greenField;
+				newGuiFields[14] = greenField;
+				
+				Field grayField = new Start.Builder().setBgColor(Color.GRAY).build();
+				newGuiFields[10] = grayField;
+				newGuiFields[16] = grayField;
+				newGuiFields[18] = grayField;
+				newGuiFields[19] = grayField;
+				newGuiFields[30] = grayField;
+				
+				Field redField = new Start.Builder().setBgColor(Color.RED).build();
+				newGuiFields[21] = redField;
+				newGuiFields[23] = redField;
+				newGuiFields[24] = redField;
+				
+				Field whiteField = new Start.Builder().setBgColor(Color.WHITE).build();
+				newGuiFields[5] = whiteField;
+				newGuiFields[15] = whiteField;
+				newGuiFields[20] = whiteField;
+				newGuiFields[25] = whiteField;
+				newGuiFields[26] = whiteField;
+				newGuiFields[27] = whiteField;
+				newGuiFields[29] = whiteField;
+				newGuiFields[35] = whiteField;
+				
+				Field yellowField = new Start.Builder().setBgColor(Color.YELLOW).build();
+				newGuiFields[31] = yellowField;
+				newGuiFields[32] = yellowField;
+				newGuiFields[34] = yellowField;
+				
+				Field magentaField = new Start.Builder().setBgColor(Color.MAGENTA).build();
+				newGuiFields[37] = magentaField;
+				newGuiFields[39] = magentaField;
+				
+				Field blackField = new Start.Builder().setBgColor(Color.BLACK).build();
+				newGuiFields[2] = blackField;
+				newGuiFields[7] = blackField;
+				newGuiFields[17] = blackField;
+				newGuiFields[22] = blackField;
+				newGuiFields[34] = blackField;
+				newGuiFields[36] = blackField;
+				
+				Field darkGrayField = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
+				newGuiFields[4] = darkGrayField;
+				newGuiFields[38] = darkGrayField;
+
 				return newGuiFields;
 				
 	}
