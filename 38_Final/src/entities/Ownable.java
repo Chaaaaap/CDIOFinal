@@ -38,6 +38,12 @@ public abstract class Ownable extends Felt{
 	}
 	
 	public abstract String getFeltBesked(Player player);
+	
+	public abstract void sellHouse(Player player);
+	
+	public abstract void pawnField(Player player);
+	
+	public abstract void buyHouse(Player player);
 
 
 }
