@@ -1,9 +1,11 @@
 package entities;
 
+import controllers.GameBoard;
+
 public class ShippingCompany extends Ownable {
 
-	public ShippingCompany(int pris, String feltNavn) {
-		super(pris, feltNavn);
+	public ShippingCompany(int pris, String feltNavn, GameBoard gb) {
+		super(pris, feltNavn, gb);
 		// TODO Auto-generated constructor stub
 	}
 
