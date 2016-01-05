@@ -37,9 +37,7 @@ public abstract class Ownable extends Felt{
 		}
 	}
 	
-	public String getFeltBesked(Player player) {
-		return null;
-	}
+	public abstract String getFeltBesked(Player player);
 
 
 }
