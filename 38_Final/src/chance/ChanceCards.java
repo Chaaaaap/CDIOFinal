@@ -2,56 +2,19 @@ package chance;
 
 import java.util.Random;
 
-public class ChanceCards {
-	
-	Random generator;
+public abstract class ChanceCards {
 
-	private String[] chanceCards = new String[] {
-	"ChanceFerry",
-	"ChanceJail",
-	"ChancePayFine",
-	"ChancePayInsurence",
-	"ChanceShip",
-	"ChanceAktie",
-	"ChanceBirthday",
-	"ChanceFine",
-	"ChanceTown",
-	"ChanceBond",
-	"ChanceKing",
-	"ChanceOil",
-	"ChanceMove",
-	"ChanceLottery",
-	"ChanceRepair",
-	"ChanceTax",
-	"ChanceShippingCompany",
-	"ChanceGrønningen",
-	"ChancePropertyTax",
-	"ChanceTipning",
-	"ChanceStart",
-	"ChanceMatador",
-	"ChanceGarden",
-	"ChanceDentist",
-	"ChanceAbroad",
-	"ChanceFrederiksberg",
-	"ChanceDyrtid",
-	"ChanceAktie",
-	"ChanceAktie",
-	"ChanceAktie",
-	"ChanceAktie",
-	"ChanceKing",
-	"ChanceRepair"
-	};
-
+	private Random generator;
 	private String cardName;
 
 	public ChanceCards(String cardName) {
 		this.cardName = cardName;
 	}
 	
-	public void shuffle() {
+	public void shuffle(ChanceCards[] chanceCards) {
 		for(int i = 0; i < chanceCards.length; i++) {
 			int j = generator.nextInt(chanceCards.length);
-			String tmp = chanceCards[i];
+			ChanceCards tmp = chanceCards[i];
 			chanceCards[i] = chanceCards[j];
 			chanceCards[j] = tmp;
 		}
