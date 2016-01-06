@@ -138,7 +138,7 @@ public class GameBoard {
 		guiFields[1].setTitle("Rødovrevej"); guiFields[1].setDescription("Pris: 1200 <BR> Leje: 100 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[1].setSubText("Territory");
 		guiFields[2].setTitle("Prøv Lykken"); guiFields[2].setDescription("Træk et kort"); guiFields[2].setSubText("Chance");
 		guiFields[3].setTitle("Hvidovrevej"); guiFields[3].setDescription("Pris: 1200 <BR> Leje: 100 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[3].setSubText("Territory");
-		guiFields[4].setTitle("Betal indkomstskat"); guiFields[4].setDescription("Betal indkomstskat 10% eller kr. 4000"); guiFields[4].setSubText("Tax");
+		guiFields[4].setTitle("Betal indkomst-<BR>skat"); guiFields[4].setDescription("Betal indkomstskat 10% eller kr. 4000"); guiFields[4].setSubText("Tax");
 		guiFields[5].setTitle("SFL-Færgerne"); guiFields[5].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[5].setSubText("Shipping Company");
 		guiFields[6].setTitle("Roskildevej"); guiFields[6].setDescription("Pris: 2000 <BR> Leje: 100 <BR> Hus: 1000 <BR>Hotel: 1000"); guiFields[6].setSubText("Territory");
 		guiFields[7].setTitle("Prøv Lykken"); guiFields[7].setDescription("Træk et kort"); guiFields[7].setSubText("Chance");
@@ -149,7 +149,7 @@ public class GameBoard {
 		guiFields[12].setTitle("Tuborg Bryggeri"); guiFields[12].setDescription("Leje: 100 x antal øjne"); guiFields[12].setSubText("Brewery");
 		guiFields[13].setTitle("Bülowsvej"); guiFields[13].setDescription("Pris: 2800 <BR> Leje: 200 <BR> Hus: 2000 <BR> Hotel: 2000"); guiFields[13].setSubText("Territory");
 		guiFields[14].setTitle("Gl. Kongevej"); guiFields[14].setDescription("Pris: 3200 <BR> Leje: 250 <BR> Hus: 2000 <BR> Hotel: 2000"); guiFields[14].setSubText("Territory");
-		guiFields[15].setTitle("DSB Kalundborg/Århus"); guiFields[15].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[15].setSubText("Shipping Company");
+		guiFields[15].setTitle("DSB Kalundborg/ Århus"); guiFields[15].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[15].setSubText("Shipping Company");
 		guiFields[16].setTitle("Bernstorffvej"); guiFields[16].setDescription("Pris: 3600 <BR> Leje: 300 <BR> Hus: 2000 <BR>Hotel: 2000"); guiFields[16].setSubText("Territory");
 		guiFields[17].setTitle("Prøv Lykken"); guiFields[17].setDescription("Træk et kort"); guiFields[17].setSubText("Chance");
 		guiFields[18].setTitle("Hellerupvej"); guiFields[18].setDescription("Pris: 3600 <BR> Leje: 300 <BR> Hus: 2000 <BR> Hotel: 2000"); guiFields[18].setSubText("Territory");
@@ -169,10 +169,10 @@ public class GameBoard {
 		guiFields[32].setTitle("Vimmelskaftet"); guiFields[32].setDescription("Pris: 6000 <BR> Leje: 550 <BR> Hus: 400 <BR> Hotel: 4000"); guiFields[32].setSubText("Territory");
 		guiFields[33].setTitle("Prøv Lykken"); guiFields[33].setDescription("Træk et kort"); guiFields[33].setSubText("Chance");
 		guiFields[34].setTitle("Nygade"); guiFields[34].setDescription("Pris: 6400 <BR> Leje: 600 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[34].setSubText("Territory");
-		guiFields[35].setTitle("DSB Halsskov/Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[35].setSubText("Shipping Company");
+		guiFields[35].setTitle("DSB Halsskov/<BR>Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[35].setSubText("Shipping Company");
 		guiFields[36].setTitle("Prøv Lykken"); guiFields[36].setDescription("Træk et kort"); guiFields[36].setSubText("Chance");
 		guiFields[37].setTitle("Frederiksberggade"); guiFields[37].setDescription("Pris: 7000 <BR> Leje: 700 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[37].setSubText("Territory");
-		guiFields[38].setTitle("Ekstraordinær statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
+		guiFields[38].setTitle("Ekstra-  ordinær   statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
 		guiFields[39].setTitle("Rådhuspladsen"); guiFields[39].setDescription("Pris: 8000 <BR> Leje: 1000 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[39].setSubText("Territory");
 
 
