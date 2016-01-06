@@ -45,7 +45,7 @@ public class Tax extends Felt {
 
 	@Override
 	public String getFeltBesked(Player player) {
-		return player.getPlayerName()+", "+rb.getString("Tax1")
+		return player.getPlayerName()+", "+rb.getString("Tax1");
 	}
 	
 //	private int getRent(Player player) {
