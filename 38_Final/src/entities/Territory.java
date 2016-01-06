@@ -20,7 +20,7 @@ public class Territory extends Ownable {
 	private ResourceBundle rb;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
-	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb) {
+	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
 		this.price = price;
 		this.feltNavn = feltNavn;
