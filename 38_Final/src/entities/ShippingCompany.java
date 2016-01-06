@@ -75,7 +75,7 @@ public String getFeltBesked(Player player) {
 				", " + rb.getString("Owned2") + " " + owner.getPlayerName()+ " " + rb.getString("Bankrupt");
 
 	else 
-		return player.getPlayerName()+", " + rb.getString("Owned") + feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
+		return player.getPlayerName()+", " + rb.getString("Owned")+" "+ feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
 				"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets") +" "+
 				getRent(owner)+".";
 }
