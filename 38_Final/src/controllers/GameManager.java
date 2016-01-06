@@ -4,7 +4,6 @@ import desktop_resources.GUI;
 import desktop_codebehind.Car;
 import java.awt.Color;
 import java.util.ResourceBundle;
-
 import entities.Dice;
 import entities.LanguageSelector;
 import entities.Player;
@@ -20,7 +19,7 @@ public class GameManager
 	private DiceCup diceCup;
 	private GameBoard gameBoard;
 	private boolean[] bankruptPlayers;
-	private String winner;
+	private String winner,jailedOption;
 	private LanguageSelector ls;
 	private String language;
 	private String country;
@@ -144,28 +143,36 @@ public class GameManager
 		isPlayersBankrupt(players);
 		//Makes sure bankrupts players are skipped
 		if(player.getPlayerAccount().isBankrupt() == false) {
-			//Shakes the dies and shows the dies on the GUI.
-			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
-			diceCup.shake();
-			sum = diceCup.getSumResult();
-			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
-			//gives player 4000 if passing start
-			if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
-				if(!player.isJailed) {
-					player.getPlayerAccount().adjustBalance(+4000);
-					GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+
+
+			Jailed(player,  diceCup);
+			System.out.println(player.getJailRoll());
+
+			if(!player.isJailed){
+				
+				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
+				
+				diceCup.shake();
+				sum = diceCup.getSumResult();
+				GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+				//gives player 4000 if passing start
+				if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
+					if(!player.isJailed) {
+						player.getPlayerAccount().adjustBalance(+4000);
+						GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+					}
 				}
-			}
-			//Moves the car around the board.
-			GUI.removeAllCars(player.getPlayerName());
-			player.setCurrentField((player.getCurrentField()+sum)%40);
-			GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
-			player.setCurrentField((player.getCurrentField()));
-			//Gets the landOnField from whatever field the player landed on.
-			gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
-			//Removes the car of any bankrupt player.
-			if(player.getPlayerAccount().isBankrupt())
+				//Moves the car around the board.
 				GUI.removeAllCars(player.getPlayerName());
+				player.setCurrentField((player.getCurrentField()+sum)%40);
+				GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
+				player.setCurrentField((player.getCurrentField()));
+				//Gets the landOnField from whatever field the player landed on.
+				gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
+				//Removes the car of any bankrupt player.
+				if(player.getPlayerAccount().isBankrupt())
+					GUI.removeAllCars(player.getPlayerName());
+			}
 		}		
 	}
 	//A simple counter to see how many players are bankrupt.
@@ -193,6 +200,63 @@ public class GameManager
 			return Color.YELLOW;
 		default:
 			return Color.MAGENTA;
+		}
+	}
+
+	public void Jailed(Player player, DiceCup diceCup){
+
+		if(player.isJailed){
+			
+			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
+
+			if(player.getFreeCard() >0){
+				jailedOption = GUI.getUserButtonPressed("Hvad vil du gøre?", "Betale 1000", "Slå med terningerne","Bruge mit frikendelseskort");
+			}
+			else{
+				jailedOption = GUI.getUserButtonPressed("Hvad vil du gøre?", "Betale 1000", "Slå med terningerne");
+			}
+			if(jailedOption.equals("Betale 1000")) {
+				player.getPlayerAccount().adjustBalance(-1000);
+				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+				player.isJailed = false;
+				player.setJailRoll(0);
+			}
+			else if(jailedOption.equals("Slå med terningerne")){
+				diceCup.shake();
+
+				if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
+					player.isJailed = false;
+					player.setJailRoll(0);		
+					sum = diceCup.getSumResult();
+					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+					//Moves the car around the board.
+					GUI.removeAllCars(player.getPlayerName());
+					player.setCurrentField((player.getCurrentField()+sum)%40);
+					GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
+					player.setCurrentField((player.getCurrentField()));
+					//Gets the landOnField from whatever field the player landed on.
+					gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
+				}
+
+				else {
+					if (player.getJailRoll() == 2) {
+						player.getPlayerAccount().adjustBalance(-1000);
+						GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+						player.isJailed = false;	
+						player.setJailRoll(0);
+					}
+
+					else{
+						player.addJailRollCounter();
+					}
+				}
+			}
+
+			if(jailedOption.equals("Bruge mit frikendelseskort")) {
+				player.useFreeCard();
+				player.isJailed = false;
+				player.setJailRoll(0);
+			}
 		}
 	}
 }
