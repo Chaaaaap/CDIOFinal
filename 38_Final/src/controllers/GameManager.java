@@ -3,8 +3,10 @@ package controllers;
 import desktop_resources.GUI;
 import desktop_codebehind.Car;
 import java.awt.Color;
+import java.util.ResourceBundle;
 
 import entities.Dice;
+import entities.LanguageSelector;
 import entities.Player;
 
 public class GameManager 
@@ -19,12 +21,33 @@ public class GameManager
 	private GameBoard gameBoard;
 	private boolean[] bankruptPlayers;
 	private String winner;
+	private LanguageSelector ls;
+	private String language;
+	private String country;
+	private String languageChosen;
+	private ResourceBundle rb;
 
 	//GameManager constructor
 	public GameManager()
 	{
+		languageChosen = GUI.getUserButtonPressed("Select Language", "Dansk", "English");
+		languageSelect(languageChosen);
+		this.ls = new LanguageSelector(language, country);
+		rb = ls.selectLanguage();
+		GUI.showMessage(rb.getString("Velkommen"));
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup);
+	}
+
+	private void languageSelect(String languageChosen) {
+		if(languageChosen.equalsIgnoreCase("Dansk")) {
+			language = "da";
+			country = "DK";
+		} else {
+			language = "en";
+			country = "US";
+		}
+				
 	}
 
 	//StartGameEngine method is a void method, which means 
