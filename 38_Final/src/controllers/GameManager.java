@@ -149,6 +149,12 @@ public class GameManager
 			diceCup.shake();
 			sum = diceCup.getSumResult();
 			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+			
+			//gives player 4000 if passing start
+			if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
+				player.getPlayerAccount().adjustBalance(+4000);
+				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			}
 			//Moves the car around the board.
 			GUI.removeAllCars(player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()+sum)%40);
