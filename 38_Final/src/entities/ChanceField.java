@@ -2,6 +2,7 @@ package entities;
 
 import java.util.ResourceBundle;
 
+import chance.ChanceCards;
 import desktop_resources.GUI;
 
 public class ChanceField extends Felt {
