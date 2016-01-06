@@ -82,67 +82,47 @@ public class GameBoard {
 				Field[] newGuiFields = new Field[40];
 				newGuiFields[0] = new Start.Builder().setBgColor(Color.RED).build();
 				
-//				Field blueField = new Street.Builder().setBgColor(Color.BLUE).build();
 				newGuiFields[1] = new Street.Builder().setBgColor(Color.BLUE).build();
+				newGuiFields[2] = new Chance.Builder().setBgColor(Color.CYAN).build();
 				newGuiFields[3] = new Street.Builder().setBgColor(Color.BLUE).build();
-//				
-//				Field orangeField = new Start.Builder().setBgColor(Color.ORANGE).build();
-				newGuiFields[6] = new Street.Builder().setBgColor(Color.ORANGE).build();
-				newGuiFields[8] = new Street.Builder().setBgColor(Color.ORANGE).build();
-				newGuiFields[9] = new Street.Builder().setBgColor(Color.ORANGE).build();
-//				
-//				Field greenField = new Street.Builder().setBgColor(Color.GREEN).build();
+				newGuiFields[4] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
+				newGuiFields[5] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+				newGuiFields[6] = new Street.Builder().setBgColor(Color.PINK).build();
+				newGuiFields[7] = new Chance.Builder().setBgColor(Color.CYAN).build();
+				newGuiFields[8] = new Street.Builder().setBgColor(Color.PINK).build();
+				newGuiFields[9] = new Street.Builder().setBgColor(Color.PINK).build();
+				newGuiFields[10] = new Street.Builder().setBgColor(Color.GRAY).build();
 				newGuiFields[11] = new Street.Builder().setBgColor(Color.GREEN).build();
+				newGuiFields[12] = new Street.Builder().setBgColor(Color.ORANGE).build();
 				newGuiFields[13] = new Street.Builder().setBgColor(Color.GREEN).build();
 				newGuiFields[14] = new Street.Builder().setBgColor(Color.GREEN).build();
-//				
-//				Field grayField = new Start.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[10] = new Street.Builder().setBgColor(Color.GRAY).build();
+				newGuiFields[15] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
 				newGuiFields[16] = new Street.Builder().setBgColor(Color.GRAY).build();
+				newGuiFields[17] = new Chance.Builder().setBgColor(Color.CYAN).build();
 				newGuiFields[18] = new Street.Builder().setBgColor(Color.GRAY).build();
 				newGuiFields[19] = new Street.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[30] = new Street.Builder().setBgColor(Color.GRAY).build();
-//				
-//				Field redField = new Street.Builder().setBgColor(Color.RED).build();
+				newGuiFields[20] = new Start.Builder().setBgColor(Color.WHITE).build();
 				newGuiFields[21] = new Street.Builder().setBgColor(Color.RED).build();
+				newGuiFields[22] = new Chance.Builder().setBgColor(Color.CYAN).build();
 				newGuiFields[23] = new Street.Builder().setBgColor(Color.RED).build();
 				newGuiFields[24] = new Street.Builder().setBgColor(Color.RED).build();
-//				
-//				Field whiteField = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[5] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[15] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[20] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[25] = new Start.Builder().setBgColor(Color.WHITE).build();
+				newGuiFields[25] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
 				newGuiFields[26] = new Start.Builder().setBgColor(Color.WHITE).build();
 				newGuiFields[27] = new Start.Builder().setBgColor(Color.WHITE).build();
+				newGuiFields[28] = new Street.Builder().setBgColor(Color.ORANGE).build();
 				newGuiFields[29] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[35] = new Start.Builder().setBgColor(Color.WHITE).build();
-//				
-//				Field yellowField = new Start.Builder().setBgColor(Color.YELLOW).build();
+				newGuiFields[30] = new Street.Builder().setBgColor(Color.GRAY).build();
 				newGuiFields[31] = new Start.Builder().setBgColor(Color.YELLOW).build();
 				newGuiFields[32] = new Start.Builder().setBgColor(Color.YELLOW).build();
-				newGuiFields[34] = new Start.Builder().setBgColor(Color.YELLOW).build();
-//				
-//				Field magentaField = new Start.Builder().setBgColor(Color.MAGENTA).build();
-				newGuiFields[37] = new Start.Builder().setBgColor(Color.MAGENTA).build();
-				newGuiFields[39] = new Start.Builder().setBgColor(Color.MAGENTA).build();
-//				
-//				Field blackField = new Chance.Builder().setBgColor(Color.BLACK).build();
-				newGuiFields[2] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[7] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[17] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[22] = new Chance.Builder().setBgColor(Color.CYAN).build();
 				newGuiFields[33] = new Chance.Builder().setBgColor(Color.CYAN).build();
+				newGuiFields[34] = new Start.Builder().setBgColor(Color.YELLOW).build();
+				newGuiFields[35] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
 				newGuiFields[36] = new Chance.Builder().setBgColor(Color.CYAN).build();
-//				
-//				Field darkGrayField = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
-				newGuiFields[4] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
+				newGuiFields[37] = new Start.Builder().setBgColor(Color.MAGENTA).build();
 				newGuiFields[38] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
-//				
-//				Field pinkField = new Start.Builder().setBgColor(Color.PINK).build();
-				newGuiFields[12] = new Street.Builder().setBgColor(Color.PINK).build();
-				newGuiFields[28] = new Street.Builder().setBgColor(Color.PINK).build();
-//
+				newGuiFields[39] = new Start.Builder().setBgColor(Color.MAGENTA).build();
+				
+
 				return newGuiFields;
 				
 	}
