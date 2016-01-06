@@ -18,7 +18,7 @@ public class ChanceField extends Felt {
 	@Override
 	public void landOnField(Player player) {
 		getFeltBesked(player);
-		chanceCard.drawCard();
+//		chanceCard.drawCard();
 		cardText = chanceCard.toString();
 		
 		switch(cardText) {
