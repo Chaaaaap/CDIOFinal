@@ -82,7 +82,19 @@ public class Player
 		return hotelCounter;
 	}
 
+	public void setJailRoll(int JailRollCounter)
+	{
+		this.JailRollCounter = JailRollCounter;
+	}
+
+	public int getJailRoll()
+	{
+		return JailRollCounter;
+	}
 	
+	public void addJailRollCounter() {
+		hotelCounter++;
+	}
 	
 	public int getBalance(Player player) {
 		return player.getPlayerAccount().getBalance();
