@@ -12,10 +12,10 @@ public class ChanceMove extends ChanceCards {
 		this.antalFelter = antalFelter;
 	}
 	
-	public void execute(Player player) {
+	@Override
+	public void executeCard(Player player) {
 		GUI.removeAllCars(player.getPlayerName());
 		player.setCurrentField(player.getCurrentField()-antalFelter);
 		GUI.setCar(player.getCurrentField(), player.getPlayerName());
 	}
-
 }

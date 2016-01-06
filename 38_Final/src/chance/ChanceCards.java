@@ -2,6 +2,8 @@ package chance;
 
 import java.util.Random;
 
+import entities.Player;
+
 public abstract class ChanceCards {
 
 	private Random generator;
@@ -28,12 +30,10 @@ public abstract class ChanceCards {
 //		}
 //	}
 	
-	public String[] getCards() {
-		return chanceCards;
-	}
+//	public String[] getCards() {
+//		return chanceCards;
+//	}
 	
-	public String toString() {
-		return cardName;
-	}
+	public abstract void executeCard(Player player);
 
 }
