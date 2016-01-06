@@ -103,6 +103,7 @@ public class GameManager
 			GUI.addPlayer(player.getPlayerName(), players[i].getPlayerAccount().getBalance(), car[i]);
 			//Puts their car on the Startfield.
 			GUI.setCar(1, player.getPlayerName());
+			player.setCurrentField(0);
 			//Makes sure the game knows that the player is NOT bankrupt.
 			bankruptPlayers[i] = false;
 
@@ -141,7 +142,7 @@ public class GameManager
 			//Moves the car around the board.
 			GUI.removeAllCars(player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()+sum)%40);
-			GUI.setCar((player.getCurrentField()), player.getPlayerName());
+			GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()));
 			//Gets the landOnField from whatever field the player landed on.
 			gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
