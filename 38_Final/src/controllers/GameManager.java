@@ -140,7 +140,7 @@ public class GameManager
 			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 			//Moves the car around the board.
 			GUI.removeAllCars(player.getPlayerName());
-			player.setCurrentField((player.getCurrentField()+sum)%22);
+			player.setCurrentField((player.getCurrentField()+sum)%40);
 			GUI.setCar((player.getCurrentField()), player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()));
 			//Gets the landOnField from whatever field the player landed on.
