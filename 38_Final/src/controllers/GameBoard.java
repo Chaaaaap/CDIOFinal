@@ -37,11 +37,11 @@ public class GameBoard {
 		guiFields = createGUIFields();;
 		diceCup = cup;
 		initFields();
-		logicFields = createLogicFields();
 		initGUI();	
 		languageChosen = GUI.getUserButtonPressed("Vælg Sprog / Select Language", "Dansk", "English");
 		languageSelect(languageChosen);
 		rb = ls.selectLanguage(language, country);
+		logicFields = createLogicFields();
 		GUI.showMessage(rb.getString("Velkommen"));
 		GUI.showMessage(rb.getString("Velkommen"));
 	}

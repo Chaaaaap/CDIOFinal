@@ -26,7 +26,8 @@ public class Territory extends Ownable {
 		this.feltNavn = feltNavn;
 		this.owner = null;
 		this.gameBoard = gb;
-		this.rb = rb;
+		this.rb = gameBoard.getBundle();
+		System.out.println(rb);
 	}
 
 	@Override
@@ -39,8 +40,9 @@ public class Territory extends Ownable {
 	//when a player lands on the Territory fields.
 	@Override
 	public String getFeltBesked(Player player) {
-		if(owner == null)
-			return  player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+".";
+		if(owner == null){
+			return player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+"."; 
+		}
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
 			return player.getPlayerName()+", "+ rb.getString("Owned");
