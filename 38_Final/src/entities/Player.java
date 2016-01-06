@@ -11,6 +11,7 @@ public class Player
 	public boolean isJailed;
 	private int hotelCounter;
 	private int houseCounter;
+	private int jailBreakCounter;
 
 	public Player() 
 	{
@@ -120,5 +121,14 @@ public class Player
 	
 	public void setBalance(Player player, int amount) {
 		player.getPlayerAccount().setBalance(amount);
+	}
+
+	public void addJailBreakCounter() {
+		jailBreakCounter++;		
+	}
+	
+	public void useJailBreakCounter() {
+		if(jailBreakCounter > 0)
+			jailBreakCounter--;
 	}
 }
