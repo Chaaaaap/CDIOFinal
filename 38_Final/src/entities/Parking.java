@@ -13,7 +13,8 @@ public class Parking extends Felt {
 
 	public Parking(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
-		// TODO Auto-generated constructor stub
+		this.gameBoard = gameBoard;
+		this.rb = gameBoard.getBundle();
 	}
 
 	@Override
@@ -25,7 +26,7 @@ public class Parking extends Felt {
 
 	@Override
 	public String getFeltBesked(Player player) {
-		return player.getPlayerName()+", "+rb.getString("Park");
+		return player.getPlayerName()+", " +rb.getString("Park");
 	}
 
 }
