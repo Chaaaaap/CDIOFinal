@@ -12,12 +12,15 @@ public class Tax extends Felt {
 	private int Pay, taxAmount;
 	private Player player;
 	private ResourceBundle rb;
+	private GameBoard gameBoard;
 //	private String[] strings;
 
 	public Tax(int tax, String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
 		this.feltNavn = feltNavn;
 		taxAmount = tax;
+		this.gameBoard = gameBoard;
+		this.rb = gameBoard.getBundle();
 	}
 
 	@Override
