@@ -149,7 +149,6 @@ public class GameManager
 			diceCup.shake();
 			sum = diceCup.getSumResult();
 			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
-			
 			//gives player 4000 if passing start
 			if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
 				player.getPlayerAccount().adjustBalance(+4000);
