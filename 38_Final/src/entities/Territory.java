@@ -52,7 +52,7 @@ public class Territory extends Ownable {
 					", "+ rb.getString("Owned2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
 	
 		else 
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()+"\n"+ rb.getString("Owned3")+" "+rent+"$";
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()+"\n"+ rb.getString("Owned3")+" "+rent+" kr.";
 	}
 
 	@Override

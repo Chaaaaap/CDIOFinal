@@ -77,7 +77,7 @@ public String getFeltBesked(Player player) {
 	else 
 		return player.getPlayerName()+", " + rb.getString("Owned")+" "+ feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
 				"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets") +" "+
-				getRent(owner)+".";
+				getRent(owner)+" kr.";
 }
 
 public void landOnField(Player player) {
