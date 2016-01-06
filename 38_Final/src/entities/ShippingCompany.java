@@ -65,18 +65,18 @@ public class ShippingCompany extends Ownable {
 @Override
 public String getFeltBesked(Player player) {
 	if (owner == null)
-		return player.getPlayerName()+" landed on " + feltNavn + ".";
+		return player.getPlayerName()+ " " + rb.getString("LandOnField") + " " + feltNavn + ".";
 
 	else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-		return player.getPlayerName()+", you already own this field! Nothing happens.";
+		return player.getPlayerName()+", " + rb.getString("Owned4");
 
 	else if (owner.getPlayerAccount().isBankrupt() == true)
-		return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+
-				", but "+owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
+		return player.getPlayerName()+", " + rb.getString("Owned") + feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
+				", " + rb.getString("Owned2") + " " + owner.getPlayerName()+ " " + rb.getString("Bankrupt");
 
 	else 
-		return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+
-				"\n"+owner.getPlayerName()+" owns "+owner.getFleetCounter(owner)+" fleet fields, therefore you have to pay "+
+		return player.getPlayerName()+", " + rb.getString("Owned") + feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
+				"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets") +" "+
 				getRent(owner)+".";
 }
 
