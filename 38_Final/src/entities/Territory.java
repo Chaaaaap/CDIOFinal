@@ -27,7 +27,6 @@ public class Territory extends Ownable {
 		this.owner = null;
 		this.gameBoard = gb;
 		this.rb = gameBoard.getBundle();
-		System.out.println(rb);
 	}
 
 	@Override
@@ -41,18 +40,18 @@ public class Territory extends Ownable {
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null){
-			return player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+"."; 
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+"."; 
 		}
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
 			return player.getPlayerName()+", "+ rb.getString("Owned");
 		
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+
 					", "+ rb.getString("Rent2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
 	
 		else 
-			return player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+rb.getString("Rent4")+" "+rent;
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+rb.getString("Rent4")+" "+rent;
 	}
 
 	@Override
