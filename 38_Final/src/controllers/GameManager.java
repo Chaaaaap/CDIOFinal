@@ -30,13 +30,13 @@ public class GameManager
 	//GameManager constructor
 	public GameManager()
 	{
+		this.diceCup = new DiceCup();
+		this.gameBoard = new GameBoard(diceCup);
 		languageChosen = GUI.getUserButtonPressed("Vælg Sprog / Select Language", "Dansk", "English");
 		languageSelect(languageChosen);
 		this.ls = new LanguageSelector(language, country);
 		rb = ls.selectLanguage();
 		GUI.showMessage(rb.getString("Velkommen"));
-		this.diceCup = new DiceCup();
-		this.gameBoard = new GameBoard(diceCup);
 	}
 
 	private void languageSelect(String languageChosen) {
