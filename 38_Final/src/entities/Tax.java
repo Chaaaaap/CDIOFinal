@@ -1,10 +1,12 @@
 package entities;
 
+import java.util.ResourceBundle;
+
 public class Tax extends Felt {
 	
 	private int rent;
 
-	public Tax(int rent, String feltNavn) {
+	public Tax(int rent, String feltNavn, ResourceBundle rb) {
 		super(feltNavn);
 		this.rent = rent;
 	}

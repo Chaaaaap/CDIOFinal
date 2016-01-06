@@ -1,11 +1,9 @@
 package controllers;
 
 import entities.*;
-import entities.Felt;
-import entities.Player;
-import entities.StartField;
 
 import java.awt.Color;
+import java.util.ResourceBundle;
 
 import desktop_fields.Chance;
 import desktop_fields.Field;
@@ -18,8 +16,13 @@ public class GameBoard {
 	private DiceCup diceCup;
 	private Field[] guiFields;
 	private Felt[] logicFields;
+	private ResourceBundle rb;
+	private String languageChosen;
+	private String language;
+	private String country;
+	private LanguageSelector ls;
 
-	
+
 	//GameBoard constructor
 	public GameBoard(DiceCup cup) {
 		guiFields = createGUIFields();;
@@ -27,111 +30,139 @@ public class GameBoard {
 		initFields();
 		logicFields = createLogicFields();
 		initGUI();
+		
+	}
+
+	public GameBoard(DiceCup cup, LanguageSelector ls) {
+		guiFields = createGUIFields();;
+		diceCup = cup;
+		initFields();
+		logicFields = createLogicFields();
+		initGUI();	
+		languageChosen = GUI.getUserButtonPressed("Vælg Sprog / Select Language", "Dansk", "English");
+		languageSelect(languageChosen);
+		rb = ls.selectLanguage(language, country);
+		GUI.showMessage(rb.getString("Velkommen"));
+		GUI.showMessage(rb.getString("Velkommen"));
 	}
 	
+	private void languageSelect(String languageChosen2) {
+		if(languageChosen.equalsIgnoreCase("Dansk")) {
+			language = "da";
+			country = "DK";
+		} else {
+			language = "en";
+			country = "US";
+		}
+		
+	}
+
+	public ResourceBundle getBundle() {
+		return rb;
+	}
 	//Initializes the fields as their respective type.
 	private Felt[] createLogicFields() {
 		Felt[] logiskeFelter = new Felt[40];
-		logiskeFelter[0] = new StartField("Start");
-		logiskeFelter[1] = new Territory(1200, "Rødovrevej", this);
-		logiskeFelter[2] = new ChanceField("Prøv Lykken");
-		logiskeFelter[3] = new Territory(1200, "Hvidovrevej", this);
-		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat");
-		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this);
-		logiskeFelter[6] = new Territory(2000, "Roskildevej", this);
-		logiskeFelter[7] = new ChanceField("Prøv Lykken");
-		logiskeFelter[8] = new Territory(2000, "Valby Langgade", this);
-		logiskeFelter[9] = new Territory(2400, "Allégade", this);
-		logiskeFelter[10] = new Jail("I Fængsel");
-		logiskeFelter[11] = new Territory(2800, "Frederiksberg Allé", this);
-		logiskeFelter[12] = new Brewery(3000, "Tuborg", this);
-		logiskeFelter[13] = new Territory(2800, "Bülowsvej", this);
-		logiskeFelter[14] = new Territory(3200, "Gl. Kongevej", this);
-		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this);
-		logiskeFelter[16] = new Territory(3600, "Bernstorffsvej", this);
-		logiskeFelter[17] = new ChanceField("Prøv Lykken");
-		logiskeFelter[18] = new Territory(3600, "Hellerupvej", this);
-		logiskeFelter[19] = new Territory(4000, "Strandvej", this);
-		logiskeFelter[20] = new Parking("Parkering");
-		logiskeFelter[21] = new Territory(4400, "Trianglen", this);
-		logiskeFelter[22] = new ChanceField("Prøv Lykken");
-		logiskeFelter[23] = new Territory(4400, "Østerbrogade", this);
-		logiskeFelter[24] = new Territory(4800, "Grønningen", this);
-		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this);
-		logiskeFelter[26] = new Territory(5200, "Bredgade", this);
-		logiskeFelter[27] = new Territory(5200, "Kgs. Nytorv", this);
-		logiskeFelter[28] = new Brewery(3000, "Coca-Cola", this);
-		logiskeFelter[29] = new Territory(5600, "Østergade", this);
-		logiskeFelter[30] = new GoToJail("De Fængsles");
-		logiskeFelter[31] = new Territory(6000, "Amagertorv", this);
-		logiskeFelter[32] = new Territory(6000, "Vimmelskaftet", this);
-		logiskeFelter[33] = new ChanceField("Prøv Lykken");
-		logiskeFelter[34] = new Territory(6400, "Nygade", this);
-		logiskeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this);
-		logiskeFelter[36] = new ChanceField("Prøv Lykken");
-		logiskeFelter[37] = new Territory(7000, "Frederiksberggade", this);
-		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat");
-		logiskeFelter[39] = new Territory(8000, "Rådhuspladsen", this);
-	
+		logiskeFelter[0] = new StartField("Start", rb);
+		logiskeFelter[1] = new Territory(1200, "Rødovrevej", this, rb);
+		logiskeFelter[2] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[3] = new Territory(1200, "Hvidovrevej", this, rb);
+		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat", rb);
+		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this, rb);
+		logiskeFelter[6] = new Territory(2000, "Roskildevej", this, rb);
+		logiskeFelter[7] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[8] = new Territory(2000, "Valby Langgade", this, rb);
+		logiskeFelter[9] = new Territory(2400, "Allégade", this, rb);
+		logiskeFelter[10] = new Jail("I Fængsel", rb);
+		logiskeFelter[11] = new Territory(2800, "Frederiksberg Allé", this, rb);
+		logiskeFelter[12] = new Brewery(3000, "Tuborg", this, rb);
+		logiskeFelter[13] = new Territory(2800, "Bülowsvej", this, rb);
+		logiskeFelter[14] = new Territory(3200, "Gl. Kongevej", this, rb);
+		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this, rb);
+		logiskeFelter[16] = new Territory(3600, "Bernstorffsvej", this, rb);
+		logiskeFelter[17] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[18] = new Territory(3600, "Hellerupvej", this, rb);
+		logiskeFelter[19] = new Territory(4000, "Strandvej", this, rb);
+		logiskeFelter[20] = new Parking("Parkering", rb);
+		logiskeFelter[21] = new Territory(4400, "Trianglen", this, rb);
+		logiskeFelter[22] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[23] = new Territory(4400, "Østerbrogade", this, rb);
+		logiskeFelter[24] = new Territory(4800, "Grønningen", this, rb);
+		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this, rb);
+		logiskeFelter[26] = new Territory(5200, "Bredgade", this, rb);
+		logiskeFelter[27] = new Territory(5200, "Kgs. Nytorv", this, rb);
+		logiskeFelter[28] = new Brewery(3000, "Coca-Cola", this, rb);
+		logiskeFelter[29] = new Territory(5600, "Østergade", this, rb);
+		logiskeFelter[30] = new GoToJail("De Fængsles", rb);
+		logiskeFelter[31] = new Territory(6000, "Amagertorv", this, rb);
+		logiskeFelter[32] = new Territory(6000, "Vimmelskaftet", this, rb);
+		logiskeFelter[33] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[34] = new Territory(6400, "Nygade", this, rb);
+		logiskeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this, rb);
+		logiskeFelter[36] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[37] = new Territory(7000, "Frederiksberggade", this, rb);
+		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat", rb);
+		logiskeFelter[39] = new Territory(8000, "Rådhuspladsen", this, rb);
+
 		return logiskeFelter;
 	}
 
 
 	private Field[] createGUIFields(){
 		//Creates the fields, making them ready to plot into the GUI.
-				Field[] newGuiFields = new Field[40];
-				newGuiFields[0] = new Start.Builder().setBgColor(Color.RED).build();
-				
-				newGuiFields[1] = new Start.Builder().setBgColor(Color.BLUE).build();
-				newGuiFields[2] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[3] = new Start.Builder().setBgColor(Color.BLUE).build();
-				newGuiFields[4] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
-				newGuiFields[5] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
-				newGuiFields[6] = new Start.Builder().setBgColor(Color.PINK).build();
-				newGuiFields[7] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[8] = new Start.Builder().setBgColor(Color.PINK).build();
-				newGuiFields[9] = new Start.Builder().setBgColor(Color.PINK).build();
-				newGuiFields[10] = new Start.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[11] = new Start.Builder().setBgColor(Color.GREEN).build();
-				newGuiFields[12] = new Start.Builder().setBgColor(Color.ORANGE).build();
-				newGuiFields[13] = new Start.Builder().setBgColor(Color.GREEN).build();
-				newGuiFields[14] = new Start.Builder().setBgColor(Color.GREEN).build();
-				newGuiFields[15] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
-				newGuiFields[16] = new Start.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[17] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[18] = new Start.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[19] = new Start.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[20] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[21] = new Start.Builder().setBgColor(Color.RED).build();
-				newGuiFields[22] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[23] = new Start.Builder().setBgColor(Color.RED).build();
-				newGuiFields[24] = new Start.Builder().setBgColor(Color.RED).build();
-				newGuiFields[25] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
-				newGuiFields[26] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[27] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[28] = new Start.Builder().setBgColor(Color.ORANGE).build();
-				newGuiFields[29] = new Start.Builder().setBgColor(Color.WHITE).build();
-				newGuiFields[30] = new Start.Builder().setBgColor(Color.GRAY).build();
-				newGuiFields[31] = new Start.Builder().setBgColor(Color.YELLOW).build();
-				newGuiFields[32] = new Start.Builder().setBgColor(Color.YELLOW).build();
-				newGuiFields[33] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[34] = new Start.Builder().setBgColor(Color.YELLOW).build();
-				newGuiFields[35] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
-				newGuiFields[36] = new Chance.Builder().setBgColor(Color.CYAN).build();
-				newGuiFields[37] = new Start.Builder().setBgColor(Color.MAGENTA).build();
-				newGuiFields[38] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
-				newGuiFields[39] = new Start.Builder().setBgColor(Color.MAGENTA).build();
-				
+		Field[] newGuiFields = new Field[40];
+		newGuiFields[0] = new Start.Builder().setBgColor(Color.RED).build();
 
-				return newGuiFields;
-				
+		newGuiFields[1] = new Start.Builder().setBgColor(Color.BLUE).build();
+		newGuiFields[2] = new Chance.Builder().setBgColor(Color.CYAN).build();
+		newGuiFields[3] = new Start.Builder().setBgColor(Color.BLUE).build();
+		newGuiFields[4] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
+		newGuiFields[5] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[6] = new Start.Builder().setBgColor(Color.PINK).build();
+		newGuiFields[7] = new Chance.Builder().setBgColor(Color.CYAN).build();
+		newGuiFields[8] = new Start.Builder().setBgColor(Color.PINK).build();
+		newGuiFields[9] = new Start.Builder().setBgColor(Color.PINK).build();
+		newGuiFields[10] = new Start.Builder().setBgColor(Color.GRAY).build();
+		newGuiFields[11] = new Start.Builder().setBgColor(Color.GREEN).build();
+		newGuiFields[12] = new Start.Builder().setBgColor(Color.ORANGE).build();
+		newGuiFields[13] = new Start.Builder().setBgColor(Color.GREEN).build();
+		newGuiFields[14] = new Start.Builder().setBgColor(Color.GREEN).build();
+		newGuiFields[15] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[16] = new Start.Builder().setBgColor(Color.GRAY).build();
+		newGuiFields[17] = new Chance.Builder().setBgColor(Color.CYAN).build();
+		newGuiFields[18] = new Start.Builder().setBgColor(Color.GRAY).build();
+		newGuiFields[19] = new Start.Builder().setBgColor(Color.GRAY).build();
+		newGuiFields[20] = new Start.Builder().setBgColor(Color.WHITE).build();
+		newGuiFields[21] = new Start.Builder().setBgColor(Color.RED).build();
+		newGuiFields[22] = new Chance.Builder().setBgColor(Color.CYAN).build();
+		newGuiFields[23] = new Start.Builder().setBgColor(Color.RED).build();
+		newGuiFields[24] = new Start.Builder().setBgColor(Color.RED).build();
+		newGuiFields[25] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[26] = new Start.Builder().setBgColor(Color.WHITE).build();
+		newGuiFields[27] = new Start.Builder().setBgColor(Color.WHITE).build();
+		newGuiFields[28] = new Start.Builder().setBgColor(Color.ORANGE).build();
+		newGuiFields[29] = new Start.Builder().setBgColor(Color.WHITE).build();
+		newGuiFields[30] = new Start.Builder().setBgColor(Color.GRAY).build();
+		newGuiFields[31] = new Start.Builder().setBgColor(Color.YELLOW).build();
+		newGuiFields[32] = new Start.Builder().setBgColor(Color.YELLOW).build();
+		newGuiFields[33] = new Chance.Builder().setBgColor(Color.CYAN).build();
+		newGuiFields[34] = new Start.Builder().setBgColor(Color.YELLOW).build();
+		newGuiFields[35] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[36] = new Chance.Builder().setBgColor(Color.CYAN).build();
+		newGuiFields[37] = new Start.Builder().setBgColor(Color.MAGENTA).build();
+		newGuiFields[38] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
+		newGuiFields[39] = new Start.Builder().setBgColor(Color.MAGENTA).build();
+
+
+		return newGuiFields;
+
 	}
 	//Plotting the title and descriptopn in to the fields.
 	private void initFields() {
 		//Removes subtext for all fields.
 		for(int i=0; i < guiFields.length; i++)
 			guiFields[i].setSubText(" ");
-		
+
 		//Initializes every field with Title and description.
 
 		guiFields[0].setTitle("Start"); guiFields[0].setDescription("Hvergang De passere modtag kr. 4000"); guiFields[0].setSubText("Start"); 
@@ -179,23 +210,23 @@ public class GameBoard {
 
 
 	}
-	
+
 	//Plotting the fields into the GUI and showing welcome message.
 	private void initGUI() 
 	{
-		
-//		for (Field field : guiFields) {
-//			System.out.println(field);
-//		}
-//		System.out.println(guiFields.length);
-		
+
+		//		for (Field field : guiFields) {
+		//			System.out.println(field);
+		//		}
+		//		System.out.println(guiFields.length);
+
 		GUI.create(guiFields);
 	}
 
 	public void landOnField(int i, Player player){
 		logicFields[i].landOnField(player);
 	}
-	
+
 	public Field[] getGUIFields() {
 		return guiFields;
 	}
@@ -205,6 +236,6 @@ public class GameBoard {
 		return logicFields;
 	}
 
-	
+
 }
 

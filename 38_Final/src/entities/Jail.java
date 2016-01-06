@@ -1,8 +1,10 @@
 package entities;
 
+import java.util.ResourceBundle;
+
 public class Jail extends Felt {
 
-	public Jail(String feltNavn) {
+	public Jail(String feltNavn, ResourceBundle rb) {
 		super(feltNavn);
 	}
 

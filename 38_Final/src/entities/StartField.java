@@ -1,8 +1,10 @@
 package entities;
 
+import java.util.ResourceBundle;
+
 public class StartField extends Felt {
 
-	public StartField(String feltNavn) {
+	public StartField(String feltNavn, ResourceBundle rb) {
 		super(feltNavn);
 	}
 

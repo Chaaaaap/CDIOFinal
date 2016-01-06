@@ -1,6 +1,9 @@
 package entities;
 
 import desktop_resources.GUI;
+
+import java.util.ResourceBundle;
+
 import controllers.GameBoard;
 
 public class Territory extends Ownable {
@@ -16,7 +19,7 @@ public class Territory extends Ownable {
 	private GameBoard gameBoard;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
-	public Territory(int price, String feltNavn, GameBoard gb) {
+	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
 		this.price = price;
 		this.feltNavn = feltNavn;

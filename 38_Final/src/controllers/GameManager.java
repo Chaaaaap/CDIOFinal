@@ -24,30 +24,17 @@ public class GameManager
 	private LanguageSelector ls;
 	private String language;
 	private String country;
-	private String languageChosen;
+//	private String languageChosen;
 	private ResourceBundle rb;
 
 	//GameManager constructor
 	public GameManager()
 	{
-		this.diceCup = new DiceCup();
-		this.gameBoard = new GameBoard(diceCup);
-		languageChosen = GUI.getUserButtonPressed("Vælg Sprog / Select Language", "Dansk", "English");
-		languageSelect(languageChosen);
 		this.ls = new LanguageSelector(language, country);
-		rb = ls.selectLanguage();
-		GUI.showMessage(rb.getString("Velkommen"));
-	}
-
-	private void languageSelect(String languageChosen) {
-		if(languageChosen.equalsIgnoreCase("Dansk")) {
-			language = "da";
-			country = "DK";
-		} else {
-			language = "en";
-			country = "US";
-		}
-				
+		this.diceCup = new DiceCup();
+		this.gameBoard = new GameBoard(diceCup, ls);
+		rb = gameBoard.getBundle();
+		
 	}
 
 	//StartGameEngine method is a void method, which means 

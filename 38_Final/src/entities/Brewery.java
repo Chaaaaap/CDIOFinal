@@ -1,10 +1,12 @@
 package entities;
 
+import java.util.ResourceBundle;
+
 import controllers.GameBoard;
 
 public class Brewery extends Ownable {
 
-	public Brewery(int pris, String feltNavn, GameBoard gb) {
+	public Brewery(int pris, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(pris, feltNavn, gb);
 		// TODO Auto-generated constructor stub
 	}
