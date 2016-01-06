@@ -169,10 +169,10 @@ public class GameBoard {
 		guiFields[32].setTitle("Vimmel- skaftet"); guiFields[32].setDescription("Pris: 6000 <BR> Leje: 550 <BR> Hus: 400 <BR> Hotel: 4000"); guiFields[32].setSubText("Territory");
 		guiFields[33].setTitle("Prøv Lykken"); guiFields[33].setDescription("Træk et kort"); guiFields[33].setSubText("Chance");
 		guiFields[34].setTitle("Nygade"); guiFields[34].setDescription("Pris: 6400 <BR> Leje: 600 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[34].setSubText("Territory");
-		guiFields[35].setTitle("DSB Halsskov/<BR>Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[35].setSubText("Shipping Company");
+		guiFields[35].setTitle("DSB Halsskov/ Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[35].setSubText("Shipping Company");
 		guiFields[36].setTitle("Prøv Lykken"); guiFields[36].setDescription("Træk et kort"); guiFields[36].setSubText("Chance");
 		guiFields[37].setTitle("Frederiks- berggade"); guiFields[37].setDescription("Pris: 7000 <BR> Leje: 700 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[37].setSubText("Territory");
-		guiFields[38].setTitle("Ekstra-  ordinær   statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
+		guiFields[38].setTitle("Ekstra ordinær statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
 		guiFields[39].setTitle("Rådhus- pladsen"); guiFields[39].setDescription("Pris: 8000 <BR> Leje: 1000 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[39].setSubText("Territory");
 
 
