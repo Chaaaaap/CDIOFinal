@@ -96,6 +96,15 @@ public class Player
 		JailRollCounter++;
 	}
 	
+	public void addFreeCard() {
+		FreeCardCounter++;
+	}
+	
+	public void useFreeCard() {
+		FreeCardCounter--;
+	}
+	
+	
 	public int getBalance(Player player) {
 		return player.getPlayerAccount().getBalance();
 	}
