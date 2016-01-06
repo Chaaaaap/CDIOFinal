@@ -14,13 +14,15 @@ public class ShippingCompany extends Ownable {
 	private String buy, feltNavn;
 	private int pris, rent;
 	private GameBoard gameBoard;
+	private ResourceBundle rb;
 
-	public ShippingCompany(int pris, String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
-		super(pris, feltNavn, gameBoard);
+	public ShippingCompany(int pris, String feltNavn, GameBoard gb, ResourceBundle rb) {
+		super(pris, feltNavn, gb);
 		this.pris = pris;
 		this.feltNavn = feltNavn;
-		owner = null;
-		this.gameBoard = gameBoard;
+		this.owner = null;
+		this.gameBoard = gb;
+		this.rb = gameBoard.getBundle();
 	}
 
 	@Override
@@ -48,8 +50,8 @@ public class ShippingCompany extends Ownable {
 
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+pris+"$?", "Yes","No");
-		if(buy.equals("Yes")) {
+		buy = GUI.getUserButtonPressed(rb.getString("BuyOption") + " " + pris + "$?", rb.getString("Ja"), rb.getString("Nej"));
+		if(buy.equals(rb.getString("Ja"))) {
 			player.getPlayerAccount().adjustBalance(-pris);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
