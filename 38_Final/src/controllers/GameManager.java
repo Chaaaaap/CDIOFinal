@@ -89,7 +89,7 @@ public class GameManager
 				winner = players[i].getPlayerName();
 		}
 		//Displays the winner at the GUI.
-		GUI.showMessage(rb.getString("Vinder")+" "+winner+ rb.getString("Vinder2"));
+		GUI.showMessage(rb.getString("Vinder")+" "+winner+" "+rb.getString("Vinder2"));
 	}
 
 	private void initPlayers() 
