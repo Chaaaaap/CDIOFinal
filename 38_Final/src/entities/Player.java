@@ -7,7 +7,7 @@ public class Player
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private PlayerAccount playerAccount;
-	private int currentField=1, fleetCounter,breweryCounter;
+	private int currentField=1, fleetCounter,breweryCounter,JailRollCounter,FreeCardCounter;
 	public boolean isJailed;
 	private int hotelCounter;
 	private int houseCounter;
@@ -19,6 +19,9 @@ public class Player
 		breweryCounter = 0;
 		houseCounter = 0;
 		hotelCounter = 0;
+		JailRollCounter = 0;
+		FreeCardCounter = 0;
+		
 		
 	}
 
