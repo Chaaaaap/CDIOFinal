@@ -19,13 +19,13 @@ public class ChanceField extends Felt {
 	public void landOnField(Player player) {
 		getFeltBesked(player);
 //		chanceCard.drawCard();
-		cardText = chanceCard.toString();
-		
-		switch(cardText) {
-		case "ChanceAktie": GUI.showMessage(""); player.adjustBalance(player, 1000); break;
-		case "ChancePayFine": GUI.showMessage(""); player.adjustBalance(player, -1000); break;
-		case "ChanceJail": GUI.showMessage(""); player.isJailed = true; GUI.removeAllCars(player.getPlayerName()); player.setCurrentField(11); GUI.setCar(player.getCurrentField(), player.getPlayerName()); break;
-		}
+//		cardText = chanceCard.toString();
+//		
+//		switch(cardText) {
+//		case "ChanceAktie": GUI.showMessage(""); player.adjustBalance(player, 1000); break;
+//		case "ChancePayFine": GUI.showMessage(""); player.adjustBalance(player, -1000); break;
+//		case "ChanceJail": GUI.showMessage(""); player.isJailed = true; GUI.removeAllCars(player.getPlayerName()); player.setCurrentField(11); GUI.setCar(player.getCurrentField(), player.getPlayerName()); break;
+//		}
 		
 	}
 
