@@ -1,11 +1,14 @@
 package chance;
 
+import desktop_resources.GUI;
 import entities.Player;
 
 public class ChancePayPerProperty extends ChanceCards {
 
 	private int amountPerHouse;
 	private int amountPerHotel;
+	private int hotelCounter;
+	private int houseCounter;
 
 	public ChancePayPerProperty(String cardName, int amountPerHouse, int amountPerHotel) {
 		super(cardName);
@@ -16,8 +19,10 @@ public class ChancePayPerProperty extends ChanceCards {
 
 	@Override
 	public void executeCard(Player player) {
-		// TODO Auto-generated method stub
-		
+		houseCounter = player.getHouseCounter();
+		hotelCounter = player.getHotelCounter();
+		player.adjustBalance(player, -(houseCounter*amountPerHouse+hotelCounter*amountPerHotel));
+		GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 	}
 
 }
