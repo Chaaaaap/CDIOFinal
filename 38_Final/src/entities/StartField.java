@@ -2,9 +2,11 @@ package entities;
 
 import java.util.ResourceBundle;
 
+import controllers.GameBoard;
+
 public class StartField extends Felt {
 
-	public StartField(String feltNavn, ResourceBundle rb) {
+	public StartField(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
 	}
 

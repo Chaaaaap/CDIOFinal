@@ -43,7 +43,6 @@ public class GameBoard {
 		rb = ls.selectLanguage(language, country);
 		logicFields = createLogicFields();
 		GUI.showMessage(rb.getString("Velkommen"));
-		GUI.showMessage(rb.getString("Velkommen"));
 	}
 	
 	private void languageSelect(String languageChosen2) {
@@ -63,29 +62,29 @@ public class GameBoard {
 	//Initializes the fields as their respective type.
 	private Felt[] createLogicFields() {
 		Felt[] logiskeFelter = new Felt[40];
-		logiskeFelter[0] = new StartField("Start", rb);
+		logiskeFelter[0] = new StartField("Start", this, rb);
 		logiskeFelter[1] = new Territory(1200, "Rødovrevej", this, rb);
-		logiskeFelter[2] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[2] = new ChanceField("Prøv Lykken", this, rb);
 		logiskeFelter[3] = new Territory(1200, "Hvidovrevej", this, rb);
-		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat", rb);
+		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat", this, rb);
 		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this, rb);
 		logiskeFelter[6] = new Territory(2000, "Roskildevej", this, rb);
-		logiskeFelter[7] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[7] = new ChanceField("Prøv Lykken", this, rb);
 		logiskeFelter[8] = new Territory(2000, "Valby Langgade", this, rb);
 		logiskeFelter[9] = new Territory(2400, "Allégade", this, rb);
-		logiskeFelter[10] = new Jail("I Fængsel", rb);
+		logiskeFelter[10] = new Jail("I Fængsel", this, rb);
 		logiskeFelter[11] = new Territory(2800, "Frederiksberg Allé", this, rb);
 		logiskeFelter[12] = new Brewery(3000, "Tuborg",diceCup, this, rb);
 		logiskeFelter[13] = new Territory(2800, "Bülowsvej", this, rb);
 		logiskeFelter[14] = new Territory(3200, "Gl. Kongevej", this, rb);
 		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this, rb);
 		logiskeFelter[16] = new Territory(3600, "Bernstorffsvej", this, rb);
-		logiskeFelter[17] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[17] = new ChanceField("Prøv Lykken", this, rb);
 		logiskeFelter[18] = new Territory(3600, "Hellerupvej", this, rb);
 		logiskeFelter[19] = new Territory(4000, "Strandvej", this, rb);
-		logiskeFelter[20] = new Parking("Parkering", rb);
+		logiskeFelter[20] = new Parking("Parkering", this, rb);
 		logiskeFelter[21] = new Territory(4400, "Trianglen", this, rb);
-		logiskeFelter[22] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[22] = new ChanceField("Prøv Lykken", this, rb);
 		logiskeFelter[23] = new Territory(4400, "Østerbrogade", this, rb);
 		logiskeFelter[24] = new Territory(4800, "Grønningen", this, rb);
 		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this, rb);
@@ -93,15 +92,15 @@ public class GameBoard {
 		logiskeFelter[27] = new Territory(5200, "Kgs. Nytorv", this, rb);
 		logiskeFelter[28] = new Brewery(3000, "Coca-Cola",diceCup, this, rb);
 		logiskeFelter[29] = new Territory(5600, "Østergade", this, rb);
-		logiskeFelter[30] = new GoToJail("De Fængsles", rb);
+		logiskeFelter[30] = new GoToJail("De Fængsles", this, rb);
 		logiskeFelter[31] = new Territory(6000, "Amagertorv", this, rb);
 		logiskeFelter[32] = new Territory(6000, "Vimmelskaftet", this, rb);
-		logiskeFelter[33] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[33] = new ChanceField("Prøv Lykken", this, rb);
 		logiskeFelter[34] = new Territory(6400, "Nygade", this, rb);
 		logiskeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this, rb);
-		logiskeFelter[36] = new ChanceField("Prøv Lykken", rb);
+		logiskeFelter[36] = new ChanceField("Prøv Lykken", this, rb);
 		logiskeFelter[37] = new Territory(7000, "Frederiksberggade", this, rb);
-		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat", rb);
+		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat", this, rb);
 		logiskeFelter[39] = new Territory(8000, "Rådhuspladsen", this, rb);
 
 		return logiskeFelter;

@@ -2,11 +2,12 @@ package entities;
 
 import java.util.ResourceBundle;
 
+import controllers.GameBoard;
 import desktop_resources.GUI;
 
 public class GoToJail extends Felt {
 
-	public GoToJail(String feltNavn, ResourceBundle rb) {
+	public GoToJail(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
 	}
 	

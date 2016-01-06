@@ -3,6 +3,7 @@ package entities;
 import java.util.ResourceBundle;
 
 import chance.ChanceCards;
+import controllers.GameBoard;
 import desktop_resources.GUI;
 
 public class ChanceField extends Felt {
@@ -11,7 +12,7 @@ public class ChanceField extends Felt {
 	private String[] chanceCards;
 	private String cardText;
 
-	public ChanceField(String feltNavn, ResourceBundle rb) {
+	public ChanceField(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
 		chanceCard = new ChanceCards[33];
 		initCards();
