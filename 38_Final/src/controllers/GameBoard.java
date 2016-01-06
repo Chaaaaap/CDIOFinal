@@ -75,7 +75,7 @@ public class GameBoard {
 		logiskeFelter[9] = new Territory(2400, "Allégade", this, rb);
 		logiskeFelter[10] = new Jail("I Fængsel", rb);
 		logiskeFelter[11] = new Territory(2800, "Frederiksberg Allé", this, rb);
-		logiskeFelter[12] = new Brewery(3000, "Tuborg", this, rb);
+		logiskeFelter[12] = new Brewery(3000, "Tuborg",diceCup, this, rb);
 		logiskeFelter[13] = new Territory(2800, "Bülowsvej", this, rb);
 		logiskeFelter[14] = new Territory(3200, "Gl. Kongevej", this, rb);
 		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this, rb);
@@ -91,7 +91,7 @@ public class GameBoard {
 		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this, rb);
 		logiskeFelter[26] = new Territory(5200, "Bredgade", this, rb);
 		logiskeFelter[27] = new Territory(5200, "Kgs. Nytorv", this, rb);
-		logiskeFelter[28] = new Brewery(3000, "Coca-Cola", this, rb);
+		logiskeFelter[28] = new Brewery(3000, "Coca-Cola",diceCup, this, rb);
 		logiskeFelter[29] = new Territory(5600, "Østergade", this, rb);
 		logiskeFelter[30] = new GoToJail("De Fængsles", rb);
 		logiskeFelter[31] = new Territory(6000, "Amagertorv", this, rb);
