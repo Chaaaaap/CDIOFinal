@@ -41,9 +41,13 @@ public class ChanceCards {
 	"ChanceKing",
 	"ChanceRepair"
 	};
+	
+	private ChanceCards chanceCard;
 
-	public ChanceCards() {
-		
+	private String cardName;
+
+	public ChanceCards(String cardName) {
+		this.cardName = cardName;
 	}
 	
 	public void shuffle() {
@@ -55,16 +59,20 @@ public class ChanceCards {
 		}
 	}
 	
-	public void drawCard() {
-		String drawn;
-		drawn = chanceCards[0];
-		for(int i=0;i<51;i++){
-			chanceCards[i]=chanceCards[i+1];
-		}
-	}
+//	public void drawCard() {
+//		ChanceCards drawn;
+//		drawn = chanceCards[0];
+//		for(int i=0;i<51;i++){
+//			chanceCards[i]=chanceCards[i+1];
+//		}
+//	}
 	
 	public String[] getCards() {
 		return chanceCards;
+	}
+	
+	public String toString() {
+		return cardName;
 	}
 
 }
