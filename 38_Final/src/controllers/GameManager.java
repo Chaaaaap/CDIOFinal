@@ -30,7 +30,7 @@ public class GameManager
 	//GameManager constructor
 	public GameManager()
 	{
-		languageChosen = GUI.getUserButtonPressed("Select Language", "Dansk", "English");
+		languageChosen = GUI.getUserButtonPressed("Vælg Sprog / Select Language", "Dansk", "English");
 		languageSelect(languageChosen);
 		this.ls = new LanguageSelector(language, country);
 		rb = ls.selectLanguage();
@@ -95,7 +95,7 @@ public class GameManager
 	private void initPlayers() 
 	{	
 		//Lets the user decide how many players should be in the game.
-		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please select the number of players.", "2", "3", "4", "5", "6");
+		String playersCountChoosenByUser = GUI.getUserButtonPressed(rb.getString("AntalSpillere"), "2", "3", "4", "5", "6");
 		//Converts the String to an int.
 		playerCount = Integer.parseInt(playersCountChoosenByUser);
 		//Initializes the Player array with the amount of players
@@ -110,7 +110,7 @@ public class GameManager
 			//Makes sure the players start at 1 and counts to playerCount.
 			int playerNumber = i + 1; 
 			//Lets the user decide the name of the player.
-			String playerNameTypedInByTheUser = GUI.getUserString("Please type in the name of player " + playerNumber);
+			String playerNameTypedInByTheUser = GUI.getUserString(rb.getString("IndtastNavn") + playerNumber);
 			Player player = new Player();
 			player.setPlayerName(playerNameTypedInByTheUser);
 			//Stores the newly created player in the Player array at index i.
@@ -132,7 +132,7 @@ public class GameManager
 
 		}
 
-		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
+		GUI.getUserButtonPressed(rb.getString("HvemStarter"), "Flip Coin");
 		
 		//Decides who's starting
 		//If there's more than 2 players use this method
@@ -148,7 +148,7 @@ public class GameManager
 			startingPlayer = rollResult;
 		}
 		//Prints who's starting on the GUI.
-		GUI.showMessage(players[startingPlayer-1].getPlayerName() + " starts! "  + "\nLet the game begin.");
+		GUI.showMessage(players[startingPlayer-1].getPlayerName() + rb.getString("Starter"));
 	}
 
 	private void playerTurn(Player player) 
