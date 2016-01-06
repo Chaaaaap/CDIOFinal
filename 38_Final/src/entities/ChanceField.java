@@ -24,7 +24,7 @@ public class ChanceField extends Felt {
 		switch(cardText) {
 		case "ChanceAktie": GUI.showMessage(""); player.adjustBalance(player, 1000); break;
 		case "ChancePayFine": GUI.showMessage(""); player.adjustBalance(player, -1000); break;
-		case "ChanceJail": GUI.showMessage(""); player.isJailed = true; player.setCurrentField(11); GUI.setCar(player.getCurrentField(), player.getPlayerName()); break;
+		case "ChanceJail": GUI.showMessage(""); player.isJailed = true; GUI.removeAllCars(player.getPlayerName()); player.setCurrentField(11); GUI.setCar(player.getCurrentField(), player.getPlayerName()); break;
 		}
 		
 	}
