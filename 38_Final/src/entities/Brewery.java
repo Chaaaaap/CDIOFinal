@@ -14,15 +14,17 @@ public class Brewery extends Ownable {
 	private Player owner, player;
 	private DiceCup diceCup;
 	private GameBoard gameBoard;
+	private ResourceBundle rb;
 	
 	
-	public Brewery(int pris, String feltNavn, DiceCup cup, GameBoard gameBoard,ResourceBundle rb) {
+	public Brewery(int pris, String feltNavn, DiceCup cup, GameBoard gameBoard, ResourceBundle rb) {
 		super(pris, feltNavn, gameBoard);
 		this.pris = pris;
 		this.feltNavn = feltNavn;
 		owner = null;
 		diceCup = cup;
 		this.gameBoard = gameBoard;
+		this.rb = gameBoard.getBundle();
 	}
 
 	@Override
@@ -43,8 +45,8 @@ public class Brewery extends Ownable {
 
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+pris+"$?", "Yes","No");
-		if(buy.equals("Yes")) {
+		buy = GUI.getUserButtonPressed(rb.getString("Købe")+" "+pris+" kr?", rb.getString("Ja"), rb.getString("Nej"));
+		if(buy.equals(rb.getString("Ja"))) {
 			player.getPlayerAccount().adjustBalance(-pris);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
@@ -56,17 +58,17 @@ public class Brewery extends Ownable {
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null)
-			return  player.getPlayerName()+", you landed on "+feltNavn+".";
+			return  player.getPlayerName()+", " + rb.getString("Owned")+" "+feltNavn+".";
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-			return player.getPlayerName()+", you already own this field! Nothing happens.";
+			return player.getPlayerName()+", " + rb.getString("Owned4");
 	
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+
-			", but "+owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
+			return player.getPlayerName()+", " + rb.getString("Owned")+" "+feltNavn+", " + rb.getString("Owned1")+" "+owner.getPlayerName()+
+			", " + rb.getString("Owned2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
 		
 		else
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n";
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned2")+" "+owner.getPlayerName();
 	
 	}
 	
@@ -94,7 +96,7 @@ public class Brewery extends Ownable {
 			sum = diceCup.getSumResult();
 			rentModifier = owner.getBreweryCounter(owner);
 			
-			GUI.showMessage(player.getPlayerName()+", you rolled "+sum+", therefore you have to pay "+rentModifier*sum*100+" to "+owner.getPlayerName());
+			GUI.showMessage(player.getPlayerName()+", " +rb.getString("Roll") +" "+ sum +", "+ rb.getString("Roll1") + rentModifier*sum*100+" "+rb.getString("Roll3")+" "+owner.getPlayerName());
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), sum*100*rentModifier);	
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
