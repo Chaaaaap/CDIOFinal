@@ -93,7 +93,7 @@ public class Player
 	}
 	
 	public void addJailRollCounter() {
-		hotelCounter++;
+		JailRollCounter++;
 	}
 	
 	public int getBalance(Player player) {
