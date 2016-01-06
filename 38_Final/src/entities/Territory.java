@@ -23,6 +23,7 @@ public class Territory extends Ownable {
 	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
 		this.price = price;
+		this.rent = rent;
 		this.feltNavn = feltNavn;
 		this.owner = null;
 		this.gameBoard = gb;
