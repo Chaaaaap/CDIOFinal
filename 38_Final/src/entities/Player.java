@@ -96,6 +96,11 @@ public class Player
 		JailRollCounter++;
 	}
 	
+	public int getFreeCard()
+	{
+		return FreeCardCounter;
+	}
+	
 	public void addFreeCard() {
 		FreeCardCounter++;
 	}
