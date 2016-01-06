@@ -166,7 +166,7 @@ public class GameBoard {
 		guiFields[29].setTitle("Østergade"); guiFields[29].setDescription("Pris: 5600 <BR> Leje: 500 <BR> Hus: 3000 <BR> Hotel: 3000"); guiFields[29].setSubText("Territory");
 		guiFields[30].setTitle("De Fængsles"); guiFields[30].setDescription("Du bliver overflyttet til fængslet"); guiFields[30].setSubText("GoToJail");
 		guiFields[31].setTitle("Amagertorv"); guiFields[31].setDescription("Pris: 6000 <BR> Leje: 550 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[31].setSubText("Territory");
-		guiFields[32].setTitle("Vimmel- skaftet"); guiFields[32].setDescription("Pris: 6000 <BR> Leje: 550 <BR> Hus: 400 <BR> Hotel: 4000"); guiFields[32].setSubText("Territory");
+		guiFields[32].setTitle("Vimmel- skaftet"); guiFields[32].setDescription("Pris: 6000 <BR> Leje: 550 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[32].setSubText("Territory");
 		guiFields[33].setTitle("Prøv Lykken"); guiFields[33].setDescription("Træk et kort"); guiFields[33].setSubText("Chance");
 		guiFields[34].setTitle("Nygade"); guiFields[34].setDescription("Pris: 6400 <BR> Leje: 600 <BR> Hus: 4000 <BR> Hotel: 4000"); guiFields[34].setSubText("Territory");
 		guiFields[35].setTitle("DSB Halsskov/ Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[35].setSubText("Shipping Company");
