@@ -24,7 +24,7 @@ public class GameManager
 	private LanguageSelector ls;
 	private String language;
 	private String country;
-//	private String languageChosen;
+	//	private String languageChosen;
 	private ResourceBundle rb;
 
 	//GameManager constructor
@@ -34,7 +34,7 @@ public class GameManager
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
-		
+
 	}
 
 	//StartGameEngine method is a void method, which means 
@@ -120,7 +120,7 @@ public class GameManager
 		}
 
 		GUI.getUserButtonPressed(rb.getString("HvemStarter"), rb.getString("Kast"));
-		
+
 		//Decides who's starting
 		//If there's more than 2 players use this method
 		if(playerCount > 2) {
@@ -151,8 +151,10 @@ public class GameManager
 			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 			//gives player 4000 if passing start
 			if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
-				player.getPlayerAccount().adjustBalance(+4000);
-				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+				if(!player.isJailed) {
+					player.getPlayerAccount().adjustBalance(+4000);
+					GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+				}
 			}
 			//Moves the car around the board.
 			GUI.removeAllCars(player.getPlayerName());
@@ -174,7 +176,7 @@ public class GameManager
 				bankruptCounter++;
 		return bankruptCounter;
 	}
-	
+
 	private Color getChangedColor(int playerNumber)
 	{
 		switch (playerNumber)
