@@ -47,11 +47,11 @@ public class Territory extends Ownable {
 			return player.getPlayerName()+", "+ rb.getString("Owned");
 		
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+
-					", "+ rb.getString("Rent2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()+
+					", "+ rb.getString("Owned2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
 	
 		else 
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+rb.getString("Rent4")+" "+rent;
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()+rb.getString("Owned4")+" "+rent;
 	}
 
 	@Override
