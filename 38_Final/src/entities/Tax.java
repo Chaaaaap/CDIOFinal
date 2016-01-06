@@ -1,6 +1,8 @@
 package entities;
 
 import java.util.ResourceBundle;
+
+import controllers.GameBoard;
 import desktop_resources.GUI;
 import entities.Player;
 
@@ -12,7 +14,7 @@ public class Tax extends Felt {
 	private ResourceBundle rb;
 //	private String[] strings;
 
-	public Tax(int tax, String feltNavn, ResourceBundle rb) {
+	public Tax(int tax, String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
 		this.feltNavn = feltNavn;
 		taxAmount = tax;
