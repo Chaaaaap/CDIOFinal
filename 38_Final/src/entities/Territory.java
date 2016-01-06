@@ -17,6 +17,7 @@ public class Territory extends Ownable {
 	private String feltNavn, buy;
 	private Player owner, player;
 	private GameBoard gameBoard;
+	private ResourceBundle rb;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb) {
@@ -25,6 +26,7 @@ public class Territory extends Ownable {
 		this.feltNavn = feltNavn;
 		this.owner = null;
 		this.gameBoard = gb;
+		this.rb = rb;
 	}
 
 	@Override
@@ -38,17 +40,17 @@ public class Territory extends Ownable {
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null)
-			return  player.getPlayerName()+", you landed on "+feltNavn+".";
+			return  player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+".";
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-			return player.getPlayerName()+", you already own this field! Nothing happens.";
+			return player.getPlayerName()+", "+ rb.getString("Owned");
 		
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+
-					", but "+owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
+			return player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+
+					", "+ rb.getString("Rent2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
 	
 		else 
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou stay overnight and pay "+rent+" in rent.";
+			return player.getPlayerName()+", "+rb.getString("Rent")+" "+feltNavn+", "+rb.getString("Rent1")+" "+owner.getPlayerName()+rb.getString("Rent4")+" "+rent;
 	}
 
 	@Override
@@ -85,8 +87,8 @@ public class Territory extends Ownable {
 	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
-		if(buy.equals("Yes")) {
+		buy = GUI.getUserButtonPressed(rb.getString("Købe")+" "+price+"$?", rb.getString("Ja"),rb.getString("Nej"));
+		if(buy.equals(rb.getString("Ja"))) {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
