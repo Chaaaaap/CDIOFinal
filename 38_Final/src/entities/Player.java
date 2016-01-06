@@ -7,13 +7,15 @@ public class Player
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private PlayerAccount playerAccount;
-	private int currentField=1, fleetCounter;
+	private int currentField=1, fleetCounter,breweryCounter;
 	public boolean isJailed;
 
 	public Player() 
 	{
 		playerAccount = new PlayerAccount(30000);
 		fleetCounter = 0;
+		breweryCounter =0;
+		
 	}
 
 	//Setter method for setting player name.
@@ -48,6 +50,16 @@ public class Player
 	public int getFleetCounter(Player player) {
 		return fleetCounter;
 	}
+
+	public void addBreweryCounter() {
+		breweryCounter++;
+	}
+	
+	public int getBreweryCounter(Player player) {
+		return breweryCounter;
+	}
+
+	
 	
 	public int getBalance(Player player) {
 		return player.getPlayerAccount().getBalance();
