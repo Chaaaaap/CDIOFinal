@@ -89,7 +89,7 @@ public class GameManager
 				winner = players[i].getPlayerName();
 		}
 		//Displays the winner at the GUI.
-		GUI.showMessage("We have a winner!! "+winner+" won the game!");
+		GUI.showMessage(rb.getString("Vinder")+" "+winner+ rb.getString("Vinder2"));
 	}
 
 	private void initPlayers() 
@@ -132,7 +132,7 @@ public class GameManager
 
 		}
 
-		GUI.getUserButtonPressed(rb.getString("HvemStarter"), "Flip Coin");
+		GUI.getUserButtonPressed(rb.getString("HvemStarter"), rb.getString("Kast"));
 		
 		//Decides who's starting
 		//If there's more than 2 players use this method
@@ -148,7 +148,7 @@ public class GameManager
 			startingPlayer = rollResult;
 		}
 		//Prints who's starting on the GUI.
-		GUI.showMessage(players[startingPlayer-1].getPlayerName() + rb.getString("Starter"));
+		GUI.showMessage(players[startingPlayer-1].getPlayerName() + " " + rb.getString("Starter"));
 	}
 
 	private void playerTurn(Player player) 
@@ -158,7 +158,7 @@ public class GameManager
 		//Makes sure bankrupts players are skipped
 		if(player.getPlayerAccount().isBankrupt() == false) {
 			//Shakes the dies and shows the dies on the GUI.
-			GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
+			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
 			diceCup.shake();
 			sum = diceCup.getSumResult();
 			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
