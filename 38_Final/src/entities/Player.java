@@ -9,12 +9,16 @@ public class Player
 	private PlayerAccount playerAccount;
 	private int currentField=1, fleetCounter,breweryCounter;
 	public boolean isJailed;
+	private int hotelCounter;
+	private int houseCounter;
 
 	public Player() 
 	{
 		playerAccount = new PlayerAccount(30000);
 		fleetCounter = 0;
-		breweryCounter =0;
+		breweryCounter = 0;
+		houseCounter = 0;
+		hotelCounter = 0;
 		
 	}
 
@@ -57,6 +61,22 @@ public class Player
 	
 	public int getBreweryCounter(Player player) {
 		return breweryCounter;
+	}
+	
+	public void addHouseCounter() {
+		houseCounter++;
+	}
+	
+	public int getHouseCounter() {
+		return houseCounter;
+	}
+	
+	public void addHotelCounter() {
+		hotelCounter++;
+	}
+	
+	public int getHotelCounter() {
+		return hotelCounter;
 	}
 
 	
