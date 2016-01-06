@@ -43,7 +43,6 @@ public class GameBoard {
 		rb = ls.selectLanguage(language, country);
 		logicFields = createLogicFields();
 		GUI.showMessage(rb.getString("Velkommen"));
-		GUI.showMessage(rb.getString("Velkommen"));
 	}
 	
 	private void languageSelect(String languageChosen2) {
