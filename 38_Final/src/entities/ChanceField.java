@@ -6,14 +6,20 @@ import desktop_resources.GUI;
 
 public class ChanceField extends Felt {
 
-	private ChanceCards chanceCard;
+	private ChanceCards[] chanceCard;
 	private String[] chanceCards;
 	private String cardText;
 
 	public ChanceField(String feltNavn, ResourceBundle rb) {
 		super(feltNavn);
+		chanceCard = new ChanceCards[33];
+		initCards();
 //		chanceCard.shuffle();
-//		chanceCards = chanceCard.getCards();
+		
+	}
+
+	private void initCards() {
+		
 		
 	}
 

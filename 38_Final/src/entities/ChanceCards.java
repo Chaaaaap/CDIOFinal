@@ -41,8 +41,6 @@ public class ChanceCards {
 	"ChanceKing",
 	"ChanceRepair"
 	};
-	
-	private ChanceCards chanceCard;
 
 	private String cardName;
 
