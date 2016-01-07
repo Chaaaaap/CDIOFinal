@@ -28,9 +28,9 @@ public class GoToJail extends Felt {
 
 	@Override
 	public void landOnField(Player player) {
-		this.player = player;
-		goToJail(player);
 		GUI.showMessage(getFeltBesked(player));
+		goToJail(player);
+		
 	}
 
 	@Override
