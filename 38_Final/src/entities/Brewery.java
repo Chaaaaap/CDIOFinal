@@ -68,7 +68,7 @@ public class Brewery extends Ownable {
 			", " + rb.getString("Owned2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
 		
 		else
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned2")+" "+owner.getPlayerName()
+			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()
 					+" "+ rb.getString("Owned5");
 	}
 	
