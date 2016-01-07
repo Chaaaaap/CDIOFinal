@@ -35,6 +35,10 @@ public abstract class ChanceCards {
 //		return chanceCards;
 //	}
 	
+	public String toString() {
+		return cardName;
+	}
+	
 	public abstract void executeCard(Player player);
 
 }
