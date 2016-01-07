@@ -4,6 +4,8 @@ import desktop_resources.GUI;
 import desktop_codebehind.Car;
 import java.awt.Color;
 import java.util.ResourceBundle;
+
+import entities.ChanceField;
 import entities.Dice;
 import entities.LanguageSelector;
 import entities.Player;
@@ -27,6 +29,7 @@ public class GameManager
 	//	private String languageChosen;
 	private ResourceBundle rb;
 	private ChanceCards[] cc;
+	private ChanceCardController chanceCardController;
 
 	//GameManager constructor
 	public GameManager()
@@ -182,12 +185,12 @@ public class GameManager
 
 
 			Jailed(player,  diceCup);
-			//			System.out.println(player.getJailRoll());
+//			System.out.println(player.getJailRoll());
 
 			if(!player.isJailed){
-
+				
 				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
-
+				
 				diceCup.shake();
 				sum = diceCup.getSumResult();
 				GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
@@ -204,14 +207,15 @@ public class GameManager
 				GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
 				player.setCurrentField((player.getCurrentField()));
 				//Gets the landOnField from whatever field the player landed on.
+				Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
+				
+				if (currentField instanceof ChanceField){
+					chanceCardController.drawCard().executeCard(player);
+					
+				} else {
+				
 				gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
-
-				
-//				Til at udskrive det første felt udskift 0 med i i et forloop til menuen
-//				if(!player.getProperty().isEmpty()){
-//					System.out.println(player.getProperty().get(0).getFeltNavn());
-//				}
-				
+				}
 				//Removes the car of any bankrupt player.
 				if(player.getPlayerAccount().isBankrupt())
 					GUI.removeAllCars(player.getPlayerName());
