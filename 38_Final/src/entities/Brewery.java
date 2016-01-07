@@ -96,7 +96,7 @@ public class Brewery extends Ownable {
 			sum = diceCup.getSumResult();
 			rentModifier = owner.getBreweryCounter(owner);
 			
-			GUI.showMessage(player.getPlayerName()+", " +rb.getString("Roll") +" "+ sum +", "+ rb.getString("Roll1") + rentModifier*sum*100+" "+rb.getString("Roll2")+" "+owner.getPlayerName());
+			GUI.showMessage(player.getPlayerName()+", " +rb.getString("Roll") +" "+ sum +", "+ rb.getString("Roll1") +" "+ rentModifier*sum*100+" "+rb.getString("Roll2")+" "+owner.getPlayerName());
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), sum*100*rentModifier);	
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
