@@ -225,7 +225,7 @@ public class GameManager
 				diceCup.shake();
 
 				if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
-					GUI.showMessage(player.getPlayerName()+" "+rb.getString("Jail8"));
+					GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail8"));
 					player.isJailed = false;
 					player.setJailRoll(0);		
 					sum = diceCup.getSumResult();
@@ -241,14 +241,15 @@ public class GameManager
 
 				else {
 					if (player.getJailRoll() == 2) {
+						GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9"));
 						player.getPlayerAccount().adjustBalance(-1000);
 						GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
-						player.isJailed = false;	
+						player.isJailed = false;
 						player.setJailRoll(0);
 						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 					}
 
-					else{
+					else {
 						player.addJailRollCounter();
 						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 					}
