@@ -8,14 +8,16 @@ import desktop_resources.GUI;
 
 public class ChanceField extends Felt {
 
-	private ChanceCards[] chanceCard;
-	private String[] chanceCards;
+	private ChanceCards[] chanceCards;
+	private ChanceCards chanceCard;
 	private String cardText;
 	private ChanceCards cc;
+	private ResourceBundle rb;
 
 	public ChanceField(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
-		chanceCard = new ChanceCards[33];
+		this.rb = rb;
+		chanceCards = new ChanceCards[33];
 		initCards();
 //		chanceCard.shuffle();
 		
@@ -29,9 +31,9 @@ public class ChanceField extends Felt {
 	@Override
 	public void landOnField(Player player) {
 		getFeltBesked(player);
-//		cc = chanceCa
-//		cc.
-		
+		chanceCard = cc.drawCard();
+		GUI.showMessage(rb.getString(chanceCard.toString()));
+		chanceCard.executeCard(player);		
 	}
 
 	@Override

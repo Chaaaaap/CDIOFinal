@@ -23,13 +23,14 @@ public abstract class ChanceCards {
 		}
 	}
 	
-//	public void drawCard() {
-//		ChanceCards drawn;
-//		drawn = chanceCards[0];
-//		for(int i=0;i<51;i++){
-//			chanceCards[i]=chanceCards[i+1];
-//		}
-//	}
+	public ChanceCards drawCard() {
+		ChanceCards drawn;
+		drawn = chanceCards[0];
+		for(int i=0;i<51;i++){
+			chanceCards[i]=chanceCards[i+1];
+		}
+		return drawn;
+	}
 	
 //	public String[] getCards() {
 //		return chanceCards;
