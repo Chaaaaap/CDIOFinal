@@ -62,40 +62,40 @@ public class ShippingCompany extends Ownable {
 
 
 
-@Override
-public String getFeltBesked(Player player) {
-	if (owner == null)
-		return player.getPlayerName()+ " " + rb.getString("LandOnField") + " " + feltNavn + ".";
+	@Override
+	public String getFeltBesked(Player player) {
+		if (owner == null)
+			return player.getPlayerName()+ " " + rb.getString("LandOnField") + " " + feltNavn + ".";
 
-	else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-		return player.getPlayerName()+", " + rb.getString("Owned4");
+		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
+			return player.getPlayerName()+", " + rb.getString("Owned4");
 
-	else if (owner.getPlayerAccount().isBankrupt() == true)
-		return player.getPlayerName()+", " + rb.getString("Owned") + feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
-				", " + rb.getString("Owned2") + " " + owner.getPlayerName()+ " " + rb.getString("Bankrupt");
+		else if (owner.getPlayerAccount().isBankrupt() == true)
+			return player.getPlayerName()+", " + rb.getString("Owned") + feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
+					", " + rb.getString("Owned2") + " " + owner.getPlayerName()+ " " + rb.getString("Bankrupt");
 
-	else if (owner.getFleetCounter(owner) > 1)
-		return player.getPlayerName()+", " + rb.getString("Owned")+" "+ feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
-				"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets1") +" "+
-				getRent(owner)+" kr.";
-	else 
-		return player.getPlayerName()+", " + rb.getString("Owned")+" "+ feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
-				"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets") +" "+
-				getRent(owner)+" kr.";
-}	
+		else if (owner.getFleetCounter(owner) > 1)
+			return player.getPlayerName()+", " + rb.getString("Owned")+" "+ feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
+					"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets1") +" "+
+					getRent(owner)+" kr.";
+		else 
+			return player.getPlayerName()+", " + rb.getString("Owned")+" "+ feltNavn + ", " +rb.getString("Owned1") + " " + owner.getPlayerName()+
+					"\n"+owner.getPlayerName() +" "+ rb.getString("Owns") +" "+ owner.getFleetCounter(owner) +" "+ rb.getString("Fleets") +" "+
+					getRent(owner)+" kr.";
+	}	
 
-public void landOnField(Player player) {
-	GUI.showMessage(getFeltBesked(player));
-	if(owner == null)
-		buyFieldOption(player);
-	else if (owner.getPlayerAccount().isBankrupt() == true){
+	public void landOnField(Player player) {
+		GUI.showMessage(getFeltBesked(player));
+		if(owner == null)
+			buyFieldOption(player);
+		else if (owner.getPlayerAccount().isBankrupt() == true){
 
-	} else {
-		getRent(owner);
-		player.getPlayerAccount().transfer(owner.getPlayerAccount(), getRent(owner));
-		GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
-		GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
+		} else {
+			getRent(owner);
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), getRent(owner));
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
+		}
+
 	}
-
-}
 }
