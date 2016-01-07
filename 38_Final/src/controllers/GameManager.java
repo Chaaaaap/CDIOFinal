@@ -274,9 +274,9 @@ public class GameManager
 					gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 				}
 
-				else {
+				else GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9")); {
 					if (player.getJailRoll() == 2) {
-						GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9"));
+						
 						player.getPlayerAccount().adjustBalance(-1000);
 						GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 						player.isJailed = false;
