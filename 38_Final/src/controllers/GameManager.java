@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import entities.ChanceField;
 import entities.Dice;
+import entities.Felt;
 import entities.LanguageSelector;
 import entities.Player;
 import chance.*;
