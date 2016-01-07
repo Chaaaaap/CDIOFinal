@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import entities.Territory;
+
 public class Player 
 {
 	//Global variables of this class,
@@ -12,9 +15,11 @@ public class Player
 	private int hotelCounter;
 	private int houseCounter;
 	private int jailBreakCounter;
+	private ArrayList<Territory> OwnedProperties;
 
 	public Player() 
 	{
+		OwnedProperties = new ArrayList<Territory>();
 		playerAccount = new PlayerAccount(30000);
 		fleetCounter = 0;
 		breweryCounter = 0;
@@ -131,4 +136,15 @@ public class Player
 		if(jailBreakCounter > 0)
 			jailBreakCounter--;
 	}
+	
+	public void addProperty(Territory territory) {
+	
+		OwnedProperties.add(territory);
+	}
+	
+	public ArrayList<Territory>  getProperty(){
+		return OwnedProperties;
+	}
+	
+	
 }

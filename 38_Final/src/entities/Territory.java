@@ -94,6 +94,8 @@ public class Territory extends Ownable {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
+			player.addProperty(this);
+//			player.getProperty().get(0).getFeltNavn();
 			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
@@ -107,4 +109,9 @@ public class Territory extends Ownable {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public String getFeltNavn(){
+	return feltNavn;	
+	}
+	
 }

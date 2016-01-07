@@ -37,11 +37,11 @@ public class GameManager
 		rb = gameBoard.getBundle();
 		cc = new ChanceCards[33];
 		initChanceCards();
-		
+
 
 	}
 
-	
+
 	private void initChanceCards() {
 		cc[0] = new ChanceGoToJail("ChanceJail");
 		cc[1] = new ChanceJailBreak("ChanceKing");
@@ -182,12 +182,12 @@ public class GameManager
 
 
 			Jailed(player,  diceCup);
-//			System.out.println(player.getJailRoll());
+			//			System.out.println(player.getJailRoll());
 
 			if(!player.isJailed){
-				
+
 				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
-				
+
 				diceCup.shake();
 				sum = diceCup.getSumResult();
 				GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
@@ -205,6 +205,13 @@ public class GameManager
 				player.setCurrentField((player.getCurrentField()));
 				//Gets the landOnField from whatever field the player landed on.
 				gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
+
+				
+//				Til at udskrive det første felt udskift 0 med i i et forloop til menuen
+//				if(!player.getProperty().isEmpty()){
+//					System.out.println(player.getProperty().get(0).getFeltNavn());
+//				}
+				
 				//Removes the car of any bankrupt player.
 				if(player.getPlayerAccount().isBankrupt())
 					GUI.removeAllCars(player.getPlayerName());
@@ -242,7 +249,7 @@ public class GameManager
 	public void Jailed(Player player, DiceCup diceCup){
 
 		if(player.isJailed){
-			
+
 			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
 
 			if(player.getFreeCard() > 0){
