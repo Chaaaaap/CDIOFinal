@@ -244,10 +244,12 @@ public class GameManager
 						GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 						player.isJailed = false;	
 						player.setJailRoll(0);
+						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 					}
 
 					else{
 						player.addJailRollCounter();
+						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 					}
 				}
 			}
