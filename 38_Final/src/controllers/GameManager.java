@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import entities.Dice;
 import entities.LanguageSelector;
 import entities.Player;
+import chance.*;
 
 public class GameManager 
 {
@@ -25,6 +26,7 @@ public class GameManager
 	private String country;
 	//	private String languageChosen;
 	private ResourceBundle rb;
+	private ChanceCards[] cc;
 
 	//GameManager constructor
 	public GameManager()
@@ -33,9 +35,42 @@ public class GameManager
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
+		cc = new ChanceCards[33];
+		initChanceCards();
 
 	}
 
+	
+	private void initChanceCards() {
+		cc[0] = new ChanceGoToJail("ChanceJail");
+		cc[1] = new ChanceJailBreak("ChanceKing");
+		cc[2] = new ChancePay("ChancePayFine", 1000);
+		cc[3] = new ChancePay("ChancePayInsurence", 1000);
+		cc[4] = new ChancePay("ChanceFine", 200);
+		cc[5] = new ChanceMoveTo("ChanceTown", 39);
+		cc[6] = new ChanceJailBreak("ChanceKing");
+		cc[7] = new ChanceMoveTo("ChanceFrederiksberg", 37);
+		cc[8] = new ChanceMoveTo("ChanceShip", 25);
+		cc[9] = new ChanceRecieve("ChanceAktie", 1000);
+		cc[10] = new ChanceRecieve("ChanceAktie", 1000);
+		cc[11] = new ChanceRecieve("ChanceAktie", 1000);
+		cc[12] = new ChanceRecieve("ChanceAktie", 1000);
+		cc[13] = new ChanceRecieve("ChanceAktie", 1000);
+		cc[14] = new ChancePayPerProperty("ChanceOil", 500, 2000);
+		cc[15] = new ChanceRecieve("ChanceBond", 1000);
+		cc[16] = new ChanceMove("ChanceMove", -3);
+		cc[17] = new ChanceRecieve("ChanceLottery", 500);
+		cc[18] = new ChancePay("ChanceRepair", 3000);
+		cc[19] = new ChanceRecieve("ChanceTax", 3000);
+		cc[20] = new ChanceMoveTo("ChanceGrænningen", 24);
+		cc[21] = new ChancePayPerProperty("ChancePropertyTax", 800, 2300);
+		cc[22] = new ChanceRecieve("ChanceTipning", 1000);
+		cc[23] = new ChanceMoveTo("ChanceStart", 1);
+		cc[24] = new ChanceRecieve("ChanceGarden", 200);
+		cc[25] = new ChancePay("ChanceDentist", 2000);
+		cc[26] = new ChancePay("ChanceAbroad", 200);
+		cc[27] = new ChanceRecieve("ChanceDyrtid", 1000);		
+	}
 	//StartGameEngine method is a void method, which means 
 	//it does not return any value.
 	//StartGameEngine is the brain of this game-program
