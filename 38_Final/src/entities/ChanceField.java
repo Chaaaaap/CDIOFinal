@@ -11,6 +11,7 @@ public class ChanceField extends Felt {
 	private ChanceCards[] chanceCard;
 	private String[] chanceCards;
 	private String cardText;
+	private ChanceCards cc;
 
 	public ChanceField(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
@@ -28,14 +29,8 @@ public class ChanceField extends Felt {
 	@Override
 	public void landOnField(Player player) {
 		getFeltBesked(player);
-//		chanceCard.drawCard();
-//		cardText = chanceCard.toString();
-//		
-//		switch(cardText) {
-//		case "ChanceAktie": GUI.showMessage(""); player.adjustBalance(player, 1000); break;
-//		case "ChancePayFine": GUI.showMessage(""); player.adjustBalance(player, -1000); break;
-//		case "ChanceJail": GUI.showMessage(""); player.isJailed = true; GUI.removeAllCars(player.getPlayerName()); player.setCurrentField(11); GUI.setCar(player.getCurrentField(), player.getPlayerName()); break;
-//		}
+//		cc = chanceCa
+//		cc.
 		
 	}
 
