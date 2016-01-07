@@ -8,12 +8,13 @@ public abstract class ChanceCards {
 
 	private Random generator;
 	private String cardName;
+	private ChanceCards[] chanceCards;
 
 	public ChanceCards(String cardName) {
 		this.cardName = cardName;
 	}
 	
-	public void shuffle(ChanceCards[] chanceCards) {
+	public void shuffle() {
 		for(int i = 0; i < chanceCards.length; i++) {
 			int j = generator.nextInt(chanceCards.length);
 			ChanceCards tmp = chanceCards[i];

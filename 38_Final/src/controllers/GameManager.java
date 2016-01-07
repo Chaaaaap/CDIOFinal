@@ -37,6 +37,7 @@ public class GameManager
 		rb = gameBoard.getBundle();
 		cc = new ChanceCards[33];
 		initChanceCards();
+		
 
 	}
 
