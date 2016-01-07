@@ -225,6 +225,7 @@ public class GameManager
 				diceCup.shake();
 
 				if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
+					GUI.showMessage(player.getPlayerName()+" "+rb.getString("Jail8"));
 					player.isJailed = false;
 					player.setJailRoll(0);		
 					sum = diceCup.getSumResult();
