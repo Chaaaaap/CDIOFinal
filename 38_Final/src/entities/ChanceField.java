@@ -30,10 +30,10 @@ public class ChanceField extends Felt {
 
 	@Override
 	public void landOnField(Player player) {
-		getFeltBesked(player);
-		chanceCard = cc.drawCard();
-		GUI.showMessage(rb.getString(chanceCard.toString()));
-		chanceCard.executeCard(player);		
+//		getFeltBesked(player);
+//		chanceCard = cc.drawCard();
+//		GUI.showMessage(rb.getString(chanceCard.toString()));
+//		chanceCard.executeCard(player);		
 	}
 
 	@Override
