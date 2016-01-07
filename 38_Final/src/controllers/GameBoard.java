@@ -45,7 +45,7 @@ public class GameBoard {
 		GUI.showMessage(rb.getString("Velkommen"));
 	}
 	
-	private void languageSelect(String languageChosen2) {
+	private void languageSelect(String languageChosen) {
 		if(languageChosen.equalsIgnoreCase("Dansk")) {
 			language = "da";
 			country = "DK";
