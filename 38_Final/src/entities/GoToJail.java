@@ -23,6 +23,7 @@ public class GoToJail extends Felt {
 		player.setCurrentField(10);
 		GUI.removeAllCars(player.getPlayerName());
 		GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+		
 	}
 
 	@Override
