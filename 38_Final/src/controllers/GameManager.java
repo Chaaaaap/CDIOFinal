@@ -209,19 +209,19 @@ public class GameManager
 			
 			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
 
-			if(player.getFreeCard() >0){
-				jailedOption = GUI.getUserButtonPressed("Hvad vil du g�re?", "Betale 1000", "Sl� med terningerne","Bruge mit frikendelseskort");
+			if(player.getFreeCard() > 0){
+				jailedOption = GUI.getUserButtonPressed(rb.getString("Jail3"), rb.getString("Jail5"), rb.getString("Jail6"), rb.getString("Jail7"));
 			}
 			else{
-				jailedOption = GUI.getUserButtonPressed("Hvad vil du g�re?", "Betale 1000", "Sl� med terningerne");
+				jailedOption = GUI.getUserButtonPressed(rb.getString("Jail4"), rb.getString("Jail5"), rb.getString("Jail6"));
 			}
-			if(jailedOption.equals("Betale 1000")) {
+			if(jailedOption.equals(rb.getString("Jail5"))) {
 				player.getPlayerAccount().adjustBalance(-1000);
 				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 				player.isJailed = false;
 				player.setJailRoll(0);
 			}
-			else if(jailedOption.equals("Sl� med terningerne")){
+			else if(jailedOption.equals(rb.getString("Jail6"))){
 				diceCup.shake();
 
 				if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
@@ -252,7 +252,7 @@ public class GameManager
 				}
 			}
 
-			if(jailedOption.equals("Bruge mit frikendelseskort")) {
+			if(jailedOption.equals(rb.getString("Jail7"))) {
 				player.useFreeCard();
 				player.isJailed = false;
 				player.setJailRoll(0);

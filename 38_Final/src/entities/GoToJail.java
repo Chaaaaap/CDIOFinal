@@ -7,8 +7,15 @@ import desktop_resources.GUI;
 
 public class GoToJail extends Felt {
 
+	private Player player;
+	private ResourceBundle rb;
+	private GameBoard gameBoard;
+
 	public GoToJail(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
+		this.gameBoard = gameBoard;
+		this.rb = gameBoard.getBundle();
+		
 	}
 	
 	private void goToJail(Player player) {
@@ -20,13 +27,14 @@ public class GoToJail extends Felt {
 
 	@Override
 	public void landOnField(Player player) {
+		this.player = player;
 		goToJail(player);
-		getFeltBesked(player);
+		GUI.showMessage(getFeltBesked(player));
 	}
 
 	@Override
 	public String getFeltBesked(Player player) {
-		return null;
+		return player.getPlayerName()+", "+rb.getString("Jail2");
 	}
 
 }
