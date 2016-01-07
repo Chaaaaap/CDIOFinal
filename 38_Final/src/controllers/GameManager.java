@@ -210,10 +210,10 @@ public class GameManager
 			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
 
 			if(player.getFreeCard() > 0){
-				jailedOption = GUI.getUserButtonPressed(rb.getString("Jail3"), rb.getString("Jail5"), rb.getString("Jail6"), rb.getString("Jail7"));
+				jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail3"), rb.getString("Jail5"), rb.getString("Jail6"), rb.getString("Jail7"));
 			}
 			else{
-				jailedOption = GUI.getUserButtonPressed(rb.getString("Jail4"), rb.getString("Jail5"), rb.getString("Jail6"));
+				jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail4"), rb.getString("Jail5"), rb.getString("Jail6"));
 			}
 			if(jailedOption.equals(rb.getString("Jail5"))) {
 				player.getPlayerAccount().adjustBalance(-1000);
