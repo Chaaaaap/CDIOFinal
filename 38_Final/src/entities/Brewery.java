@@ -69,7 +69,7 @@ public class Brewery extends Ownable {
 		
 		else
 			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned2")+" "+owner.getPlayerName()
-					+" "+ rb.getString("wned5");
+					+" "+ rb.getString("Owned5");
 	}
 	
 	public DiceCup getDiceCup() {
