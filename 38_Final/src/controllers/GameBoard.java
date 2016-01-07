@@ -174,7 +174,7 @@ public class GameBoard {
 		guiFields[7].setTitle("Prøv Lykken"); guiFields[7].setDescription("Træk et kort"); guiFields[7].setSubText(" ");
 		guiFields[8].setTitle("Valby Langgade"); guiFields[8].setDescription("Pris: 2000 <BR> Leje: 100 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[8].setSubText("Territory");
 		guiFields[9].setTitle("Allégade"); guiFields[9].setDescription("Pris: 2400 <BR> Leje: 150 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[9].setSubText("Territory");
-		guiFields[10].setTitle("I Fængsel"); guiFields[10].setDescription("I Fængsel"); guiFields[10].setSubText("I Fængsel");
+		guiFields[10].setTitle("I Fængsel"); guiFields[10].setDescription("I Fængsel"); guiFields[10].setSubText("Jail");
 		guiFields[11].setTitle("Frederiks- berg Allé"); guiFields[11].setDescription("Pris: 2800 <BR> Leje: 200 <BR>Hus: 2000 <BR> Hotel: 2000"); guiFields[11].setSubText("Territory");
 		guiFields[12].setTitle("Tuborg Bryggeri"); guiFields[12].setDescription("Leje: 100 x antal øjne"); guiFields[12].setSubText("Brewery");
 		guiFields[13].setTitle("Bülowsvej"); guiFields[13].setDescription("Pris: 2800 <BR> Leje: 200 <BR> Hus: 2000 <BR> Hotel: 2000"); guiFields[13].setSubText("Territory");
