@@ -7,7 +7,7 @@ public class Player
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private PlayerAccount playerAccount;
-	private int currentField=1, fleetCounter,breweryCounter,JailRollCounter,FreeCardCounter;
+	private int currentField=1, fleetCounter,breweryCounter,jailRollCounter,freeCardCounter;
 	public boolean isJailed;
 	private int hotelCounter;
 	private int houseCounter;
@@ -20,8 +20,8 @@ public class Player
 		breweryCounter = 0;
 		houseCounter = 0;
 		hotelCounter = 0;
-		JailRollCounter = 0;
-		FreeCardCounter = 0;
+		jailRollCounter = 0;
+		freeCardCounter = 0;
 		
 		
 	}
@@ -85,29 +85,29 @@ public class Player
 
 	public void setJailRoll(int JailRollCounter)
 	{
-		this.JailRollCounter = JailRollCounter;
+		this.jailRollCounter = JailRollCounter;
 	}
 
 	public int getJailRoll()
 	{
-		return JailRollCounter;
+		return jailRollCounter;
 	}
 	
 	public void addJailRollCounter() {
-		JailRollCounter++;
+		jailRollCounter++;
 	}
 	
 	public int getFreeCard()
 	{
-		return FreeCardCounter;
+		return freeCardCounter;
 	}
 	
 	public void addFreeCard() {
-		FreeCardCounter++;
+		freeCardCounter++;
 	}
 	
 	public void useFreeCard() {
-		FreeCardCounter--;
+		freeCardCounter--;
 	}
 	
 	
