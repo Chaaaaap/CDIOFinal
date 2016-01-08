@@ -15,11 +15,11 @@ public class Player
 	private int hotelCounter;
 	private int houseCounter;
 	private int jailBreakCounter;
-	private ArrayList<Territory> OwnedProperties;
+	private ArrayList<String> OwnedProperties;
 
 	public Player() 
 	{
-		OwnedProperties = new ArrayList<Territory>();
+		OwnedProperties = new ArrayList<String>();
 		playerAccount = new PlayerAccount(30000);
 		fleetCounter = 0;
 		breweryCounter = 0;
@@ -137,12 +137,12 @@ public class Player
 			jailBreakCounter--;
 	}
 	
-	public void addProperty(Territory territory) {
+	public void addProperty(String feltNavn) {
 	
-		OwnedProperties.add(territory);
+		OwnedProperties.add(feltNavn);
 	}
 	
-	public ArrayList<Territory>  getProperty(){
+	public ArrayList<String>  getProperty(){
 		return OwnedProperties;
 	}
 	
