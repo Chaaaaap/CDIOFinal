@@ -57,7 +57,7 @@ public class GameManager
 		cc[4] = new ChancePay("ChanceFine", 200);
 		cc[5] = new ChanceMoveTo("ChanceTown", 39);
 		cc[6] = new ChanceJailBreak("ChanceKing");
-		cc[7] = new ChanceMoveTo("ChanceFrederiksberg", 37);
+		cc[7] = new ChanceMoveTo("ChanceFrederiksberg", 38);
 		cc[8] = new ChanceMoveTo("ChanceShip", 26);
 		cc[9] = new ChanceRecieve("ChanceAktie", 1000);
 		cc[10] = new ChanceRecieve("ChanceAktie", 1000);
