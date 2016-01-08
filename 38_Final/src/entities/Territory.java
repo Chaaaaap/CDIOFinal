@@ -8,7 +8,7 @@ import controllers.GameBoard;
 
 public class Territory extends Ownable {
 
-	private territoryData td;
+	private TerritoryData td;
 
 	//Global variables of this class,
 	//which also called fields.
@@ -18,7 +18,7 @@ public class Territory extends Ownable {
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
-		this.td = new territoryData(rent, feltNavn, owner, rb, price, gb, feltNavn);
+		this.td = new TerritoryData(rent, feltNavn, owner, rb, price, gb, feltNavn);
 	}
 
 	@Override
@@ -97,20 +97,22 @@ public class Territory extends Ownable {
 	}
 
 	public void buyHouse(Player player) {
-		// TODO Auto-generated method stub
+		player.adjustBalance(player, -td.getPrice());
+		td.addHouseCounter();
+		player.addHouseCounter();
 		
 	}
 	
 	
 	
-	territoryData getTerritoryData(){
+	TerritoryData getTerritoryData(){
 		return  td;
 	}
 	
-	private class territoryData {
+	private class TerritoryData {
 		
 		
-		public String getBuy;
+		private String getBuy;
 		private int rent;
 		private int houseCounter;
 		private String buy;
@@ -119,7 +121,8 @@ public class Territory extends Ownable {
 		private int price;
 		private GameBoard gb;
 		private String feltNavn;
-		private territoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn) {
+		
+		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn) {
 			super();
 			this.rent = rent;
 			this.buy = buy;
@@ -155,6 +158,11 @@ public class Territory extends Ownable {
 		private GameBoard getGb() {
 			return gb;
 		}
+		
+		private void addHouseCounter() {
+			houseCounter++;
+		}
+		
 		
 		
 		
