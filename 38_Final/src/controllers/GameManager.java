@@ -213,6 +213,17 @@ public class GameManager
 				//Gets the landOnField from whatever field the player landed on.
 				Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
 				
+
+
+				// koden nedenfor får de ejede grunde printet ud i consolen
+				if(!player.getProperty().isEmpty()){
+					for (int i = 0; i < player.getProperty().size(); i++) {
+				System.out.println(player.getProperty());
+					}
+				}
+				
+				
+				
 				if (currentField instanceof ChanceField){
 					GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
 					chanceCard = chanceCardController.drawCard();
