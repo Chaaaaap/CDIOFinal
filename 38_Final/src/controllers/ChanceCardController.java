@@ -9,6 +9,10 @@ public class ChanceCardController {
 	private ChanceCard[] chanceCards;
 	private Random generator;
 
+	public ChanceCardController(ChanceCard[] cc) {
+		this.chanceCards = cc; 
+	}
+
 	public ChanceCard drawCard() {
 		ChanceCard drawn;
 		drawn = chanceCards[0];

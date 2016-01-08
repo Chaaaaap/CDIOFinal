@@ -41,6 +41,8 @@ public class GameManager
 		rb = gameBoard.getBundle();
 		cc = new ChanceCard[33];
 		initChanceCards();
+		chanceCardController = new ChanceCardController(cc);
+		chanceCardController.shuffle();
 
 
 	}
