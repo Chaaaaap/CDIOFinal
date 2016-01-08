@@ -8,26 +8,17 @@ import controllers.GameBoard;
 
 public class Territory extends Ownable {
 
+	private territoryData td;
+
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-	private int rent;
-	private int price;
-	private int houseCounter;
-	private String feltNavn, buy;
-	private Player owner, player;
-	private GameBoard gameBoard;
-	private ResourceBundle rb;
+	
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
-		this.price = price;
-		this.rent = rent;
-		this.feltNavn = feltNavn;
-		this.owner = null;
-		this.gameBoard = gb;
-		this.rb = gameBoard.getBundle();
+		this.td = new territoryData(rent, feltNavn, owner, rb);
 	}
 
 	@Override
@@ -110,8 +101,43 @@ public class Territory extends Ownable {
 		
 	}
 	
-	public String getFeltNavn(){
-	return feltNavn;	
+	
+	
+	territoryData getTerritoryData(){
+		return  td;
+	}
+	
+	private class territoryData {
+		
+		
+		private int rent;
+		private int houseCounter;
+		private String buy;
+		private Player owner;
+		private ResourceBundle rb;
+		private territoryData(int rent, String buy, Player owner, ResourceBundle rb) {
+			super();
+			this.rent = rent;
+			this.buy = buy;
+			this.owner = owner;
+			this.rb = rb;
+		}
+		public Player getOwner() {
+			return owner;
+		}
+		public void setOwner(Player owner) {
+			this.owner = owner;
+		}
+		public int getRent() {
+			return rent;
+		}
+		public int getHouseCounter() {
+			return houseCounter;
+		}
+		
+		
+		
+		
 	}
 	
 }

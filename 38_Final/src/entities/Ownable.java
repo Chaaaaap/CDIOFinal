@@ -7,7 +7,7 @@ public abstract class Ownable extends Felt{
 	//This is an abstract class that extends from the abstract Felt class.
 	//the class is abstract because other classes have to extend
 	//from this class. Its the body of all classes, that are ownable.
-	private Player owner;
+	protected Player owner;
 	private int pris;
 	
 
