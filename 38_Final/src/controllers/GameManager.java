@@ -31,6 +31,7 @@ public class GameManager
 	private ResourceBundle rb;
 	private ChanceCard[] cc;
 	private ChanceCardController chanceCardController;
+	private ChanceCard chanceCard;
 
 	//GameManager constructor
 	public GameManager()
@@ -213,7 +214,10 @@ public class GameManager
 				Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
 				
 				if (currentField instanceof ChanceField){
-					chanceCardController.drawCard().executeCard(player);
+					GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
+					chanceCard = chanceCardController.drawCard();
+					GUI.showMessage(rb.getString(chanceCard.toString()));
+					chanceCard.executeCard(player);
 					
 				} else {
 				

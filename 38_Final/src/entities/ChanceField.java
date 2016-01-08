@@ -38,8 +38,7 @@ public class ChanceField extends Felt {
 
 	@Override
 	public String getFeltBesked(Player player) {
-		// TODO Auto-generated method stub
-		return null;
+		return "PrøvLykken";
 	}
 
 }
