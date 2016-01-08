@@ -2,7 +2,7 @@ package chance;
 
 import entities.Player;
 
-public class ChanceJailBreak extends ChanceCards {
+public class ChanceJailBreak extends ChanceCard {
 
 	public ChanceJailBreak(String cardName) {
 		super(cardName);

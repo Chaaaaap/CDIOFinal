@@ -3,7 +3,7 @@ package chance;
 import desktop_resources.GUI;
 import entities.Player;
 
-public class ChanceMoveTo extends ChanceCards {
+public class ChanceMoveTo extends ChanceCard {
 
 	private int moveTo;
 

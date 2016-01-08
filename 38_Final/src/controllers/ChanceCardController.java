@@ -1,12 +1,18 @@
 package controllers;
 
-import chance.ChanceCards;
+import chance.ChanceCard;
 
 public class ChanceCardController {
 
-	public ChanceCards drawCard() {
-		// TODO Auto-generated method stub
-		return null;
+	private ChanceCard[] chanceCards;
+
+	public ChanceCard drawCard() {
+		ChanceCard drawn;
+		drawn = chanceCards[0];
+		for(int i=0;i<51;i++){
+			chanceCards[i]=chanceCards[i+1];
+		}
+		return drawn;
 	}
 
 }

@@ -3,7 +3,7 @@ package chance;
 import desktop_resources.GUI;
 import entities.Player;
 
-public class ChanceGoToJail extends ChanceCards {
+public class ChanceGoToJail extends ChanceCard {
 
 	public ChanceGoToJail(String cardName) {
 		super(cardName);

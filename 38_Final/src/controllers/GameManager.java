@@ -29,7 +29,7 @@ public class GameManager
 	private String country;
 	//	private String languageChosen;
 	private ResourceBundle rb;
-	private ChanceCards[] cc;
+	private ChanceCard[] cc;
 	private ChanceCardController chanceCardController;
 
 	//GameManager constructor
@@ -39,7 +39,7 @@ public class GameManager
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
-		cc = new ChanceCards[33];
+		cc = new ChanceCard[33];
 		initChanceCards();
 
 

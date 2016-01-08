@@ -3,7 +3,7 @@ package chance;
 import desktop_resources.GUI;
 import entities.Player;
 
-public class ChancePayPerProperty extends ChanceCards {
+public class ChancePayPerProperty extends ChanceCard {
 
 	private int amountPerHouse;
 	private int amountPerHotel;

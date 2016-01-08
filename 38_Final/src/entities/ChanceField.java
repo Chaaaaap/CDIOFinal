@@ -2,22 +2,22 @@ package entities;
 
 import java.util.ResourceBundle;
 
-import chance.ChanceCards;
+import chance.ChanceCard;
 import controllers.GameBoard;
 import desktop_resources.GUI;
 
 public class ChanceField extends Felt {
 
-	private ChanceCards[] chanceCards;
-	private ChanceCards chanceCard;
+	private ChanceCard[] chanceCards;
+	private ChanceCard chanceCard;
 	private String cardText;
-	private ChanceCards cc;
+	private ChanceCard cc;
 	private ResourceBundle rb;
 
 	public ChanceField(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
 		this.rb = rb;
-		chanceCards = new ChanceCards[33];
+		chanceCards = new ChanceCard[33];
 		initCards();
 //		chanceCard.shuffle();
 		
