@@ -10,13 +10,14 @@ public class ChanceCardController {
 	private Random generator;
 
 	public ChanceCardController(ChanceCard[] cc) {
-		this.chanceCards = cc; 
+		this.chanceCards = cc;
+		generator = new Random();
 	}
 
 	public ChanceCard drawCard() {
 		ChanceCard drawn;
 		drawn = chanceCards[0];
-		for(int i=0;i<51;i++){
+		for(int i=0;i<chanceCards.length-1;i++){
 			chanceCards[i]=chanceCards[i+1];
 		}
 		return drawn;
