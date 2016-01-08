@@ -13,17 +13,17 @@ public class Territory extends Ownable {
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-	
+	private String buy;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
-		this.td = new territoryData(rent, feltNavn, owner, rb);
+		this.td = new territoryData(rent, feltNavn, owner, rb, price, gb);
 	}
 
 	@Override
 	public int getRent(Player player) {
-		return rent;
+		return td.getRent();
 	}
 
 	
@@ -32,18 +32,18 @@ public class Territory extends Ownable {
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null){
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+"."; 
+			return player.getPlayerName()+", "+td.getResourceBundle().getString("Owned")+" "+feltNavn+"."; 
 		}
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-			return player.getPlayerName()+", "+ rb.getString("Owned4");
+			return player.getPlayerName()+", "+ td.getResourceBundle().getString("Owned4");
 		
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()+
-					", "+ rb.getString("Owned2")+" "+owner.getPlayerName()+" "+ rb.getString("Bankrupt");
+			return player.getPlayerName()+", "+td.getResourceBundle().getString("Owned")+" "+feltNavn+", "+td.getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+
+					", "+ td.getResourceBundle().getString("Owned2")+" "+owner.getPlayerName()+" "+ td.getResourceBundle().getString("Bankrupt");
 	
 		else 
-			return player.getPlayerName()+", "+rb.getString("Owned")+" "+feltNavn+", "+rb.getString("Owned1")+" "+owner.getPlayerName()+"\n"+ rb.getString("Owned3")+" "+rent+" kr.";
+			return player.getPlayerName()+", "+td.getResourceBundle().getString("Owned")+" "+feltNavn+", "+td.getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ rb.getString("Owned3")+" "+rent+" kr.";
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class Territory extends Ownable {
 		else  if (owner.getPlayerAccount().isBankrupt() == true){
 			
 		} else {
-			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);	
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), td.getRent());	
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
 		}
@@ -80,14 +80,14 @@ public class Territory extends Ownable {
 	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(rb.getString("Købe")+" "+price+"$?", rb.getString("Ja"),rb.getString("Nej"));
-		if(buy.equals(rb.getString("Ja"))) {
-			player.getPlayerAccount().adjustBalance(-price);
+		buy = GUI.getUserButtonPressed(td.getResourceBundle().getString("Købe")+" "+td.getPrice()+"$?", td.getResourceBundle().getString("Ja"),td.getResourceBundle().getString("Nej"));
+		if(buy.equals(td.getResourceBundle().getString("Ja"))) {
+			player.getPlayerAccount().adjustBalance(-td.getPrice());
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 			player.addProperty(this);
 //			player.getProperty().get(0).getFeltNavn();
-			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
+			td.getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
 
@@ -110,31 +110,46 @@ public class Territory extends Ownable {
 	private class territoryData {
 		
 		
+		public String getBuy;
 		private int rent;
 		private int houseCounter;
 		private String buy;
 		private Player owner;
 		private ResourceBundle rb;
-		private territoryData(int rent, String buy, Player owner, ResourceBundle rb) {
+		private int price;
+		private GameBoard gb;
+		private territoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb) {
 			super();
 			this.rent = rent;
 			this.buy = buy;
 			this.owner = owner;
 			this.rb = rb;
+			this.price = price;
+			this.gb = gb;
 		}
-		public Player getOwner() {
+		private Player getOwner() {
 			return owner;
 		}
-		public void setOwner(Player owner) {
+		private void setOwner(Player owner) {
 			this.owner = owner;
 		}
-		public int getRent() {
+		private int getRent() {
 			return rent;
 		}
-		public int getHouseCounter() {
+		private int getHouseCounter() {
 			return houseCounter;
 		}
 		
+		private int getPrice() {
+			return price;
+		}
+		
+		private ResourceBundle getResourceBundle() {
+			return rb;
+		}
+		private GameBoard getGb() {
+			return gb;
+		}
 		
 		
 		
