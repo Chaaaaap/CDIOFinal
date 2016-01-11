@@ -18,12 +18,11 @@ public class ChanceMove extends ChanceCard {
 	private ResourceBundle rb;
 	private ChanceCardController ccc;
 
-	public ChanceMove(String cardName, int antalFelter, GameBoard gameBoard, ChanceCard[] cc, ResourceBundle rb, ChanceCardController ccc) {
+	public ChanceMove(String cardName, int antalFelter, GameBoard gameBoard, ChanceCard[] cc, ChanceCardController ccc) {
 		super(cardName);
 		this.antalFelter = antalFelter;
 		this.gb = gameBoard;
 		this.cc = cc;
-		this.rb = rb;
 		this.ccc = ccc;
 	}
 
