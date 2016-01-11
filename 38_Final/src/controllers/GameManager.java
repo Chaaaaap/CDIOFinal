@@ -42,14 +42,14 @@ public class GameManager
 		rb = gameBoard.getBundle();
 		cc = new ChanceCard[28];
 		chanceCardController = new ChanceCardController(cc);
-		initChanceCards();
+		initChanceCards(rb);
 		chanceCardController.shuffle();
 
 
 	}
 
 
-	private void initChanceCards() {
+	private void initChanceCards(ResourceBundle rb) {
 		cc[0] = new ChanceGoToJail("ChanceJail");
 		cc[1] = new ChanceJailBreak("ChanceKing");
 		cc[2] = new ChancePay("ChancePayFine", 1000);
