@@ -26,7 +26,7 @@ public class Territory extends Ownable {
 		return td.getRent();
 	}
 
-	
+
 	//This method makes the text, that are being showed in the GUI
 	//when a player lands on the Territory fields.
 	@Override
@@ -34,14 +34,14 @@ public class Territory extends Ownable {
 		if(owner == null){
 			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+"."; 
 		}
-		
+
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
 			return player.getPlayerName()+", "+getResourceBundle().getString("Owned4");
-		
+
 		else if (owner.getPlayerAccount().isBankrupt() == true)
 			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+
 					", "+ getResourceBundle().getString("Owned2")+" "+owner.getPlayerName()+" "+ getResourceBundle().getString("Bankrupt");
-	
+
 		else 
 			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRent(player)+" kr.";
 	}
@@ -65,10 +65,10 @@ public class Territory extends Ownable {
 		GUI.showMessage(getFeltBesked(player));
 		if(owner == null) {
 			buyFieldOption(player);
-			
+
 		}
 		else  if (owner.isBankrupt(player) == true){
-			
+
 		} else {
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), getRent(player));	
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
@@ -86,43 +86,43 @@ public class Territory extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
 			player.addProperty(getFeltNavn());
-//			player.getProperty().get(0).getFeltNavn();
+			//			player.getProperty().get(0).getFeltNavn();
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
 
 	public void sellHouse(Player player) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void buyHouse(Player player) {
 		player.adjustBalance(player, -td.getPrice());
 		td.addHouseCounter();
 		player.addHouseCounter();
-		
+
 	}
-	
+
 	public int getPrice() {
 		return td.price;
 	}
-	
+
 	public String getFeltNavn() {
 		return td.getFeltNavn();
 	}
-	
+
 	public ResourceBundle getResourceBundle() {
 		return td.getResourceBundle();
 	}
-	
+
 	public GameBoard getGb() {
 		return td.getGb();
 	}
-	
-	
+
+
 	private class TerritoryData {
-		
-		
+
+
 		private String getBuy;
 		private int rent;
 		private int houseCounter;
@@ -132,9 +132,8 @@ public class Territory extends Ownable {
 		private int price;
 		private GameBoard gb;
 		private String feltNavn;
-		
+
 		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn) {
-			super();
 			this.rent = rent;
 			this.buy = buy;
 			this.owner = owner;
@@ -158,25 +157,25 @@ public class Territory extends Ownable {
 		private int getHouseCounter() {
 			return houseCounter;
 		}
-		
+
 		private int getPrice() {
 			return price;
 		}
-		
+
 		private ResourceBundle getResourceBundle() {
 			return rb;
 		}
 		private GameBoard getGb() {
 			return gb;
 		}
-		
+
 		private void addHouseCounter() {
 			houseCounter++;
 		}
-		
-		
-		
-		
+
+
+
+
 	}
-	
+
 }
