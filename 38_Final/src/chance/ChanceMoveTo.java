@@ -1,15 +1,18 @@
 package chance;
 
+import controllers.GameBoard;
 import desktop_resources.GUI;
 import entities.Player;
 
 public class ChanceMoveTo extends ChanceCard {
 
 	private int moveTo;
+	private GameBoard gb;
 
-	public ChanceMoveTo(String cardName, int moveTo) {
+	public ChanceMoveTo(String cardName, int moveTo, GameBoard gameBoard) {
 		super(cardName);
 		this.moveTo = moveTo;
+		this.gb = gameBoard;
 	}
 
 	@Override
@@ -22,7 +25,9 @@ public class ChanceMoveTo extends ChanceCard {
 		}
 		GUI.removeAllCars(player.getPlayerName());
 		player.setCurrentField(moveTo);
-		GUI.setCar(player.getCurrentField(), player.getPlayerName());		
+		GUI.setCar(player.getCurrentField(), player.getPlayerName());
+		gb.getlogicFields()[player.getCurrentField()].landOnField(player);
+		
 	}
 	
 	
