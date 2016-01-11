@@ -25,7 +25,7 @@ public class ChanceMoveTo extends ChanceCard {
 		}
 		GUI.removeAllCars(player.getPlayerName());
 		player.setCurrentField(moveTo-1);
-		GUI.setCar(player.getCurrentField(), player.getPlayerName());
+		GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 		gb.getlogicFields()[player.getCurrentField()].landOnField(player);
 		
 	}
