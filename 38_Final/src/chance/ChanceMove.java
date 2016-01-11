@@ -29,22 +29,26 @@ public class ChanceMove extends ChanceCard {
 	@Override
 	public void executeCard(Player player) {
 		GUI.removeAllCars(player.getPlayerName());
-		Felt currentField = gb.getlogicFields()[player.getCurrentField()+antalFelter];
-		if(player.getCurrentField() < 4) {
+		if(player.getCurrentField()+antalFelter > 0) {
+			Felt currentField = gb.getlogicFields()[player.getCurrentField()+antalFelter];
+
+
+			if(currentField instanceof ChanceField) {
+				player.setCurrentField(player.getCurrentField()+antalFelter);
+				GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+				GUI.showMessage(rb.getString(gb.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
+				chanceCard = ccc.drawCard();
+				GUI.showMessage(rb.getString(chanceCard.toString()));
+				chanceCard.executeCard(player);
+			} else 	{
+				player.setCurrentField(player.getCurrentField()+antalFelter);
+				GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+			}
+
+			gb.getlogicFields()[player.getCurrentField()].landOnField(player);
+		} else if(player.getCurrentField() < 4) {
 			player.setCurrentField(39);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
-		} else if(currentField instanceof ChanceField) {
-			player.setCurrentField(player.getCurrentField()+antalFelter);
-			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
-			GUI.showMessage(rb.getString(gb.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
-			chanceCard = ccc.drawCard();
-			GUI.showMessage(rb.getString(chanceCard.toString()));
-			chanceCard.executeCard(player);
-		} else 	{
-			player.setCurrentField(player.getCurrentField()+antalFelter);
-			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 		}
-
-		gb.getlogicFields()[player.getCurrentField()].landOnField(player);
 	}
 }
