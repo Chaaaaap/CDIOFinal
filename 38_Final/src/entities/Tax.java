@@ -32,7 +32,7 @@ public class Tax extends Felt {
 	}
 
 	private void payTax() {
-		Tax = GUI.getUserButtonPressed(rb.getString("Rent") +" "+ taxAmount +" "+ rb.getString("Rent1"), rb.getString("Pay")+" "+taxAmount, rb.getString("Pay")+" "+tenPercent(player));
+		Tax = GUI.getUserButtonPressed(rb.getString("Rent") +" "+ taxAmount +" "+ rb.getString("Rent1"), rb.getString("Pay")+" "+taxAmount, rb.getString("Pay1")+" "+tenPercent(player));
 		Pay = Integer.parseInt(Tax.replaceAll("[\\D]", ""));
 		player.getPlayerAccount().adjustBalance(-Pay);
 		GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
