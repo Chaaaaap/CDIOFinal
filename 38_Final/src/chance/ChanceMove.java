@@ -44,11 +44,10 @@ public class ChanceMove extends ChanceCard {
 				player.setCurrentField(player.getCurrentField()+antalFelter);
 				GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 			}
-
-			gb.getlogicFields()[player.getCurrentField()].landOnField(player);
 		} else if(player.getCurrentField() < 4) {
 			player.setCurrentField(39);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 		}
+		gb.getlogicFields()[player.getCurrentField()].landOnField(player);
 	}
 }
