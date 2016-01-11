@@ -36,6 +36,7 @@ public class ChanceMove extends ChanceCard {
 			player.setCurrentField(39);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 		} else if(currentField instanceof ChanceField) {
+			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 			GUI.showMessage(rb.getString(gb.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
 			chanceCard = ccc.drawCard();
 			GUI.showMessage(rb.getString(chanceCard.toString()));
