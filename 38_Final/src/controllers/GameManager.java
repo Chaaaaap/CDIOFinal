@@ -296,13 +296,6 @@ public class GameManager
 					player.setJailRoll(0);		
 					sum = diceCup.getSumResult();
 					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
-					//Moves the car around the board.
-					GUI.removeAllCars(player.getPlayerName());
-					player.setCurrentField((player.getCurrentField()+sum)%40);
-					GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
-					player.setCurrentField((player.getCurrentField()));
-					//Gets the landOnField from whatever field the player landed on.
-					gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 				}
 
 				else GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9")); {
