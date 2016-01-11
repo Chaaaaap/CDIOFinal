@@ -134,7 +134,7 @@ public class Player
 	}
 
 	public void addProperty(String feltNavn) {
-		OwnedProperties.add(feltNavn);
+			OwnedProperties.add(feltNavn);
 	}
 
 	public ArrayList<String>  getProperty(){

@@ -288,6 +288,7 @@ public class GameManager
 			}
 			else if(jailedOption.equals(rb.getString("Jail6"))){
 				diceCup.shake();
+				GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 
 				if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
 					GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail8"));
