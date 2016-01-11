@@ -5,7 +5,7 @@ import desktop_resources.GUI;
 import entities.Player;
 
 public class ChanceMove extends ChanceCard {
-	
+
 	private int antalFelter;
 	private GameBoard gb;
 
@@ -14,7 +14,7 @@ public class ChanceMove extends ChanceCard {
 		this.antalFelter = antalFelter;
 		this.gb = gameBoard;
 	}
-	
+
 	@Override
 	public void executeCard(Player player) {
 		GUI.removeAllCars(player.getPlayerName());
@@ -22,10 +22,9 @@ public class ChanceMove extends ChanceCard {
 		if(player.getCurrentField() < 2) {
 			player.setCurrentField(39);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
-		} else {
-			
-		GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+		} else 	
+			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());	
+
 		gb.getlogicFields()[player.getCurrentField()-1].landOnField(player);
-		}
 	}
 }
