@@ -187,7 +187,7 @@ public class GameManager
 		//Makes sure bankrupts players are skipped
 		if(player.getPlayerAccount().isBankrupt() == false) {
 
-
+			
 			Jailed(player,  diceCup);
 //			System.out.println(player.getJailRoll());
 
