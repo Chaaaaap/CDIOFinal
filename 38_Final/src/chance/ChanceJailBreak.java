@@ -11,7 +11,7 @@ public class ChanceJailBreak extends ChanceCard {
 
 	@Override
 	public void executeCard(Player player) {
-		player.addJailBreakCounter();
+		player.addFreeCard();
 		
 	}
 

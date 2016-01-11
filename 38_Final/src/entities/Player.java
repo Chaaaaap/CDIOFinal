@@ -27,8 +27,8 @@ public class Player
 		hotelCounter = 0;
 		jailRollCounter = 0;
 		freeCardCounter = 0;
-		
-		
+
+
 	}
 
 	//Setter method for setting player name.
@@ -47,19 +47,19 @@ public class Player
 	{
 		return playerAccount;
 	}
-	
+
 	public int getCurrentField() {
 		return currentField;
 	}
-	
+
 	public void setCurrentField(int currentField) {
 		this.currentField = currentField;
 	}
-	
+
 	public void addFleetCounter() {
 		fleetCounter++;
 	}
-	
+
 	public int getFleetCounter(Player player) {
 		return fleetCounter;
 	}
@@ -67,23 +67,23 @@ public class Player
 	public void addBreweryCounter() {
 		breweryCounter++;
 	}
-	
+
 	public int getBreweryCounter(Player player) {
 		return breweryCounter;
 	}
-	
+
 	public void addHouseCounter() {
 		houseCounter++;
 	}
-	
+
 	public int getHouseCounter() {
 		return houseCounter;
 	}
-	
+
 	public void addHotelCounter() {
 		hotelCounter++;
 	}
-	
+
 	public int getHotelCounter() {
 		return hotelCounter;
 	}
@@ -97,58 +97,49 @@ public class Player
 	{
 		return jailRollCounter;
 	}
-	
+
 	public void addJailRollCounter() {
 		jailRollCounter++;
 	}
-	
+
 	public int getFreeCard()
 	{
 		return freeCardCounter;
 	}
-	
+
 	public void addFreeCard() {
 		freeCardCounter++;
 	}
-	
+
 	public void useFreeCard() {
-		freeCardCounter--;
+		if(freeCardCounter > 0)
+			freeCardCounter--;
 	}
-	
-	
+
+
 	public int getBalance(Player player) {
 		return player.getPlayerAccount().getBalance();
 	}
-	
+
 	public void adjustBalance(Player player, int amount) {
 		player.getPlayerAccount().adjustBalance(amount);
 	}
-	
+
 	public void setBalance(Player player, int amount) {
 		player.getPlayerAccount().setBalance(amount);
 	}
-	
+
 	public boolean isBankrupt(Player player) {
 		return player.getPlayerAccount().isBankrupt();
 	}
 
-	public void addJailBreakCounter() {
-		jailBreakCounter++;		
-	}
-	
-	public void useJailBreakCounter() {
-		if(jailBreakCounter > 0)
-			jailBreakCounter--;
-	}
-	
 	public void addProperty(String feltNavn) {
-	
 		OwnedProperties.add(feltNavn);
 	}
-	
+
 	public ArrayList<String>  getProperty(){
 		return OwnedProperties;
 	}
-	
-	
+
+
 }
