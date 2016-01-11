@@ -19,7 +19,7 @@ public class ChanceMove extends ChanceCard {
 	public void executeCard(Player player) {
 		GUI.removeAllCars(player.getPlayerName());
 		
-		if(player.getCurrentField() < 2) {
+		if(player.getCurrentField() < 4) {
 			player.setCurrentField(40);
 			GUI.setCar(player.getCurrentField(), player.getPlayerName());
 		} else 	{
