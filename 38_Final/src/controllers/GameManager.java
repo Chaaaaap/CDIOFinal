@@ -41,8 +41,8 @@ public class GameManager
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
 		cc = new ChanceCard[28];
-		initChanceCards();
 		chanceCardController = new ChanceCardController(cc);
+		initChanceCards();
 		chanceCardController.shuffle();
 
 
