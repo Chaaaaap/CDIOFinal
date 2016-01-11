@@ -173,8 +173,37 @@ public class Territory extends Ownable {
 			houseCounter++;
 		}
 
+		private int maxAntalBlue() {
+			return 2;
+		}
+		
+		private int maxAntalPink() {
+			return 3;
+		}
+		
+		private int maxAntalGreen() {
+			return 3;
+		}
 
-
+		private int maxAntalGrey() {
+			return 3;
+		}
+		
+		private int maxAntalRed() {
+			return 3;
+		}
+		
+		private int maxAntalWhite() {
+			return 3;
+		}
+		
+		private int maxAntalYellow() {
+			return 3;
+		}
+		
+		private int maxAntalMagenta() {
+			return 2;
+		}
 
 	}
 
