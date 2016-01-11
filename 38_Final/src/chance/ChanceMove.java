@@ -18,12 +18,13 @@ public class ChanceMove extends ChanceCard {
 	private ResourceBundle rb;
 	private ChanceCardController ccc;
 
-	public ChanceMove(String cardName, int antalFelter, GameBoard gameBoard, ChanceCard[] cc, ChanceCardController ccc) {
+	public ChanceMove(String cardName, int antalFelter, GameBoard gameBoard, ChanceCard[] cc, ChanceCardController ccc, ResourceBundle rb) {
 		super(cardName);
 		this.antalFelter = antalFelter;
 		this.gb = gameBoard;
 		this.cc = cc;
 		this.ccc = ccc;
+		this.rb = rb;
 	}
 
 	@Override
@@ -36,6 +37,7 @@ public class ChanceMove extends ChanceCard {
 			if(currentField instanceof ChanceField) {
 				player.setCurrentField(player.getCurrentField()+antalFelter);
 				GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+				System.out.println(rb);
 				GUI.showMessage(rb.getString(gb.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
 				chanceCard = ccc.drawCard();
 				GUI.showMessage(rb.getString(chanceCard.toString()));
