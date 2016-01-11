@@ -127,6 +127,10 @@ public class Player
 	public void setBalance(Player player, int amount) {
 		player.getPlayerAccount().setBalance(amount);
 	}
+	
+	public boolean isBankrupt(Player player) {
+		return player.getPlayerAccount().isBankrupt();
+	}
 
 	public void addJailBreakCounter() {
 		jailBreakCounter++;		

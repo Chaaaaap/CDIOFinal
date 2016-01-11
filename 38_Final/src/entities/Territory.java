@@ -32,18 +32,18 @@ public class Territory extends Ownable {
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null){
-			return player.getPlayerName()+", "+td.getResourceBundle().getString("Owned")+" "+td.getFeltNavn()+"."; 
+			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+"."; 
 		}
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-			return player.getPlayerName()+", "+ td.getResourceBundle().getString("Owned4");
+			return player.getPlayerName()+", "+getResourceBundle().getString("Owned4");
 		
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", "+td.getResourceBundle().getString("Owned")+" "+td.getFeltNavn()+", "+td.getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+
-					", "+ td.getResourceBundle().getString("Owned2")+" "+owner.getPlayerName()+" "+ td.getResourceBundle().getString("Bankrupt");
+			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+
+					", "+ getResourceBundle().getString("Owned2")+" "+owner.getPlayerName()+" "+ getResourceBundle().getString("Bankrupt");
 	
 		else 
-			return player.getPlayerName()+", "+td.getResourceBundle().getString("Owned")+" "+td.getFeltNavn()+", "+td.getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ td.getResourceBundle().getString("Owned3")+" "+td.getRent()+" kr.";
+			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRent(player)+" kr.";
 	}
 
 	@Override
@@ -67,12 +67,12 @@ public class Territory extends Ownable {
 			buyFieldOption(player);
 			
 		}
-		else  if (owner.getPlayerAccount().isBankrupt() == true){
+		else  if (owner.isBankrupt(player) == true){
 			
 		} else {
-			player.getPlayerAccount().transfer(owner.getPlayerAccount(), td.getRent());	
-			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
-			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), getRent(player));	
+			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
+			GUI.setBalance(owner.getPlayerName(), owner.getBalance(owner));
 		}
 	}
 
@@ -80,14 +80,14 @@ public class Territory extends Ownable {
 	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(td.getResourceBundle().getString("Købe")+" "+td.getPrice()+"$?", td.getResourceBundle().getString("Ja"),td.getResourceBundle().getString("Nej"));
-		if(buy.equals(td.getResourceBundle().getString("Ja"))) {
-			player.getPlayerAccount().adjustBalance(-td.getPrice());
-			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+		buy = GUI.getUserButtonPressed(getResourceBundle().getString("Købe")+" "+getPrice()+"$?", getResourceBundle().getString("Ja"),getResourceBundle().getString("Nej"));
+		if(buy.equals(getResourceBundle().getString("Ja"))) {
+			player.adjustBalance(player, -getPrice());
+			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
-			player.addProperty(this.getTerritoryData().getFeltNavn());
+			player.addProperty(getFeltNavn());
 //			player.getProperty().get(0).getFeltNavn();
-			td.getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
+			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
 
@@ -103,11 +103,22 @@ public class Territory extends Ownable {
 		
 	}
 	
-	
-	
-	TerritoryData getTerritoryData(){
-		return  td;
+	public int getPrice() {
+		return td.price;
 	}
+	
+	public String getFeltNavn() {
+		return td.getFeltNavn();
+	}
+	
+	public ResourceBundle getResourceBundle() {
+		return td.getResourceBundle();
+	}
+	
+	public GameBoard getGb() {
+		return td.getGb();
+	}
+	
 	
 	private class TerritoryData {
 		
