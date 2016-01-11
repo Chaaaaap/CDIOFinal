@@ -16,6 +16,6 @@ public class ChanceMove extends ChanceCard {
 	public void executeCard(Player player) {
 		GUI.removeAllCars(player.getPlayerName());
 		player.setCurrentField(player.getCurrentField()+antalFelter);
-		GUI.setCar(player.getCurrentField(), player.getPlayerName());
+		GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 	}
 }
