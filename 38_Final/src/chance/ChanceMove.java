@@ -29,7 +29,7 @@ public class ChanceMove extends ChanceCard {
 	@Override
 	public void executeCard(Player player) {
 		GUI.removeAllCars(player.getPlayerName());
-		Felt currentField = gb.getlogicFields()[player.getCurrentField()];
+		Felt currentField = gb.getlogicFields()[player.getCurrentField()+antalFelter];
 		if(player.getCurrentField() < 4) {
 			player.setCurrentField(39);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
