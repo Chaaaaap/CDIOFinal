@@ -20,6 +20,7 @@ public class ChanceCardController {
 		for(int i=0;i<chanceCards.length-1;i++){
 			chanceCards[i]=chanceCards[i+1];
 		}
+		chanceCards[chanceCards.length-1] = drawn;
 		return drawn;
 	}
 	
