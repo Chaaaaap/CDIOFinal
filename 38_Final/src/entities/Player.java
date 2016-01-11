@@ -128,6 +128,10 @@ public class Player
 	public void setBalance(Player player, int amount) {
 		player.getPlayerAccount().setBalance(amount);
 	}
+	
+	public void transfer(Player fromPlayer, Player toPlayer, int amount) {
+		fromPlayer.getPlayerAccount().transfer(toPlayer.getPlayerAccount(), amount);
+	}
 
 	public boolean isBankrupt(Player player) {
 		return player.getPlayerAccount().isBankrupt();
