@@ -44,6 +44,7 @@ public class Tax extends Felt {
 			player.getPlayerAccount().adjustBalance(-Pay);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());	
 		}
+		
 
 	}
 
