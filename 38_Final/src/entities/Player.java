@@ -291,7 +291,7 @@ public class Player
 				OwnedProperties.add("Rådhuspladsen");
 			}
 		}
-		
+	
 		
 		
 	}
