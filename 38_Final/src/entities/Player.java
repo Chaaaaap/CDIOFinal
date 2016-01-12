@@ -219,5 +219,11 @@ public class Player
 		return OwnedProperties;
 	}
 
+	public String[] getProperties(){
+		String[] ownedFieldNames = new String[OwnedProperties.size()];
+		ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
+		
+		return ownedFieldNames;
+	}
 
 }
