@@ -14,6 +14,7 @@ public class Territory extends Ownable {
 	//which also called fields.
 	//This private fields can only be seen in this class.
 	private String buy;
+	private String fieldColour;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour) {
@@ -86,6 +87,31 @@ public class Territory extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
 			player.addProperty(getFeltNavn());
+			
+			if (fieldColour == "blue") {
+				player.addBlueTerritoryCounter();
+			}
+			else if (fieldColour == "pink") {
+				player.addPinkTerritoryCounter();
+			}
+			else if (fieldColour == "green") {
+				player.addGreenTerritoryCounter();
+			}
+			else if (fieldColour == "gray") {
+				player.addGrayTerritoryCounter();
+			}
+			else if (fieldColour == "red") {
+				player.addRedTerritoryCounter();
+			}
+			else if (fieldColour == "white") {
+				player.addWhiteTerritoryCounter();
+			}
+			else if (fieldColour == "yellow") {
+				player.addYellowTerritoryCounter();
+			}
+			else {
+				player.addMagentaTerritoryCounter();
+			}
 			//			player.getProperty().get(0).getFeltNavn();
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
@@ -96,11 +122,19 @@ public class Territory extends Ownable {
 
 	}
 
-	public void buyHouse(Player player) {
+	public void buyHouse(Player player, TerritoryData td ) {
+		if(player.getBlueTerritoryCounter() == td.maxAntalBlue() ||
+				player.getPinkTerritoryCounter() == td.maxAntalPink() ||
+				player.getGreenTerritoryCounter() == td.maxAntalGreen() ||
+				player.getGrayTerritoryCounter() == td.maxAntalGrey() ||
+				player.getRedTerritoryCounter() == td.maxAntalRed() ||
+				player.getWhiteTerritoryCounter() == td.maxAntalWhite() ||
+				player.getYellowTerritoryCounter() == td.maxAntalYellow() ||
+				player.getMagentaTerritoryCounter() == td.maxAntalMagenta()){
 		player.adjustBalance(player, -td.getPrice());
 		td.addHouseCounter();
 		player.addHouseCounter();
-
+		}
 	}
 
 	public int getPrice() {
