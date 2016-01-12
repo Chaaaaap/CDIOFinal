@@ -86,7 +86,7 @@ public class Territory extends Ownable {
 			player.adjustBalance(player, -getPrice());
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
-			player.addProperty(getFeltNavn());
+//			player.addProperty(getFeltNavn());
 			
 			if (getColour() == "blue") {
 				player.addBlueTerritoryCounter();
@@ -120,7 +120,9 @@ public class Territory extends Ownable {
 				player.addMagentaTerritoryCounter();
 				System.out.println(player.getMagentaTerritoryCounter());
 			}
-			//			player.getProperty().get(0).getFeltNavn();
+			
+			player.addHouseList();
+			
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}

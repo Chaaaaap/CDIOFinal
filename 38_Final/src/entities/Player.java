@@ -1,6 +1,9 @@
 package entities;
 
 import java.util.ArrayList;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
 import entities.Territory;
 
 public class Player 
@@ -36,7 +39,7 @@ public class Player
 		whiteTerritoryCounter = 0;
 		yellowTerritoryCounter = 0;
 		magentaTerritoryCounter = 0;
-		
+
 
 
 	}
@@ -65,67 +68,67 @@ public class Player
 	public void setCurrentField(int currentField) {
 		this.currentField = currentField;
 	}
-	
+
 	public void addBlueTerritoryCounter() {
 		blueTerritoryCounter++;
 	}
-	
+
 	public int getBlueTerritoryCounter() {
 		return blueTerritoryCounter;
 	}
-	
+
 	public void addPinkTerritoryCounter() {
 		pinkTerritoryCounter++;
 	}
-	
+
 	public int getPinkTerritoryCounter() {
 		return pinkTerritoryCounter;
 	}
-	
+
 	public void addGreenTerritoryCounter() {
 		greenTerritoryCounter++;
 	}
-	
+
 	public int getGreenTerritoryCounter() {
 		return greenTerritoryCounter;
 	}
-	
+
 	public void addGrayTerritoryCounter() {
 		grayTerritoryCounter++;
 	}
-	
+
 	public int getGrayTerritoryCounter() {
 		return grayTerritoryCounter;
 	}
-	
+
 	public void addRedTerritoryCounter() {
 		redTerritoryCounter++;
 	}
-	
+
 	public int getRedTerritoryCounter() {
 		return redTerritoryCounter;
 	}
-	
+
 	public void addWhiteTerritoryCounter() {
 		whiteTerritoryCounter++;
 	}
-	
+
 	public int getWhiteTerritoryCounter() {
 		return whiteTerritoryCounter;
 	}
-	
+
 	public void addYellowTerritoryCounter() {
 		yellowTerritoryCounter++;
 	}
-	
+
 	public int getYellowTerritoryCounter() {
 		return yellowTerritoryCounter;
 	}
-	
+
 	public void addMagentaTerritoryCounter() {
 		magentaTerritoryCounter++;
 	}
-	
+
 	public int getMagentaTerritoryCounter() {
 		return magentaTerritoryCounter;
 	}
@@ -202,7 +205,7 @@ public class Player
 	public void setBalance(Player player, int amount) {
 		player.getPlayerAccount().setBalance(amount);
 	}
-	
+
 	public void transfer(Player fromPlayer, Player toPlayer, int amount) {
 		fromPlayer.getPlayerAccount().transfer(toPlayer.getPlayerAccount(), amount);
 	}
@@ -211,19 +214,65 @@ public class Player
 		return player.getPlayerAccount().isBankrupt();
 	}
 
-	public void addProperty(String feltNavn) {
-			OwnedProperties.add(feltNavn);
-	}
+	//	public void addProperty(String feltNavn) {
+	//			OwnedProperties.add(feltNavn);
+	//	}
 
 	public ArrayList<String>  getProperty(){
 		return OwnedProperties;
 	}
 
-	public String[] getProperties(){
+	//	public String[] getProperties(){
+	//		String[] ownedFieldNames = new String[OwnedProperties.size()];
+	//		ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
+	//		
+	//		return ownedFieldNames;
+	//	}
+
+	public String[] getHusliste(){		
 		String[] ownedFieldNames = new String[OwnedProperties.size()];
 		ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
-		
+
 		return ownedFieldNames;
 	}
+
+	public void addHouseList(){
+		if(!OwnedProperties.contains("Rødovrevej")){
+			if(getBlueTerritoryCounter()==2){
+				OwnedProperties.add("Rødovrevej");
+				OwnedProperties.add("Hvidovrevej");
+			}
+		}
+		if(!OwnedProperties.contains("Roskildevej")){
+			if(getPinkTerritoryCounter()==3){
+				OwnedProperties.add("Roskildevej");
+				OwnedProperties.add("Valby Langgade");
+				OwnedProperties.add("Allégade");
+			}
+		}
+		if(!OwnedProperties.contains("Frederiksberg Allé")){
+			if(getGreenTerritoryCounter()==3){
+				OwnedProperties.add("Frederiksberg Allé");
+				OwnedProperties.add("Bülowsvej");
+				OwnedProperties.add("GL. Kongevej");
+			}
+		}
+		if(!OwnedProperties.contains("Bernstoffvej")){
+			if(getGreenTerritoryCounter()==3){
+				OwnedProperties.add("Bernstoffvej");
+				OwnedProperties.add("Hellerupvej");
+				OwnedProperties.add("Strandvej");
+			}
+		}
+		if(!OwnedProperties.contains("Trianglen")){
+			if(getGreenTerritoryCounter()==3){
+				OwnedProperties.add("Trianglen");
+				OwnedProperties.add("Bülowsvej");
+				OwnedProperties.add("GL. Kongevej");
+			}
+		}
+
+	}
+
 
 }

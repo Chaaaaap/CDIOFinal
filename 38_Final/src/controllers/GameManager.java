@@ -196,7 +196,9 @@ public class GameManager
 				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
 
 				if(!player.getProperty().isEmpty()){
-					GUI.getUserSelection("Du kan købe et hus", player.getProperties());
+					GUI.getUserSelection("Du kan købe et hus", player.getHusliste());
+				
+					
 				}
 					diceCup.shake();
 					sum = diceCup.getSumResult();
@@ -219,10 +221,10 @@ public class GameManager
 
 
 					// koden nedenfor får de ejede grunde printet ud i consolen
-					if(!player.getProperty().isEmpty()){
-						for(String fieldNames : player.getProperties())
-							System.out.println(fieldNames);
-					}
+//					if(!player.getProperty().isEmpty()){
+//						for(String fieldNames : player.getProperties())
+//							System.out.println(fieldNames);
+//					}
 
 
 
