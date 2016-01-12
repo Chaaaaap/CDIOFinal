@@ -60,7 +60,10 @@ public class Tax extends Felt {
 
 	@Override
 	public String getFeltBesked(Player player) {
+		if(player.getCurrentField() == 4)
 		return player.getPlayerName()+", "+rb.getString("Tax1");
+		else
+			return player.getPlayerName()+", "+rb.getString("Tax2");
 	}
 
 	//	private int getRent(Player player) {
