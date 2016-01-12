@@ -187,142 +187,140 @@ public class GameManager
 		//Makes sure bankrupts players are skipped
 		if(player.getPlayerAccount().isBankrupt() == false) {
 
-			
+
 			Jailed(player,  diceCup);
-//			System.out.println(player.getJailRoll());
+			//			System.out.println(player.getJailRoll());
 
 			if(!player.isJailed){
-				
+
 				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
-				
+
 				if(!player.getProperty().isEmpty()){
-				GUI.getUserSelection("Du kan købe et hus", player.getProperties());
+					GUI.getUserSelection("Du kan købe et hus", player.getProperties());
 				}
-				
-				diceCup.shake();
-				sum = diceCup.getSumResult();
-				GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
-				//gives player 4000 if passing start
-				if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
-					if(!player.isJailed) {
-						player.getPlayerAccount().adjustBalance(+4000);
-						GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
-					}
-				}
-				//Moves the car around the board.
-				GUI.removeAllCars(player.getPlayerName());
-				player.setCurrentField((player.getCurrentField()+sum)%40);
-				GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
-				player.setCurrentField((player.getCurrentField()));
-				//Gets the landOnField from whatever field the player landed on.
-				Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
-				
-
-
-				// koden nedenfor får de ejede grunde printet ud i consolen
-				if(!player.getProperty().isEmpty()){
-					for(String fieldNames : player.getProperties())
-					    System.out.println(fieldNames);
-				}
-				
-				
-				
-				if (currentField instanceof ChanceField){
-					GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
-					chanceCard = chanceCardController.drawCard();
-					GUI.showMessage(rb.getString(chanceCard.toString()));
-					chanceCard.executeCard(player);
-					
-				} else {
-				
-				gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
-				}
-				//Removes the car of any bankrupt player.
-				if(player.getPlayerAccount().isBankrupt())
-					GUI.removeAllCars(player.getPlayerName());
-			}
-		}		
-	}
-	//A simple counter to see how many players are bankrupt.
-	private int isPlayersBankrupt(Player[] players) {
-		bankruptCounter = 0;
-		for(int i = 0; i < playerCount; i++)
-			if(players[i].getPlayerAccount().isBankrupt() == true)
-				bankruptCounter++;
-		return bankruptCounter;
-	}
-
-	private Color getChangedColor(int playerNumber)
-	{
-		switch (playerNumber)
-		{
-		case 1:
-			return Color.BLUE;
-		case 2:
-			return Color.RED;
-		case 3:
-			return Color.ORANGE;
-		case 4:
-			return Color.GRAY;
-		case 5:
-			return Color.YELLOW;
-		default:
-			return Color.MAGENTA;
-		}
-	}
-
-	public void Jailed(Player player, DiceCup diceCup){
-
-		if(player.isJailed){
-
-			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
-
-			if(player.getFreeCard() > 0){
-				jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail3"), rb.getString("Jail5"), rb.getString("Jail6"), rb.getString("Jail7"));
-			}
-			else{
-				jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail4"), rb.getString("Jail5"), rb.getString("Jail6"));
-			}
-			if(jailedOption.equals(rb.getString("Jail5"))) {
-				player.getPlayerAccount().adjustBalance(-1000);
-				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
-				player.isJailed = false;
-				player.setJailRoll(0);
-			}
-			else if(jailedOption.equals(rb.getString("Jail6"))){
-				diceCup.shake();
-				GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
-
-				if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
-					GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail8"));
-					player.isJailed = false;
-					player.setJailRoll(0);		
+					diceCup.shake();
 					sum = diceCup.getSumResult();
 					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
-				}
+					//gives player 4000 if passing start
+					if(player.getCurrentField() > (player.getCurrentField()+sum)%40){
+						if(!player.isJailed) {
+							player.getPlayerAccount().adjustBalance(+4000);
+							GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+						}
+					}
+					//Moves the car around the board.
+					GUI.removeAllCars(player.getPlayerName());
+					player.setCurrentField((player.getCurrentField()+sum)%40);
+					GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
+					player.setCurrentField((player.getCurrentField()));
+					//Gets the landOnField from whatever field the player landed on.
+					Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
 
-				else GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9")); {
-					if (player.getJailRoll() == 2) {
-						GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail10"));
-						player.adjustBalance(player, -1000);
-						GUI.setBalance(player.getPlayerName(), player.getBalance(player));
-						player.isJailed = false;
-						player.setJailRoll(0);
-						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+
+
+					// koden nedenfor får de ejede grunde printet ud i consolen
+					if(!player.getProperty().isEmpty()){
+						for(String fieldNames : player.getProperties())
+							System.out.println(fieldNames);
 					}
 
+
+
+					if (currentField instanceof ChanceField){
+						GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
+						chanceCard = chanceCardController.drawCard();
+						GUI.showMessage(rb.getString(chanceCard.toString()));
+						chanceCard.executeCard(player);
+					} 
 					else {
-						player.addJailRollCounter();
-						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+						gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 					}
+					//Removes the car of any bankrupt player.
+					if(player.getPlayerAccount().isBankrupt())
+						GUI.removeAllCars(player.getPlayerName());
 				}
 			}
+		}
+		//A simple counter to see how many players are bankrupt.
+		private int isPlayersBankrupt(Player[] players) {
+			bankruptCounter = 0;
+			for(int i = 0; i < playerCount; i++)
+				if(players[i].getPlayerAccount().isBankrupt() == true)
+					bankruptCounter++;
+			return bankruptCounter;
+		}
 
-			if(jailedOption.equals(rb.getString("Jail7"))) {
-				player.useFreeCard();
-				player.isJailed = false;
-				player.setJailRoll(0);
+		private Color getChangedColor(int playerNumber)
+		{
+			switch (playerNumber)
+			{
+			case 1:
+				return Color.BLUE;
+			case 2:
+				return Color.RED;
+			case 3:
+				return Color.ORANGE;
+			case 4:
+				return Color.GRAY;
+			case 5:
+				return Color.YELLOW;
+			default:
+				return Color.MAGENTA;
+			}
+		}
+
+		public void Jailed(Player player, DiceCup diceCup){
+
+			if(player.isJailed){
+
+				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
+
+				if(player.getFreeCard() > 0){
+					jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail3"), rb.getString("Jail5"), rb.getString("Jail6"), rb.getString("Jail7"));
+				}
+				else{
+					jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail4"), rb.getString("Jail5"), rb.getString("Jail6"));
+				}
+				if(jailedOption.equals(rb.getString("Jail5"))) {
+					player.getPlayerAccount().adjustBalance(-1000);
+					GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+					player.isJailed = false;
+					player.setJailRoll(0);
+				}
+				else if(jailedOption.equals(rb.getString("Jail6"))){
+					diceCup.shake();
+					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+
+					if(diceCup.getDiceOne() == diceCup.getDiceTwo()){
+						GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail8"));
+						player.isJailed = false;
+						player.setJailRoll(0);		
+						sum = diceCup.getSumResult();
+						GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+					}
+
+					else GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9")); {
+						if (player.getJailRoll() == 2) {
+							GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail10"));
+							player.adjustBalance(player, -1000);
+							GUI.setBalance(player.getPlayerName(), player.getBalance(player));
+							player.isJailed = false;
+							player.setJailRoll(0);
+							GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+						}
+
+						else {
+							player.addJailRollCounter();
+							GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+						}
+					}
+				}
+
+				if(jailedOption.equals(rb.getString("Jail7"))) {
+					player.useFreeCard();
+					player.isJailed = false;
+					player.setJailRoll(0);
+				}
 			}
 		}
 	}
-}

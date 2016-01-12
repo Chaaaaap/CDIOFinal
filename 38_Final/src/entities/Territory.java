@@ -88,29 +88,37 @@ public class Territory extends Ownable {
 			this.owner = player;
 			player.addProperty(getFeltNavn());
 			
-			if (fieldColour == "blue") {
+			if (getColour() == "blue") {
 				player.addBlueTerritoryCounter();
+				System.out.println(player.getBlueTerritoryCounter());
 			}
-			else if (fieldColour == "pink") {
+			else if (getColour() == "pink") {
 				player.addPinkTerritoryCounter();
+				System.out.println(player.getPinkTerritoryCounter());
 			}
-			else if (fieldColour == "green") {
+			else if (getColour() == "green") {
 				player.addGreenTerritoryCounter();
+				System.out.println(player.getGreenTerritoryCounter());
 			}
-			else if (fieldColour == "gray") {
+			else if (getColour()== "gray") {
 				player.addGrayTerritoryCounter();
+				System.out.println(player.getGrayTerritoryCounter());
 			}
-			else if (fieldColour == "red") {
+			else if (getColour() == "red") {
 				player.addRedTerritoryCounter();
+				System.out.println(player.getRedTerritoryCounter());
 			}
-			else if (fieldColour == "white") {
+			else if (getColour() == "white") {
 				player.addWhiteTerritoryCounter();
+				System.out.println(player.getWhiteTerritoryCounter());
 			}
-			else if (fieldColour == "yellow") {
+			else if (getColour() == "yellow") {
 				player.addYellowTerritoryCounter();
+				System.out.println(player.getYellowTerritoryCounter());
 			}
 			else {
 				player.addMagentaTerritoryCounter();
+				System.out.println(player.getMagentaTerritoryCounter());
 			}
 			//			player.getProperty().get(0).getFeltNavn();
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
