@@ -33,10 +33,16 @@ public class Tax extends Felt {
 
 	private void payTax() {
 		if(player.getCurrentField() == 4){
-			Tax = GUI.getUserButtonPressed(rb.getString("Rent") +" "+ taxAmount +" "+ rb.getString("Rent1"), rb.getString("Pay")+" "+taxAmount, rb.getString("Pay") +" "+ tenPercent(player));
+			Tax = GUI.getUserButtonPressed(rb.getString("Rent") +" "+ taxAmount +" "+ rb.getString("Rent1"), rb.getString("Pay")+" "+taxAmount, rb.getString("Pay1"));
+			if(Tax.equals(rb.getString("Pay"))){
 			Pay = Integer.parseInt(Tax.replaceAll("[\\D]", ""));
 			player.getPlayerAccount().adjustBalance(-Pay);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			}
+			else {
+				player.getPlayerAccount().adjustBalance(-tenPercent(player));
+				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			}
 		}
 		else {
 			Tax = GUI.getUserButtonPressed(rb.getString("Rent2"), rb.getString("Pay")+" "+taxAmount);
