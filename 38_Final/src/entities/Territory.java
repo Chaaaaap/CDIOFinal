@@ -14,12 +14,11 @@ public class Territory extends Ownable {
 	//which also called fields.
 	//This private fields can only be seen in this class.
 	private String buy;
-	private String fieldColour;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
-	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour) {
+	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber) {
 		super(price, feltNavn, gb);
-		this.td = new TerritoryData(rent, feltNavn, owner, rb, price, gb, feltNavn, fieldColour);
+		this.td = new TerritoryData(rent, feltNavn, owner, rb, price, gb, feltNavn, fieldColour, fieldNumber);
 	}
 
 	@Override
@@ -86,15 +85,15 @@ public class Territory extends Ownable {
 			player.adjustBalance(player, -getPrice());
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
-//			player.addProperty(getFeltNavn());
+			player.addProperty(this);
 			
 			if (getColour() == "blue") {
 				player.addBlueTerritoryCounter();
-				System.out.println(player.getBlueTerritoryCounter());
+//				System.out.println(player.getBlueTerritoryCounter());
 			}
 			else if (getColour() == "pink") {
 				player.addPinkTerritoryCounter();
-				System.out.println(player.getPinkTerritoryCounter());
+//				System.out.println(player.getPinkTerritoryCounter());
 			}
 			else if (getColour() == "green") {
 				player.addGreenTerritoryCounter();
@@ -121,7 +120,7 @@ public class Territory extends Ownable {
 				System.out.println(player.getMagentaTerritoryCounter());
 			}
 			
-			player.addHouseList();
+//			player.addHouseList();
 			
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
@@ -132,23 +131,32 @@ public class Territory extends Ownable {
 
 	}
 
-	public void buyHouse(Player player, TerritoryData td ) {
-		if(player.getBlueTerritoryCounter() == td.maxAntalBlue() ||
-				player.getPinkTerritoryCounter() == td.maxAntalPink() ||
-				player.getGreenTerritoryCounter() == td.maxAntalGreen() ||
-				player.getGrayTerritoryCounter() == td.maxAntalGrey() ||
-				player.getRedTerritoryCounter() == td.maxAntalRed() ||
-				player.getWhiteTerritoryCounter() == td.maxAntalWhite() ||
-				player.getYellowTerritoryCounter() == td.maxAntalYellow() ||
-				player.getMagentaTerritoryCounter() == td.maxAntalMagenta()){
+	public void buyHouse(Player player) {
+//		if(player.getBlueTerritoryCounter() == td.maxAntalBlue() ||
+//				player.getPinkTerritoryCounter() == td.maxAntalPink() ||
+//				player.getGreenTerritoryCounter() == td.maxAntalGreen() ||
+//				player.getGrayTerritoryCounter() == td.maxAntalGrey() ||
+//				player.getRedTerritoryCounter() == td.maxAntalRed() ||
+//				player.getWhiteTerritoryCounter() == td.maxAntalWhite() ||
+//				player.getYellowTerritoryCounter() == td.maxAntalYellow() ||
+//				player.getMagentaTerritoryCounter() == td.maxAntalMagenta()){
+
 		player.adjustBalance(player, -td.getPrice());
 		td.addHouseCounter();
 		player.addHouseCounter();
-		}
+//		}
 	}
 
 	public int getPrice() {
 		return td.price;
+	}
+	
+	public int getFieldNumber(){
+		return td.getFieldNumber();
+	}
+	
+	public int getHouseCounter(){
+		return td.getHouseCounter();
 	}
 
 	public String getFeltNavn() {
@@ -181,8 +189,10 @@ public class Territory extends Ownable {
 		private GameBoard gb;
 		private String feltNavn;
 		private String colour;
+		private int fieldNumber;
 
-		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour) {
+		
+		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber) {
 			this.rent = rent;
 			this.buy = buy;
 			this.owner = owner;
@@ -191,6 +201,8 @@ public class Territory extends Ownable {
 			this.gb = gb;
 			this.feltNavn = feltNavn;
 			this.colour = fieldColour;
+			this.fieldNumber = fieldNumber;
+			houseCounter = 0;
 		}
 		private String getFeltNavn() {
 			return feltNavn;
@@ -223,6 +235,10 @@ public class Territory extends Ownable {
 			return gb;
 		}
 
+		private int getFieldNumber(){
+			return fieldNumber;
+		}
+		
 		private void addHouseCounter() {
 			houseCounter++;
 		}
