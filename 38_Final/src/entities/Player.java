@@ -10,7 +10,8 @@ public class Player
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private PlayerAccount playerAccount;
-	private int currentField=1, fleetCounter,breweryCounter,jailRollCounter,freeCardCounter;
+	private int currentField=1, fleetCounter,breweryCounter,jailRollCounter,freeCardCounter, blueTerritoryCounter, pinkTerritoryCounter, 
+			greenTerritoryCounter, grayTerritoryCounter, redTerritoryCounter, whiteTerritoryCounter, yellowTerritoryCounter, magentaTerritoryCounter;
 	public boolean isJailed;
 	private int hotelCounter;
 	private int houseCounter;
@@ -27,6 +28,15 @@ public class Player
 		hotelCounter = 0;
 		jailRollCounter = 0;
 		freeCardCounter = 0;
+		blueTerritoryCounter = 0;
+		pinkTerritoryCounter = 0;
+		greenTerritoryCounter = 0;
+		grayTerritoryCounter = 0;
+		redTerritoryCounter = 0;
+		whiteTerritoryCounter = 0;
+		yellowTerritoryCounter = 0;
+		magentaTerritoryCounter = 0;
+		
 
 
 	}
@@ -54,6 +64,70 @@ public class Player
 
 	public void setCurrentField(int currentField) {
 		this.currentField = currentField;
+	}
+	
+	public void addBlueTerritoryCounter() {
+		blueTerritoryCounter++;
+	}
+	
+	public int getBlueTerritoryCounter() {
+		return blueTerritoryCounter;
+	}
+	
+	public void addPinkTerritoryCounter() {
+		pinkTerritoryCounter++;
+	}
+	
+	public int getPinkTerritoryCounter() {
+		return pinkTerritoryCounter;
+	}
+	
+	public void addGreenTerritoryCounter() {
+		greenTerritoryCounter++;
+	}
+	
+	public int getGreenTerritoryCounter() {
+		return greenTerritoryCounter;
+	}
+	
+	public void addGrayTerritoryCounter() {
+		grayTerritoryCounter++;
+	}
+	
+	public int getGrayTerritoryCounter() {
+		return grayTerritoryCounter;
+	}
+	
+	public void addRedTerritoryCounter() {
+		redTerritoryCounter++;
+	}
+	
+	public int getRedTerritoryCounter() {
+		return redTerritoryCounter;
+	}
+	
+	public void addWhiteTerritoryCounter() {
+		whiteTerritoryCounter++;
+	}
+	
+	public int getWhiteTerritoryCounter() {
+		return whiteTerritoryCounter;
+	}
+	
+	public void addYellowTerritoryCounter() {
+		yellowTerritoryCounter++;
+	}
+	
+	public int getYellowTerritoryCounter() {
+		return yellowTerritoryCounter;
+	}
+	
+	public void addMagentaTerritoryCounter() {
+		magentaTerritoryCounter++;
+	}
+	
+	public int getMagentaTerritoryCounter() {
+		return magentaTerritoryCounter;
 	}
 
 	public void addFleetCounter() {
