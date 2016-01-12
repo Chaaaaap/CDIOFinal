@@ -258,20 +258,41 @@ public class Player
 			}
 		}
 		if(!OwnedProperties.contains("Bernstoffvej")){
-			if(getGreenTerritoryCounter()==3){
+			if(getGrayTerritoryCounter()==3){
 				OwnedProperties.add("Bernstoffvej");
 				OwnedProperties.add("Hellerupvej");
 				OwnedProperties.add("Strandvej");
 			}
 		}
 		if(!OwnedProperties.contains("Trianglen")){
-			if(getGreenTerritoryCounter()==3){
+			if(getRedTerritoryCounter()==3){
 				OwnedProperties.add("Trianglen");
-				OwnedProperties.add("Bülowsvej");
-				OwnedProperties.add("GL. Kongevej");
+				OwnedProperties.add("Østerbrogade");
+				OwnedProperties.add("Grønningen");
 			}
 		}
-
+		if(!OwnedProperties.contains("Bredgade")){
+			if(getWhiteTerritoryCounter()==3){
+				OwnedProperties.add("Bredgade");
+				OwnedProperties.add("Kgs. Nytorv");
+				OwnedProperties.add("Østergade");
+			}
+		}
+		if(!OwnedProperties.contains("Amagertorv")){
+			if(getYellowTerritoryCounter()==3){
+				OwnedProperties.add("Amagertorv");
+				OwnedProperties.add("Vimmelskaftet");
+				OwnedProperties.add("Nygade");
+			}
+		}
+		if(!OwnedProperties.contains("Frederiksberggade")){
+			if(getMagentaTerritoryCounter()==2){
+				OwnedProperties.add("Frederiksberggade");
+				OwnedProperties.add("Rådhuspladsen");
+			}
+		}
+		
+		
 	}
 
 
