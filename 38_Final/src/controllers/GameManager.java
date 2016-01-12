@@ -40,7 +40,7 @@ public class GameManager
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
-		cc = new ChanceCard[28];
+		cc = new ChanceCard[29];
 		chanceCardController = new ChanceCardController(cc);
 		initChanceCards();
 		chanceCardController.shuffle();
@@ -77,7 +77,8 @@ public class GameManager
 		cc[24] = new ChanceRecieve("ChanceGarden", 200);
 		cc[25] = new ChancePay("ChanceDentist", 2000);
 		cc[26] = new ChancePay("ChanceAbroad", 200);
-		cc[27] = new ChanceRecieve("ChanceDyrtid", 1000);		
+		cc[27] = new ChanceRecieve("ChanceDyrtid", 1000);	
+		cc[28] = new ChanceRecieveFromAll("ChanceBirthday", 200);
 	}
 	//StartGameEngine method is a void method, which means 
 	//it does not return any value.
