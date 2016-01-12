@@ -32,6 +32,7 @@ public class GameManager
 	private ChanceCard[] cc;
 	private ChanceCardController chanceCardController;
 	private ChanceCard chanceCard;
+	private Player player;
 
 	//GameManager constructor
 	public GameManager()
@@ -78,7 +79,7 @@ public class GameManager
 		cc[25] = new ChancePay("ChanceDentist", 2000);
 		cc[26] = new ChancePay("ChanceAbroad", 200);
 		cc[27] = new ChanceRecieve("ChanceDyrtid", 1000);	
-		cc[28] = new ChanceRecieveFromAll("ChanceBirthday", 200);
+		cc[28] = new ChanceRecieveFromAll("ChanceBirthday", 200, players, player);
 	}
 	//StartGameEngine method is a void method, which means 
 	//it does not return any value.
