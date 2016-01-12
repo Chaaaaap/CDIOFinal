@@ -7,13 +7,13 @@ import desktop_resources.GUI;
 import entities.Player;
 
 public class Tax extends Felt {
-	
+
 	private String Tax, feltNavn;
 	private int Pay, taxAmount;
 	private Player player;
 	private ResourceBundle rb;
 	private GameBoard gameBoard;
-//	private String[] strings;
+	//	private String[] strings;
 
 	public Tax(int tax, String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
@@ -28,15 +28,23 @@ public class Tax extends Felt {
 		this.player = player;
 		GUI.showMessage(getFeltBesked(player));
 		payTax();
-		
+
 	}
 
 	private void payTax() {
-		Tax = GUI.getUserButtonPressed(rb.getString("Rent") +" "+ taxAmount +" "+ rb.getString("Rent1"), rb.getString("Pay")+" "+taxAmount, rb.getString("Pay1")+" "+tenPercent(player));
-		Pay = Integer.parseInt(Tax.replaceAll("[\\D]", ""));
-		player.getPlayerAccount().adjustBalance(-Pay);
-		GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
-		
+		if(player.getCurrentField() == 4){
+			Tax = GUI.getUserButtonPressed(rb.getString("Rent") +" "+ taxAmount +" "+ rb.getString("Rent1"), rb.getString("Pay")+" "+taxAmount, rb.getString("Pay") +" "+ tenPercent(player));
+			Pay = Integer.parseInt(Tax.replaceAll("[\\D]", ""));
+			player.getPlayerAccount().adjustBalance(-Pay);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+		}
+		else {
+			Tax = GUI.getUserButtonPressed(rb.getString("Rent2"), rb.getString("Pay")+" "+taxAmount);
+			Pay = Integer.parseInt(Tax.replaceAll("[\\D]", ""));
+			player.getPlayerAccount().adjustBalance(-Pay);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());	
+		}
+
 	}
 
 	private int tenPercent(Player player) {
@@ -47,9 +55,9 @@ public class Tax extends Felt {
 	public String getFeltBesked(Player player) {
 		return player.getPlayerName()+", "+rb.getString("Tax1");
 	}
-	
-//	private int getRent(Player player) {
-//		return rent;
-//	}
+
+	//	private int getRent(Player player) {
+	//		return rent;
+	//	}
 
 }
