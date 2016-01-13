@@ -286,6 +286,7 @@ public class GameManager
 					GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
 					chanceCard = chanceCardController.drawCard();
 					GUI.displayChanceCard(rb.getString(chanceCard.toString()));
+					GUI.showMessage(rb.getString(chanceCard.toString()));
 					chanceCard.executeCard(player);
 				} 
 				else {
