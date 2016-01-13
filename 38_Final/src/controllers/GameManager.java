@@ -198,58 +198,68 @@ public class GameManager
 				boolean loop =true;
 
 				while(loop){
-					String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"),rb.getString("Køb"));
+					if(player.getBlueTerritoryCounter()==2 || player.getPinkTerritoryCounter()==3 || player.getGreenTerritoryCounter()==3 || player.getGrayTerritoryCounter()==3 || player.getRedTerritoryCounter()==3 || player.getWhiteTerritoryCounter()==3 || player.getYellowTerritoryCounter()==3 || player.getMagentaTerritoryCounter()==2){
+						String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"),rb.getString("Køb"));
 
-					if(Choices.equals(rb.getString("DiceRoll")))
-					{
-						loop=false;
+						if(Choices.equals(rb.getString("DiceRoll")))
+						{
+							loop=false;
+						}
+
+						else if(Choices.equals(rb.getString("Køb"))){
+							if(!player.getProperty().isEmpty()){
+
+
+								String[] tilsaalg = player.getTestliste();
+								String[] tilladteStringssss = new String[1 + tilsaalg.length];
+								tilladteStringssss[0] = rb.getString("Gå");
+
+								for (int i = 1; i < tilsaalg.length+1; i++) {
+									tilladteStringssss[i] = tilsaalg[i-1];
+								}
+
+
+								Territory[] tilsalg = player.getHusliste();
+								String[] tilladteStrings = new String[1 + tilsalg.length];
+								tilladteStrings[0] = rb.getString("Gå");
+
+								for (int i = 1; i < tilsalg.length+1; i++) {
+
+									tilladteStrings[i] = tilsalg[i-1].getFeltNavn();
+
+								}
+
+
+
+								String s = GUI.getUserSelection(rb.getString("KøbHus"),tilladteStringssss );
+								if(s.equals(tilladteStrings[0])){
+									System.out.println("KØB NU ET HUS FOR HÆÆÆLVED");
+								}
+
+								else{
+
+									for (int i = 1; i < tilladteStrings.length; i++) 
+										if (tilladteStrings[i]==s){
+											tilsalg[i-1].buyHouse(player);
+											GUI.setBalance(player.getPlayerName(), player.getBalance(player));
+											if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
+												GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
+											}
+											else if (player.getHusliste()[i-1].getHouseCounter() ==5){
+												GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), 0);
+												GUI.setHotel(player.getHusliste()[i-1].getFieldNumber(), true);
+											}
+										}
+								}
+							}
+
+						}
 					}
-
-					else if(Choices.equals(rb.getString("Køb"))){
-						if(!player.getProperty().isEmpty()){
-
-
-							String[] tilsaalg = player.getTestliste();
-							String[] tilladteStringssss = new String[1 + tilsaalg.length];
-							tilladteStringssss[0] = rb.getString("Gå");
-							
-							for (int i = 1; i < tilsaalg.length+1; i++) {
-								tilladteStringssss[i] = tilsaalg[i-1];
-							}
-
-
-							Territory[] tilsalg = player.getHusliste();
-							String[] tilladteStrings = new String[1 + tilsalg.length];
-							tilladteStrings[0] = rb.getString("Gå");
-
-							for (int i = 1; i < tilsalg.length+1; i++) {
-
-								tilladteStrings[i] = tilsalg[i-1].getFeltNavn();
-
-							}
-							
-							
-
-							String s = GUI.getUserSelection(rb.getString("KøbHus"),tilladteStringssss );
-							if(s.equals(tilladteStrings[0])){
-								System.out.println("KØB NU ET HUS FOR HÆÆÆLVED");
-							}
-
-							else{
-
-								for (int i = 1; i < tilladteStrings.length; i++) 
-									if (tilladteStrings[i]==s){
-										tilsalg[i-1].buyHouse(player);
-										GUI.setBalance(player.getPlayerName(), player.getBalance(player));
-										if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
-											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
-										}
-										else if (player.getHusliste()[i-1].getHouseCounter() ==5){
-											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), 0);
-											GUI.setHotel(player.getHusliste()[i-1].getFieldNumber(), true);
-										}
-									}
-							}
+					else{
+						String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
+						if(Choices.equals(rb.getString("DiceRoll")))
+						{
+							loop=false;
 						}
 					}
 				}
