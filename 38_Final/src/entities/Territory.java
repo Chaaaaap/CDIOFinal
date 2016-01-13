@@ -42,8 +42,17 @@ public class Territory extends Ownable {
 			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+
 					", "+ getResourceBundle().getString("Owned2")+" "+owner.getPlayerName()+" "+ getResourceBundle().getString("Bankrupt");
 
-		else 
-			return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
+		else{
+			if(getHouseCounter()==0)
+				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
+			else if(getHouseCounter()==1)
+				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHouseCounter()+" "+getResourceBundle().getString("Owned7")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
+			else if(getHouseCounter()>1 && getHouseCounter()<5)
+				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHouseCounter()+" "+getResourceBundle().getString("Owned8")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
+			else 
+				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHouseCounter()+" "+getResourceBundle().getString("Owned9")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
+
+		}
 	}
 
 	@Override
@@ -87,14 +96,14 @@ public class Territory extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
 			player.addProperty(this);
-			
+
 			if (getColour() == "blue") {
 				player.addBlueTerritoryCounter();
-//				System.out.println(player.getBlueTerritoryCounter());
+				//				System.out.println(player.getBlueTerritoryCounter());
 			}
 			else if (getColour() == "pink") {
 				player.addPinkTerritoryCounter();
-//				System.out.println(player.getPinkTerritoryCounter());
+				//				System.out.println(player.getPinkTerritoryCounter());
 			}
 			else if (getColour() == "green") {
 				player.addGreenTerritoryCounter();
@@ -120,9 +129,9 @@ public class Territory extends Ownable {
 				player.addMagentaTerritoryCounter();
 				System.out.println(player.getMagentaTerritoryCounter());
 			}
-			
+
 			player.addHouseList();
-			
+
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
@@ -137,21 +146,21 @@ public class Territory extends Ownable {
 		td.addHouseCounter();
 		player.addHouseCounter();
 		player.adjustPropertyValue(getPrice());
-//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
+		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
 	}
 
 	public int getPrice() {
 		return td.price;
 	}
-	
+
 	public int getFieldNumber(){
 		return td.getFieldNumber();
 	}
-	
+
 	public int getHousePrice() {
 		return td.getHousePrice();
 	}
-	
+
 	public int getHouseCounter(){
 		return td.getHouseCounter();
 	}
@@ -167,11 +176,11 @@ public class Territory extends Ownable {
 	public GameBoard getGb() {
 		return td.getGb();
 	}
-	
+
 	public String getColour() {
 		return td.getColour();
 	}
-	
+
 	public int[] getRents(Player player){
 		return td.getRents();
 	}
@@ -194,7 +203,7 @@ public class Territory extends Ownable {
 		private int housePrice;
 		private int[] rents;
 
-		
+
 		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 			this.rent = rent;
 			this.buy = buy;
@@ -228,15 +237,15 @@ public class Territory extends Ownable {
 		private int getPrice() {
 			return price;
 		}
-		
+
 		private int[] getRents() {
 			return rents;
 		}
-		
+
 		private int getHousePrice() {
 			return housePrice;
 		}
-		
+
 		private String getColour() {
 			return colour;
 		}
@@ -251,7 +260,7 @@ public class Territory extends Ownable {
 		private int getFieldNumber(){
 			return fieldNumber;
 		}
-		
+
 		private void addHouseCounter() {
 			houseCounter++;
 		}
@@ -259,11 +268,11 @@ public class Territory extends Ownable {
 		private int maxAntalBlue() {
 			return 2;
 		}
-		
+
 		private int maxAntalPink() {
 			return 3;
 		}
-		
+
 		private int maxAntalGreen() {
 			return 3;
 		}
@@ -271,19 +280,19 @@ public class Territory extends Ownable {
 		private int maxAntalGrey() {
 			return 3;
 		}
-		
+
 		private int maxAntalRed() {
 			return 3;
 		}
-		
+
 		private int maxAntalWhite() {
 			return 3;
 		}
-		
+
 		private int maxAntalYellow() {
 			return 3;
 		}
-		
+
 		private int maxAntalMagenta() {
 			return 2;
 		}
