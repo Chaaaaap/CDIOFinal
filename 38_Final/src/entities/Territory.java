@@ -132,7 +132,7 @@ public class Territory extends Ownable {
 
 			player.addHouseList();
 
-			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
+			getGb().getGUIFields()[player.getCurrentField()].setSubText(getResourceBundle().getString("Ejer")+" "+ player.getPlayerName());
 		}
 	}
 
