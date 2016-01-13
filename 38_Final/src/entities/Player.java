@@ -20,10 +20,14 @@ public class Player
 	private int houseCounter;
 	private int jailBreakCounter;
 	private ArrayList<Territory> OwnedProperties;
+	
+//	tester
+	private ArrayList<String> buildingReadyFields;
 
 	public Player() 
 	{
 		OwnedProperties = new ArrayList<Territory>();
+		buildingReadyFields = new ArrayList<String>();
 		playerAccount = new PlayerAccount(30000);
 		fleetCounter = 0;
 		breweryCounter = 0;
@@ -237,63 +241,71 @@ public class Player
 	
 			return ownedFieldNames;
 		}
+		
+		public String[] getTestliste(){		
+			String[] ownedtestNames = new String[buildingReadyFields.size()];
+			ownedtestNames = buildingReadyFields.toArray(ownedtestNames);		
+	
+			return ownedtestNames;
+		}
+		
 
-	//	public void addHouseList(){
-	//		if(!OwnedProperties.contains("Rødovrevej")){
-	//			if(getBlueTerritoryCounter()==2){
-	//				OwnedProperties.add("Rødovrevej");
-	//				OwnedProperties.add("Hvidovrevej");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Roskildevej")){
-	//			if(getPinkTerritoryCounter()==3){
-	//				OwnedProperties.add("Roskildevej");
-	//				OwnedProperties.add("Valby Langgade");
-	//				OwnedProperties.add("Allégade");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Frederiksberg Allé")){
-	//			if(getGreenTerritoryCounter()==3){
-	//				OwnedProperties.add("Frederiksberg Allé");
-	//				OwnedProperties.add("Bülowsvej");
-	//				OwnedProperties.add("GL. Kongevej");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Bernstoffvej")){
-	//			if(getGrayTerritoryCounter()==3){
-	//				OwnedProperties.add("Bernstoffvej");
-	//				OwnedProperties.add("Hellerupvej");
-	//				OwnedProperties.add("Strandvej");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Trianglen")){
-	//			if(getRedTerritoryCounter()==3){
-	//				OwnedProperties.add("Trianglen");
-	//				OwnedProperties.add("Østerbrogade");
-	//				OwnedProperties.add("Grønningen");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Bredgade")){
-	//			if(getWhiteTerritoryCounter()==3){
-	//				OwnedProperties.add("Bredgade");
-	//				OwnedProperties.add("Kgs. Nytorv");
-	//				OwnedProperties.add("Østergade");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Amagertorv")){
-	//			if(getYellowTerritoryCounter()==3){
-	//				OwnedProperties.add("Amagertorv");
-	//				OwnedProperties.add("Vimmelskaftet");
-	//				OwnedProperties.add("Nygade");
-	//			}
-	//		}
-	//		if(!OwnedProperties.contains("Frederiksberggade")){
-	//			if(getMagentaTerritoryCounter()==2){
-	//				OwnedProperties.add("Frederiksberggade");
-	//				OwnedProperties.add("Rådhuspladsen");
-	//			}
-	//		}	
-	//	}
+		public void addHouseList(){
+			if(!buildingReadyFields.contains("Rødovrevej")){
+				if(getBlueTerritoryCounter()==2){
+					buildingReadyFields.add("Rødovrevej");
+					buildingReadyFields.add("Hvidovrevej");
+				}
+			}
+			if(!buildingReadyFields.contains("Roskildevej")){
+				if(getPinkTerritoryCounter()==3){
+					buildingReadyFields.add("Roskildevej");
+					buildingReadyFields.add("Valby Langgade");
+					buildingReadyFields.add("Allégade");
+				}
+			}
+			if(!buildingReadyFields.contains("Frederiksberg Allé")){
+				if(getGreenTerritoryCounter()==3){
+					buildingReadyFields.add("Frederiksberg Allé");
+					buildingReadyFields.add("Bülowsvej");
+					buildingReadyFields.add("GL. Kongevej");
+				}
+			}
+			if(!buildingReadyFields.contains("Bernstoffvej")){
+				if(getGrayTerritoryCounter()==3){
+					buildingReadyFields.add("Bernstoffvej");
+					buildingReadyFields.add("Hellerupvej");
+					buildingReadyFields.add("Strandvej");
+				}
+			}
+			if(!buildingReadyFields.contains("Trianglen")){
+				if(getRedTerritoryCounter()==3){
+					buildingReadyFields.add("Trianglen");
+					buildingReadyFields.add("Østerbrogade");
+					buildingReadyFields.add("Grønningen");
+				}
+			}
+			if(!buildingReadyFields.contains("Bredgade")){
+				if(getWhiteTerritoryCounter()==3){
+					buildingReadyFields.add("Bredgade");
+					buildingReadyFields.add("Kgs. Nytorv");
+					buildingReadyFields.add("Østergade");
+				}
+			}
+			if(!buildingReadyFields.contains("Amagertorv")){
+				if(getYellowTerritoryCounter()==3){
+					buildingReadyFields.add("Amagertorv");
+					buildingReadyFields.add("Vimmelskaftet");
+					buildingReadyFields.add("Nygade");
+				}
+			}
+			if(!buildingReadyFields.contains("Frederiksberggade")){
+				if(getMagentaTerritoryCounter()==2){
+					buildingReadyFields.add("Frederiksberggade");
+					buildingReadyFields.add("Rådhuspladsen");
+				}
+			}	
+		}
 
 
 }

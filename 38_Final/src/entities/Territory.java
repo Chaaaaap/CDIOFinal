@@ -120,7 +120,7 @@ public class Territory extends Ownable {
 				System.out.println(player.getMagentaTerritoryCounter());
 			}
 			
-//			player.addHouseList();
+			player.addHouseList();
 			
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
