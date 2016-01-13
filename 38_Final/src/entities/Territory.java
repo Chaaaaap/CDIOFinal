@@ -141,7 +141,7 @@ public class Territory extends Ownable {
 //				player.getYellowTerritoryCounter() == td.maxAntalYellow() ||
 //				player.getMagentaTerritoryCounter() == td.maxAntalMagenta()){
 
-		player.adjustBalance(player, -td.getHousePrice());
+		player.adjustBalance(player, -getHousePrice());
 		td.addHouseCounter();
 		player.addHouseCounter();
 //		}
@@ -153,6 +153,10 @@ public class Territory extends Ownable {
 	
 	public int getFieldNumber(){
 		return td.getFieldNumber();
+	}
+	
+	public int getHousePrice() {
+		return td.getHousePrice();
 	}
 	
 	public int getHouseCounter(){
@@ -224,6 +228,10 @@ public class Territory extends Ownable {
 
 		private int getPrice() {
 			return price;
+		}
+		
+		private int getHousePrice() {
+			return housePrice;
 		}
 		
 		private String getColour() {
