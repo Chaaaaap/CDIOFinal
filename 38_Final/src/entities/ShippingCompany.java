@@ -56,6 +56,7 @@ public class ShippingCompany extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 			player.addFleetCounter();
+			player.adjustPropertyValue(pris);
 			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
