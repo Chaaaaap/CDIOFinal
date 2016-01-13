@@ -16,9 +16,9 @@ public class Territory extends Ownable {
 	private String buy;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
-	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber) {
+	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice) {
 		super(price, feltNavn, gb);
-		this.td = new TerritoryData(rent, feltNavn, owner, rb, price, gb, feltNavn, fieldColour, fieldNumber);
+		this.td = new TerritoryData(rent, feltNavn, owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice);
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public class Territory extends Ownable {
 //				player.getYellowTerritoryCounter() == td.maxAntalYellow() ||
 //				player.getMagentaTerritoryCounter() == td.maxAntalMagenta()){
 
-		player.adjustBalance(player, -td.getPrice());
+		player.adjustBalance(player, -td.getHousePrice());
 		td.addHouseCounter();
 		player.addHouseCounter();
 //		}
@@ -190,9 +190,10 @@ public class Territory extends Ownable {
 		private String feltNavn;
 		private String colour;
 		private int fieldNumber;
+		private int housePrice;
 
 		
-		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber) {
+		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice) {
 			this.rent = rent;
 			this.buy = buy;
 			this.owner = owner;
@@ -202,6 +203,7 @@ public class Territory extends Ownable {
 			this.feltNavn = feltNavn;
 			this.colour = fieldColour;
 			this.fieldNumber = fieldNumber;
+			this.housePrice = housePrice;
 			houseCounter = 0;
 		}
 		private String getFeltNavn() {

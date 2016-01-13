@@ -230,6 +230,7 @@ public class GameManager
 								for (int i = 1; i < tilladteStrings.length; i++) 
 									if (tilladteStrings[i]==s){
 										tilsalg[i-1].buyHouse(player);
+										GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 										if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
 											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
 										}
