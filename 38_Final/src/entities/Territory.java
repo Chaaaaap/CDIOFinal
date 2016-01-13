@@ -136,7 +136,6 @@ public class Territory extends Ownable {
 		td.addHouseCounter();
 		player.addHouseCounter();
 //		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
-//		}
 	}
 
 	public int getPrice() {
