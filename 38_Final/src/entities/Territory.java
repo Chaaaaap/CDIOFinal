@@ -132,18 +132,10 @@ public class Territory extends Ownable {
 	}
 
 	public void buyHouse(Player player) {
-//		if(player.getBlueTerritoryCounter() == td.maxAntalBlue() ||
-//				player.getPinkTerritoryCounter() == td.maxAntalPink() ||
-//				player.getGreenTerritoryCounter() == td.maxAntalGreen() ||
-//				player.getGrayTerritoryCounter() == td.maxAntalGrey() ||
-//				player.getRedTerritoryCounter() == td.maxAntalRed() ||
-//				player.getWhiteTerritoryCounter() == td.maxAntalWhite() ||
-//				player.getYellowTerritoryCounter() == td.maxAntalYellow() ||
-//				player.getMagentaTerritoryCounter() == td.maxAntalMagenta()){
-
 		player.adjustBalance(player, -getHousePrice());
 		td.addHouseCounter();
 		player.addHouseCounter();
+//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
 //		}
 	}
 
