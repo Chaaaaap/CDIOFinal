@@ -166,9 +166,9 @@ public class GameBoard {
 		//Initializes every field with Title and description.
 
 		guiFields[0].setTitle("Start"); guiFields[0].setDescription("Hvergang De passere modtag kr. 4000"); guiFields[0].setSubText("Start"); 
-		guiFields[1].setTitle("Rødovrevej"); guiFields[1].setDescription("Pris: 1200 <BR> Leje: 100 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[1].setSubText("Territory");
+		guiFields[1].setTitle("Rødovrevej"); guiFields[1].setDescription("Pris: 1200 <BR> Leje: 50 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[1].setSubText("Territory");
 		guiFields[2].setTitle("Prøv Lykken"); guiFields[2].setDescription("Træk et kort"); guiFields[2].setSubText(" ");
-		guiFields[3].setTitle("Hvidovrevej"); guiFields[3].setDescription("Pris: 1200 <BR> Leje: 100 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[3].setSubText("Territory");
+		guiFields[3].setTitle("Hvidovrevej"); guiFields[3].setDescription("Pris: 1200 <BR> Leje: 50 <BR> Hus: 1000 <BR> Hotel: 1000"); guiFields[3].setSubText("Territory");
 		guiFields[4].setTitle("Betal indkomst skat"); guiFields[4].setDescription("Betal indkomstskat 10% eller kr. 4000"); guiFields[4].setSubText("Tax");
 		guiFields[5].setTitle("SFL Færgerne"); guiFields[5].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[5].setSubText("Shipping Company");
 		guiFields[6].setTitle("Roskildevej"); guiFields[6].setDescription("Pris: 2000 <BR> Leje: 100 <BR> Hus: 1000 <BR>Hotel: 1000"); guiFields[6].setSubText("Territory");
