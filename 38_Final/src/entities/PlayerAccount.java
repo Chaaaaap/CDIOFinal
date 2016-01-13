@@ -4,6 +4,7 @@ public class PlayerAccount {
 
 	//Attribut of the class.
 	private int balance;
+	private int propertyValue;
 
 	//The contructor of PlayerAccount, which sets the the balance 
 	//for the player.
@@ -57,6 +58,17 @@ public class PlayerAccount {
 			
 			this.balance = 0;
 		}
+	}
+	
+	public void adjustPropertyValue(int amount) {
+		if(amount > 0)
+			propertyValue += amount;
+		else
+			propertyValue -= amount;
+	}
+	
+	public int getPropertyValue() {
+		return propertyValue;
 	}
 
 }

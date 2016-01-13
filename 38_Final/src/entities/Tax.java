@@ -55,7 +55,7 @@ public class Tax extends Felt {
 	}
 
 	private int tenPercent(Player player) {
-		return player.getPlayerAccount().getBalance()/10;
+		return (player.getBalance(player)+player.getPropertyValue())/10;
 	}
 
 	@Override

@@ -92,7 +92,7 @@ public class Territory extends Ownable {
 		buy = GUI.getUserButtonPressed(getResourceBundle().getString("Købe")+" "+getPrice()+"$?", getResourceBundle().getString("Ja"),getResourceBundle().getString("Nej"));
 		if(buy.equals(getResourceBundle().getString("Ja"))) {
 			player.adjustBalance(player, -getPrice());
-			player.adjustPropertyValue(getPrice());
+			player.adjustPropertyValue(player, getPrice());
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
 			player.addProperty(this);
@@ -148,13 +148,13 @@ public class Territory extends Ownable {
 		}
 		if(getHouseCounter()>4){
 			player.adjustBalance(player, -getHousePrice());
-			player.adjustPropertyValue(getPrice());
+			player.adjustPropertyValue(player, getPrice());
 		}
 		else{
 			player.adjustBalance(player, -getHousePrice());
 			td.addHouseCounter();
 			player.addHouseCounter();
-			player.adjustPropertyValue(getPrice());
+			player.adjustPropertyValue(player, getPrice());
 		}
 
 		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");

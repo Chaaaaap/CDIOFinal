@@ -219,15 +219,12 @@ public class Player
 		return player.getPlayerAccount().isBankrupt();
 	}
 	
-	public int getPropertyValue() {
-		return propertyValue;
+	public int getPropertyValue(Player player) {
+		return player.getPlayerAccount().getPropertyValue();
 	}
 	
-	public void adjustPropertyValue(int amount) {
-		if(amount > 0)
-			propertyValue += amount;
-		else if(amount < 0)
-			propertyValue -= amount;
+	public void adjustPropertyValue(Player player, int amount) {
+		player.getPlayerAccount().adjustPropertyValue(amount);
 	}
 
 	public void addProperty(Territory territory) {
