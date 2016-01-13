@@ -154,7 +154,7 @@ public class GameManager
 					.secondaryColor(getChangedColor(playerNumber))
 					.build();
 			//Adds the player to the GUI.
-			GUI.addPlayer(player.getPlayerName(), players[i].getPlayerAccount().getBalance(), car[i]);
+			GUI.addPlayer(player.getPlayerName(), players[i].getBalance(player), car[i]);
 			//Puts their car on the Startfield.
 			GUI.setCar(1, player.getPlayerName());
 			player.setCurrentField(0);
