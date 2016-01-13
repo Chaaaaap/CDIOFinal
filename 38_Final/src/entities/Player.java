@@ -23,6 +23,7 @@ public class Player
 	
 //	tester
 	private ArrayList<String> buildingReadyFields;
+	private int propertyValue;
 
 	public Player() 
 	{
@@ -43,7 +44,7 @@ public class Player
 		whiteTerritoryCounter = 0;
 		yellowTerritoryCounter = 0;
 		magentaTerritoryCounter = 0;
-
+		propertyValue = 0;
 
 
 	}
@@ -216,6 +217,17 @@ public class Player
 
 	public boolean isBankrupt(Player player) {
 		return player.getPlayerAccount().isBankrupt();
+	}
+	
+	public int getPropertyValue() {
+		return propertyValue;
+	}
+	
+	public void adjustPropertyValue(int amount) {
+		if(amount > 0)
+			propertyValue += amount;
+		else if(amount < 0)
+			propertyValue -= amount;
 	}
 
 	public void addProperty(Territory territory) {
