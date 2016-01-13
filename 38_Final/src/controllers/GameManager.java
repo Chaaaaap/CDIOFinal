@@ -198,20 +198,20 @@ public class GameManager
 				boolean loop =true;
 
 				while(loop){
-					String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"),"KØB");
+					String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"),rb.getString("Køb"));
 
 					if(Choices.equals(rb.getString("DiceRoll")))
 					{
 						loop=false;
 					}
 
-					else if(Choices.equals("KØB")){
+					else if(Choices.equals(rb.getString("Køb"))){
 						if(!player.getProperty().isEmpty()){
 
 
 							String[] tilsaalg = player.getTestliste();
 							String[] tilladteStringssss = new String[1 + tilsaalg.length];
-							tilladteStringssss[0] = "Gå Tilbage";
+							tilladteStringssss[0] = rb.getString("Gå");
 							
 							for (int i = 1; i < tilsaalg.length+1; i++) {
 								tilladteStringssss[i] = tilsaalg[i-1];
@@ -220,7 +220,7 @@ public class GameManager
 
 							Territory[] tilsalg = player.getHusliste();
 							String[] tilladteStrings = new String[1 + tilsalg.length];
-							tilladteStrings[0] = "Gå Tilbage";
+							tilladteStrings[0] = rb.getString("Gå");
 
 							for (int i = 1; i < tilsalg.length+1; i++) {
 
