@@ -230,10 +230,10 @@ public class GameManager
 								for (int i = 1; i < tilladteStrings.length; i++) 
 									if (tilladteStrings[i]==s){
 										tilsalg[i-1].buyHouse(player);
-										if(player.getHusliste()[i-1].getHouseCounter() < 5){
+										if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
 											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
 										}
-										else if (player.getHusliste()[i].getHouseCounter() ==5){
+										else if (player.getHusliste()[i-1].getHouseCounter() ==5){
 											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), 0);
 											GUI.setHotel(player.getHusliste()[i-1].getFieldNumber(), true);
 										}
