@@ -188,7 +188,7 @@ public class GameBoard {
 		guiFields[20].setTitle("Parkering"); guiFields[20].setDescription("Der sker ingenting her!"); guiFields[20].setSubText("Parking");
 		guiFields[21].setTitle("Trianglen"); guiFields[21].setDescription("Pris: 4400 <BR> Leje: 350 <BR> Hus: 3000 <BR> Hotel: 3000"); guiFields[21].setSubText("Territory");
 		guiFields[22].setTitle("Prøv Lykken"); guiFields[22].setDescription("Træk et kort"); guiFields[22].setSubText(" ");
-		guiFields[23].setTitle("Østerbro- gade"); guiFields[23].setDescription("Pris: 4400 <BR> Leje: 350 <BR> Hus: 3000 <BR> Hotel: 3000"); guiFields[23].setSubText("Territory");
+		guiFields[23].setTitle("Østerbrogade"); guiFields[23].setDescription("Pris: 4400 <BR> Leje: 350 <BR> Hus: 3000 <BR> Hotel: 3000"); guiFields[23].setSubText("Territory");
 		guiFields[24].setTitle("Grønningen"); guiFields[24].setDescription("Pris: 4800 <BR> Leje: 400 <BR> Hus: 3000 <BR> Hotel: 3000"); guiFields[24].setSubText("Territory");
 		guiFields[25].setTitle("DFDS Seaways"); guiFields[25].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[25].setSubText("Shipping Company");
 		guiFields[26].setTitle("Bredgade"); guiFields[26].setDescription("Pris: 5200 <BR> Leje: 450 <BR> Hus: 3000 <BR> Hotel: 3000"); guiFields[26].setSubText("Territory");
