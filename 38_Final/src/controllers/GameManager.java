@@ -195,35 +195,53 @@ public class GameManager
 
 			if(!player.isJailed){
 
-				
-				GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"));
+				boolean loop =true;
 
-				if(!player.getProperty().isEmpty()){
-					
-//					GUI.setHouses(2, 4);
-					Territory[] tilsalg = player.getHusliste();
-					String[] tilladteStrings = new String[tilsalg.length];
+				while(loop){
+					String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"),"KØB");
 
-					
-					for (int i = 0; i < tilsalg.length; i++) {
-						tilladteStrings[i] = tilsalg[i].getFeltNavn();
+					if(Choices.equals(rb.getString("DiceRoll")))
+					{
+						loop=false;
 					}
 
-					String s = GUI.getUserSelection("Du kan købe et hus",tilladteStrings );
-				
-					for (int i = 0; i < tilladteStrings.length; i++) 
-						if (tilladteStrings[i]==s){
-							tilsalg[i].buyHouse(player);
-							GUI.setHouses(player.getHusliste()[i].getFieldNumber(), player.getHusliste()[i].getHouseCounter());
+					else if(Choices.equals("KØB")){
+						if(!player.getProperty().isEmpty()){
+
+
+							Territory[] tilsalg = player.getHusliste();
+							String[] tilladteStrings = new String[1 + tilsalg.length];
+							tilladteStrings[0] = "Gå Tilbage";
+
+							for (int i = 1; i < tilsalg.length+1; i++) {
+
+								tilladteStrings[i] = tilsalg[i-1].getFeltNavn();
+
+
+							}
+
+							String s = GUI.getUserSelection("Du kan købe et hus",tilladteStrings );
+							if(s.equals(tilladteStrings[0])){
+								System.out.println("KØB NU ET HUS FOR HÆÆÆLVED");
+							}
+
+							else{
+
+								for (int i = 1; i < tilladteStrings.length; i++) 
+									if (tilladteStrings[i]==s){
+										tilsalg[i-1].buyHouse(player);
+										if(player.getHusliste()[i-1].getHouseCounter() < 5){
+											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
+										}
+										else if (player.getHusliste()[i].getHouseCounter() ==5){
+											GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), 0);
+											GUI.setHotel(player.getHusliste()[i-1].getFieldNumber(), true);
+										}
+									}
+							}
 						}
-
-					for (int i = 0; i < tilladteStrings.length; i++) {
-						System.out.println(player.getHusliste()[i].getHouseCounter());
-							
 					}
-					
 				}
-
 
 				diceCup.shake();
 				sum = diceCup.getSumResult();
