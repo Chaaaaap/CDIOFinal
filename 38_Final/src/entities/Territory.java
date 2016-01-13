@@ -50,7 +50,7 @@ public class Territory extends Ownable {
 			else if(getHouseCounter()>1 && getHouseCounter()<5)
 				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHouseCounter()+" "+getResourceBundle().getString("Owned8")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
 			else 
-				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHouseCounter()+" "+getResourceBundle().getString("Owned9")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
+				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHotelCounter()+" "+getResourceBundle().getString("Owned9")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
 
 		}
 	}
@@ -142,10 +142,21 @@ public class Territory extends Ownable {
 	}
 
 	public void buyHouse(Player player) {
-		player.adjustBalance(player, -getHousePrice());
-		td.addHouseCounter();
-		player.addHouseCounter();
-		player.adjustPropertyValue(getPrice());
+		if(getHouseCounter()==4){
+			td.addHotelCounter();
+			player.addHotelCounter();
+		}
+		if(getHouseCounter()>4){
+			player.adjustBalance(player, -getHousePrice());
+			player.adjustPropertyValue(getPrice());
+		}
+		else{
+			player.adjustBalance(player, -getHousePrice());
+			td.addHouseCounter();
+			player.addHouseCounter();
+			player.adjustPropertyValue(getPrice());
+		}
+
 		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
 	}
 
@@ -163,6 +174,9 @@ public class Territory extends Ownable {
 
 	public int getHouseCounter(){
 		return td.getHouseCounter();
+	}
+	public int getHotelCounter(){
+		return td.getHotelCounter();
 	}
 
 	public String getFeltNavn() {
@@ -191,7 +205,7 @@ public class Territory extends Ownable {
 
 		private String getBuy;
 		private int rent;
-		private int houseCounter;
+		private int houseCounter, hotelCounter;
 		private String buy;
 		private Player owner;
 		private ResourceBundle rb;
@@ -217,6 +231,13 @@ public class Territory extends Ownable {
 			this.housePrice = housePrice;
 			this.rents = rents;
 			houseCounter = 0;
+			hotelCounter = 0;
+		}
+		public int getHotelCounter() {
+			return hotelCounter;
+		}
+		public void addHotelCounter(){
+			hotelCounter++;
 		}
 		private String getFeltNavn() {
 			return feltNavn;
