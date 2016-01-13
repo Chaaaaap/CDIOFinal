@@ -230,7 +230,7 @@ public class GameManager
 							
 							
 
-							String s = GUI.getUserSelection("Du kan købe et hus",tilladteStringssss );
+							String s = GUI.getUserSelection(rb.getString("KøbHus"),tilladteStringssss );
 							if(s.equals(tilladteStrings[0])){
 								System.out.println("KØB NU ET HUS FOR HÆÆÆLVED");
 							}
