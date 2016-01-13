@@ -21,6 +21,7 @@ public class GameBoard {
 	private String language;
 	private String country;
 	private LanguageSelector ls;
+	private Felt[] territoryList;
 
 
 	//GameBoard constructor
@@ -233,6 +234,14 @@ public class GameBoard {
 	public Felt[] getlogicFields() {
 		// TODO Auto-generated method stub
 		return logicFields;
+	}
+	
+	public Felt[] getTerritoryList() {
+		for(int i = 0; i < guiFields.length; i++) {
+			if(logicFields[i] instanceof Territory)
+				territoryList[i] = logicFields[i];
+		}
+		return territoryList;
 	}
 
 

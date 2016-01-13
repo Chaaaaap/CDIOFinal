@@ -209,6 +209,15 @@ public class GameManager
 						if(!player.getProperty().isEmpty()){
 
 
+							String[] tilsaalg = player.getTestliste();
+							String[] tilladteStringssss = new String[1 + tilsaalg.length];
+							tilladteStringssss[0] = "Gå Tilbage";
+							
+							for (int i = 1; i < tilsaalg.length+1; i++) {
+								tilladteStringssss[i] = tilsaalg[i-1];
+							}
+
+
 							Territory[] tilsalg = player.getHusliste();
 							String[] tilladteStrings = new String[1 + tilsalg.length];
 							tilladteStrings[0] = "Gå Tilbage";
@@ -217,10 +226,11 @@ public class GameManager
 
 								tilladteStrings[i] = tilsalg[i-1].getFeltNavn();
 
-
 							}
+							
+							
 
-							String s = GUI.getUserSelection("Du kan købe et hus",tilladteStrings );
+							String s = GUI.getUserSelection("Du kan købe et hus",tilladteStringssss );
 							if(s.equals(tilladteStrings[0])){
 								System.out.println("KØB NU ET HUS FOR HÆÆÆLVED");
 							}
