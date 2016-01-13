@@ -285,7 +285,7 @@ public class GameManager
 				if (currentField instanceof ChanceField){
 					GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
 					chanceCard = chanceCardController.drawCard();
-					GUI.setChanceCard(rb.getString(chanceCard.toString()));
+					GUI.displayChanceCard(rb.getString(chanceCard.toString()));
 					chanceCard.executeCard(player);
 				} 
 				else {
