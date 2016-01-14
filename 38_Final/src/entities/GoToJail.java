@@ -7,14 +7,11 @@ import desktop_resources.GUI;
 
 public class GoToJail extends Felt {
 
-	private Player player;
 	private ResourceBundle rb;
-	private GameBoard gameBoard;
 
 	public GoToJail(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
-		this.gameBoard = gameBoard;
-		this.rb = gameBoard.getBundle();
+		this.rb = rb;
 		
 	}
 	
