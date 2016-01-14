@@ -158,6 +158,7 @@ public class Territory extends Ownable {
 		}
 		if(getHouseCounter()==4){
 			td.addHotelCounter();
+			player.removeHouseCounter();
 			player.addHotelCounter();
 		}
 		removeFromHouseList(player);

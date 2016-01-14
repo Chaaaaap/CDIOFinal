@@ -161,6 +161,10 @@ public class Player
 	public int getBreweryCounter(Player player) {
 		return breweryCounter;
 	}
+	
+	public void removeHouseCounter() {
+		houseCounter -= 4;
+	}
 
 	public void addHouseCounter() {
 		houseCounter++;
