@@ -100,35 +100,27 @@ public class Territory extends Ownable {
 
 			if (getColour() == "blue") {
 				player.addBlueTerritoryCounter();
-				//				System.out.println(player.getBlueTerritoryCounter());
 			}
 			else if (getColour() == "pink") {
 				player.addPinkTerritoryCounter();
-				//				System.out.println(player.getPinkTerritoryCounter());
 			}
 			else if (getColour() == "green") {
 				player.addGreenTerritoryCounter();
-				System.out.println(player.getGreenTerritoryCounter());
 			}
 			else if (getColour()== "gray") {
 				player.addGrayTerritoryCounter();
-				System.out.println(player.getGrayTerritoryCounter());
 			}
 			else if (getColour() == "red") {
 				player.addRedTerritoryCounter();
-				System.out.println(player.getRedTerritoryCounter());
 			}
 			else if (getColour() == "white") {
 				player.addWhiteTerritoryCounter();
-				System.out.println(player.getWhiteTerritoryCounter());
 			}
 			else if (getColour() == "yellow") {
 				player.addYellowTerritoryCounter();
-				System.out.println(player.getYellowTerritoryCounter());
 			}
 			else {
 				player.addMagentaTerritoryCounter();
-				System.out.println(player.getMagentaTerritoryCounter());
 			}
 
 			player.addHouseList();

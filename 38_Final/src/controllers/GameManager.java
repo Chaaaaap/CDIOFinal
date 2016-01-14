@@ -28,7 +28,6 @@ public class GameManager
 	private LanguageSelector ls;
 	private String language;
 	private String country;
-	//	private String languageChosen;
 	private ResourceBundle rb;
 	private ChanceCard[] cc;
 	private ChanceCardController chanceCardController;
@@ -68,7 +67,7 @@ public class GameManager
 		cc[13] = new ChanceRecieve("ChanceAktie", 1000);
 		cc[14] = new ChancePayPerProperty("ChanceOil", 500, 2000);
 		cc[15] = new ChanceRecieve("ChanceBond", 1000);
-		cc[16] = new ChanceMove("ChanceMove", -3, gameBoard, cc, chanceCardController, rb);
+		cc[16] = new ChanceMove("ChanceMove", -3, gameBoard, chanceCardController, rb);
 		cc[17] = new ChanceRecieve("ChanceLottery", 500);
 		cc[18] = new ChancePay("ChanceRepair", 3000);
 		cc[19] = new ChanceRecieve("ChanceTax", 3000);
@@ -191,7 +190,6 @@ public class GameManager
 
 
 			Jailed(player,  diceCup);
-			//			System.out.println(player.getJailRoll());
 
 			if(!player.isJailed){
 
@@ -233,7 +231,6 @@ public class GameManager
 
 								String s = GUI.getUserSelection(rb.getString("KøbHus"),tilladteStringssss );
 								if(s.equals(tilladteStrings[0])){
-									System.out.println("KØB NU ET HUS FOR HÆÆÆLVED");
 								}
 
 								else{
@@ -281,15 +278,6 @@ public class GameManager
 				player.setCurrentField((player.getCurrentField()));
 				//Gets the landOnField from whatever field the player landed on.
 				Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
-
-
-
-				// koden nedenfor får de ejede grunde printet ud i consolen
-				//					if(!player.getProperty().isEmpty()){
-				//						for(String fieldNames : player.getProperties())
-				//							System.out.println(fieldNames);
-				//					}
-
 
 
 				if (currentField instanceof ChanceField){
