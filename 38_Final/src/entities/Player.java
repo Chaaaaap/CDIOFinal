@@ -257,9 +257,6 @@ public class Player
 	
 			return ownedtestNames;
 		}
-		public ArrayList<String> getHouseList() {
-			return buildingReadyFields;
-		}
 		
 		public void removeString(String navn) {
 			buildingReadyFields.remove(navn);
@@ -283,7 +280,7 @@ public class Player
 				if(getGreenTerritoryCounter()==3){
 					buildingReadyFields.add("Frederiksberg Allé");
 					buildingReadyFields.add("Bülowsvej");
-					buildingReadyFields.add("GL. Kongevej");
+					buildingReadyFields.add("Gl. Kongevej");
 				}
 			}
 			if(!buildingReadyFields.contains("Bernstoffvej")){
