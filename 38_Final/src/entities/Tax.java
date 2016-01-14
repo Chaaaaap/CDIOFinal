@@ -2,25 +2,20 @@ package entities;
 
 import java.util.ResourceBundle;
 
-import controllers.GameBoard;
 import desktop_resources.GUI;
 import entities.Player;
 
 public class Tax extends Felt {
 
-	private String Tax, feltNavn;
+	private String Tax;
 	private int Pay, taxAmount;
 	private Player player;
 	private ResourceBundle rb;
-	private GameBoard gameBoard;
-	//	private String[] strings;
 
-	public Tax(int tax, String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
+	public Tax(int tax, String feltNavn, ResourceBundle rb) {
 		super(feltNavn);
-		this.feltNavn = feltNavn;
 		taxAmount = tax;
-		this.gameBoard = gameBoard;
-		this.rb = gameBoard.getBundle();
+		this.rb = rb;
 	}
 
 	@Override
@@ -65,9 +60,4 @@ public class Tax extends Felt {
 		else
 			return player.getPlayerName()+", "+rb.getString("Tax2");
 	}
-
-	//	private int getRent(Player player) {
-	//		return rent;
-	//	}
-
 }
