@@ -280,9 +280,9 @@ public class Player
 				buildingReadyFields.add("Gl. Kongevej");
 			}
 		}
-		if(!buildingReadyFields.contains("Bernstoffvej") && !buildingReadyFields.contains("Hellerupvej") && !buildingReadyFields.contains("Strandvej")){
+		if(!buildingReadyFields.contains("Bernstorffsvej") && !buildingReadyFields.contains("Hellerupvej") && !buildingReadyFields.contains("Strandvej")){
 			if(getGrayTerritoryCounter()==3){
-				buildingReadyFields.add("Bernstoffvej");
+				buildingReadyFields.add("Bernstorffsvej");
 				buildingReadyFields.add("Hellerupvej");
 				buildingReadyFields.add("Strandvej");
 			}
