@@ -308,7 +308,7 @@ public class GameManager
 			}
 		}
 		player.addTurnCounter();
-		if(player.getTurnCounter()<3)
+		if(player.getTurnCounter()<3 && diceCup.getDiceOne() == diceCup.getDiceTwo())
 		GUI.showMessage(player.getPlayerName()+rb.getString("ToEns"));
 	} while(diceCup.getDiceOne() == diceCup.getDiceTwo() && player.getTurnCounter() < 3);
 		if(player.getTurnCounter() == 3) {

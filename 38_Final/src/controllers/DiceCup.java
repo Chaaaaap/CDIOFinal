@@ -31,7 +31,7 @@ public class DiceCup
 	public int getSumResult()
 	{
 		int sum = diceOne.getValue()+ diceTwo.getValue(); 
-		return 2;
+		return sum;
 	}
 
 	public int getDiceOne() 
