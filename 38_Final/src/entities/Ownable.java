@@ -8,13 +8,13 @@ public abstract class Ownable extends Felt{
 	//the class is abstract because other classes have to extend
 	//from this class. Its the body of all classes, that are ownable.
 	protected Player owner;
-	private int pris;
+	private int price;
 	
 
 	public Ownable(int pris, String feltNavn, GameBoard gb) {
 		super(feltNavn);
 		this.owner = null;
-		this.pris = pris;
+		this.price = pris;
 	}
 	
 	//Abstract methods. 
@@ -39,8 +39,6 @@ public abstract class Ownable extends Felt{
 	
 	public abstract String getFeltBesked(Player player);
 	
-	public void pawnField(Player player) {
-		
-	}
+	public abstract int getPrice();
 
 }

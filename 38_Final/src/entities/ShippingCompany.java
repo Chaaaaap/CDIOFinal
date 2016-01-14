@@ -12,13 +12,13 @@ public class ShippingCompany extends Ownable {
 	private final int RENT_1=500, RENT_2=1000, RENT_3=2000, RENT_4=4000;
 	private Player owner;
 	private String buy, feltNavn;
-	private int pris, rent;
+	private int price, rent;
 	private GameBoard gameBoard;
 	private ResourceBundle rb;
 
-	public ShippingCompany(int pris, String feltNavn, GameBoard gb, ResourceBundle rb) {
-		super(pris, feltNavn, gb);
-		this.pris = pris;
+	public ShippingCompany(int price, String feltNavn, GameBoard gb, ResourceBundle rb) {
+		super(price, feltNavn, gb);
+		this.price = price;
 		this.feltNavn = feltNavn;
 		this.owner = null;
 		this.gameBoard = gb;
@@ -50,19 +50,22 @@ public class ShippingCompany extends Ownable {
 
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(rb.getString("Købe") + " " + pris + " kr.?", rb.getString("Ja"), rb.getString("Nej"));
+		buy = GUI.getUserButtonPressed(rb.getString("Købe") + " " + price + " kr.?", rb.getString("Ja"), rb.getString("Nej"));
 		if(buy.equals(rb.getString("Ja"))) {
 			GUI.setOwner(player.getCurrentField()+1, player.getPlayerName());
-			player.getPlayerAccount().adjustBalance(-pris);
+			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 			player.addFleetCounter();
-			player.adjustPropertyValue(player, pris);
+			player.adjustPropertyValue(player, price);
 			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
 		}
 	}
 
-
+	@Override
+	public int getPrice() {
+		return price;
+	}
 
 	@Override
 	public String getFeltBesked(Player player) {
@@ -101,3 +104,4 @@ public class ShippingCompany extends Ownable {
 
 	}
 }
+

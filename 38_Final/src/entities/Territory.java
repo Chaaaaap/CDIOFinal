@@ -167,6 +167,7 @@ public class Territory extends Ownable {
 			
 	}
 
+	@Override
 	public int getPrice() {
 		return td.getPrice();
 	}
