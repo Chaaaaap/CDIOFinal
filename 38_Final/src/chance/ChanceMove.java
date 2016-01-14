@@ -13,16 +13,14 @@ public class ChanceMove extends ChanceCard {
 
 	private int antalFelter;
 	private GameBoard gb;
-	private ChanceCard[] cc;
 	private ChanceCard chanceCard;
 	private ResourceBundle rb;
 	private ChanceCardController ccc;
 
-	public ChanceMove(String cardName, int antalFelter, GameBoard gameBoard, ChanceCard[] cc, ChanceCardController ccc, ResourceBundle rb) {
+	public ChanceMove(String cardName, int antalFelter, GameBoard gameBoard, ChanceCardController ccc, ResourceBundle rb) {
 		super(cardName);
 		this.antalFelter = antalFelter;
 		this.gb = gameBoard;
-		this.cc = cc;
 		this.ccc = ccc;
 		this.rb = rb;
 	}
