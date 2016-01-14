@@ -183,6 +183,7 @@ public class GameManager
 
 	private void playerTurn(Player player) 
 	{
+		do {
 		//Tests to see how many players are bankrupt
 		isPlayersBankrupt(players);
 		//Makes sure bankrupts players are skipped
@@ -306,7 +307,14 @@ public class GameManager
 					GUI.removeAllCars(player.getPlayerName());
 			}
 		}
-	}
+	} while(diceCup.getDiceOne() == diceCup.getDiceTwo() && player.getTurnCounter() < 3);
+		if(player.getTurnCounter() == 3) {
+			player.isJailed = true;
+			GUI.removeAllCars(player.getPlayerName());
+			player.setCurrentField(10);
+			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+		}
+	} 
 	//A simple counter to see how many players are bankrupt.
 	private int isPlayersBankrupt(Player[] players) {
 		bankruptCounter = 0;
@@ -363,6 +371,10 @@ public class GameManager
 					player.setJailRoll(0);		
 					sum = diceCup.getSumResult();
 					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
+					GUI.removeAllCars(player.getPlayerName());
+					player.setCurrentField(player.getCurrentField()+sum);
+					GUI.setCar(player.getCurrentField(), player.getPlayerName());
+					gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 				}
 
 				else GUI.showMessage(player.getPlayerName()+", "+rb.getString("Jail9")); {

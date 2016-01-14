@@ -24,6 +24,7 @@ public class Player
 //	tester
 	private ArrayList<String> buildingReadyFields;
 	private int propertyValue;
+	public int turnCounter;
 
 	public Player() 
 	{
@@ -55,6 +56,13 @@ public class Player
 		this.playerName = playerName;
 	}
 
+	public void addTurnCounter() {
+		turnCounter++;
+	}
+	
+	public int getTurnCounter() {
+		return turnCounter;
+	}
 	//It simply returns the player name
 	public String getPlayerName()
 	{
