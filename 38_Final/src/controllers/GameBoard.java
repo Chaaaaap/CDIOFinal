@@ -118,17 +118,17 @@ public class GameBoard {
 		newGuiFields[2] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[3] = new Street.Builder().setBgColor(Color.BLUE).build();
 		newGuiFields[4] = new Street.Builder().setBgColor(Color.DARK_GRAY).build();
-		newGuiFields[5] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[5] = new Street.Builder().setBgColor(Color.LIGHT_GRAY).build();
 		newGuiFields[6] = new Street.Builder().setBgColor(Color.PINK).build();
 		newGuiFields[7] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[8] = new Street.Builder().setBgColor(Color.PINK).build();
 		newGuiFields[9] = new Street.Builder().setBgColor(Color.PINK).build();
 		newGuiFields[10] = new Start.Builder().setBgColor(Color.GRAY).build();
 		newGuiFields[11] = new Street.Builder().setBgColor(Color.GREEN).build();
-		newGuiFields[12] = new Start.Builder().setBgColor(Color.ORANGE).build();
+		newGuiFields[12] = new Street.Builder().setBgColor(Color.ORANGE).build();
 		newGuiFields[13] = new Street.Builder().setBgColor(Color.GREEN).build();
 		newGuiFields[14] = new Street.Builder().setBgColor(Color.GREEN).build();
-		newGuiFields[15] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[15] = new Street.Builder().setBgColor(Color.LIGHT_GRAY).build();
 		newGuiFields[16] = new Street.Builder().setBgColor(Color.GRAY).build();
 		newGuiFields[17] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[18] = new Street.Builder().setBgColor(Color.GRAY).build();
@@ -138,17 +138,17 @@ public class GameBoard {
 		newGuiFields[22] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[23] = new Street.Builder().setBgColor(Color.RED).build();
 		newGuiFields[24] = new Street.Builder().setBgColor(Color.RED).build();
-		newGuiFields[25] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[25] = new Street.Builder().setBgColor(Color.LIGHT_GRAY).build();
 		newGuiFields[26] = new Street.Builder().setBgColor(Color.WHITE).build();
 		newGuiFields[27] = new Street.Builder().setBgColor(Color.WHITE).build();
-		newGuiFields[28] = new Start.Builder().setBgColor(Color.ORANGE).build();
+		newGuiFields[28] = new Street.Builder().setBgColor(Color.ORANGE).build();
 		newGuiFields[29] = new Street.Builder().setBgColor(Color.WHITE).build();
 		newGuiFields[30] = new Start.Builder().setBgColor(Color.GRAY).build();
 		newGuiFields[31] = new Street.Builder().setBgColor(Color.YELLOW).build();
 		newGuiFields[32] = new Street.Builder().setBgColor(Color.YELLOW).build();
 		newGuiFields[33] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[34] = new Street.Builder().setBgColor(Color.YELLOW).build();
-		newGuiFields[35] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
+		newGuiFields[35] = new Street.Builder().setBgColor(Color.LIGHT_GRAY).build();
 		newGuiFields[36] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[37] = new Street.Builder().setBgColor(Color.MAGENTA).build();
 		newGuiFields[38] = new Street.Builder().setBgColor(Color.DARK_GRAY).build();
@@ -181,7 +181,7 @@ public class GameBoard {
 		guiFields[12].setTitle("Tuborg Bryggeri"); guiFields[12].setDescription("Leje m. ét Bryggeri: 100 x antal øjne <BR> Leje m. to Bryggerier: 200 x antal øjne"); guiFields[12].setSubText("Pris: 3000");
 		guiFields[13].setTitle("Bülowsvej"); guiFields[13].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 200 <BR> Leje 1 hus: 1000<BR> Leje 2 hus: 3000<BR> Leje 3 hus: 9000<BR> Leje 4 hus: 12500 <BR> Leje hotel: 15000"); guiFields[13].setSubText("Pris: 2800");
 		guiFields[14].setTitle("Gl. Kongevej"); guiFields[14].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 250 <BR> Leje 1 hus: 1250<BR> Leje 2 hus: 3750<BR> Leje 3 hus: 10000<BR> Leje 4 hus: 14000 <BR> Leje hotel: 18000"); guiFields[14].setSubText("Pris: 3200");
-		guiFields[15].setTitle("DSB Kalundborg/ Århus"); guiFields[15].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[15].setSubText("Pris: 4000");
+		guiFields[15].setTitle("DSB Århus/ Kalundborg"); guiFields[15].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[15].setSubText("Pris: 4000");
 		guiFields[16].setTitle("Bernstorffvej"); guiFields[16].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 300 <BR> Leje 1 hus: 1400<BR> Leje 2 hus: 4000<BR> Leje 3 hus: 11000<BR> Leje 4 hus: 15000 <BR> Leje hotel: 19000"); guiFields[16].setSubText("Pris: 3600");
 		guiFields[17].setTitle("Prøv Lykken"); guiFields[17].setDescription("Træk et kort"); guiFields[17].setSubText(" ");
 		guiFields[18].setTitle("Hellerupvej"); guiFields[18].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 300 <BR> Leje 1 hus: 1400<BR> Leje 2 hus: 4000<BR> Leje 3 hus: 11000<BR> Leje 4 hus: 15000 <BR> Leje hotel: 19000"); guiFields[18].setSubText("Pris: 3600");
@@ -201,10 +201,10 @@ public class GameBoard {
 		guiFields[32].setTitle("Vimmel- skaftet"); guiFields[32].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 550 <BR> Leje 1 hus: 2600<BR> Leje 2 hus: 7800<BR> Leje 3 hus: 18000<BR> Leje 4 hus: 22000 <BR> Leje hotel: 25000"); guiFields[32].setSubText("Pris: 6000");
 		guiFields[33].setTitle("Prøv Lykken"); guiFields[33].setDescription("Træk et kort"); guiFields[33].setSubText(" ");
 		guiFields[34].setTitle("Nygade"); guiFields[34].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 600 <BR> Leje 1 hus: 3000<BR> Leje 2 hus: 9000<BR> Leje 3 hus: 20000<BR> Leje 4 hus: 24000 <BR> Leje hotel: 28000"); guiFields[34].setSubText("Pris: 6400");
-		guiFields[35].setTitle("DSB Halsskov/ Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[35].setSubText("Pris: 4000");
+		guiFields[35].setTitle("DSB Halskov /Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[35].setSubText("Pris: 4000");
 		guiFields[36].setTitle("Prøv Lykken"); guiFields[36].setDescription("Træk et kort"); guiFields[36].setSubText(" ");
 		guiFields[37].setTitle("Frederiks- berggade"); guiFields[37].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 700 <BR> Leje 1 hus: 3500<BR> Leje 2 hus: 10000<BR> Leje 3 hus: 22000<BR> Leje 4 hus: 26000 <BR> Leje hotel: 30000"); guiFields[37].setSubText("Pris: 7000");
-		guiFields[38].setTitle("Ekstra ordinær statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
+		guiFields[38].setTitle("Ekstraordinær statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
 		guiFields[39].setTitle("Rådhus- pladsen"); guiFields[39].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 1000 <BR> Leje 1 hus: 4000<BR> Leje 2 hus: 12000<BR> Leje 3 hus: 28000<BR> Leje 4 hus: 34000 <BR> Leje hotel: 40000"); guiFields[39].setSubText("Pris: 8000");
 
 
