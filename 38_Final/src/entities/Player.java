@@ -1,9 +1,6 @@
 package entities;
 
 import java.util.ArrayList;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 import entities.Territory;
 
 public class Player 
@@ -18,12 +15,10 @@ public class Player
 	public boolean isJailed;
 	private int hotelCounter;
 	private int houseCounter;
-	private int jailBreakCounter;
 	private ArrayList<Territory> OwnedProperties;
-	
-//	tester
+
+	//	tester
 	private ArrayList<String> buildingReadyFields;
-	private int propertyValue;
 	public int turnCounter;
 
 	public Player() 
@@ -45,7 +40,6 @@ public class Player
 		whiteTerritoryCounter = 0;
 		yellowTerritoryCounter = 0;
 		magentaTerritoryCounter = 0;
-		propertyValue = 0;
 
 
 	}
@@ -59,7 +53,7 @@ public class Player
 	public void addTurnCounter() {
 		turnCounter++;
 	}
-	
+
 	public int getTurnCounter() {
 		return turnCounter;
 	}
@@ -161,7 +155,7 @@ public class Player
 	public int getBreweryCounter(Player player) {
 		return breweryCounter;
 	}
-	
+
 	public void removeHouseCounter() {
 		houseCounter -= 4;
 	}
@@ -230,11 +224,11 @@ public class Player
 	public boolean isBankrupt(Player player) {
 		return player.getPlayerAccount().isBankrupt();
 	}
-	
+
 	public int getPropertyValue(Player player) {
 		return player.getPlayerAccount().getPropertyValue();
 	}
-	
+
 	public void adjustPropertyValue(Player player, int amount) {
 		player.getPlayerAccount().adjustPropertyValue(amount);
 	}
@@ -247,93 +241,84 @@ public class Player
 		return OwnedProperties;
 	}
 
+	public Territory[] getHusliste(){		
+		Territory[] ownedFieldNames = new Territory[OwnedProperties.size()];
+		ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
 
+		return ownedFieldNames;
+	}
 
-	//	public String[] getProperties(){
-	//		String[] ownedFieldNames = new String[OwnedProperties.size()];
-	//		ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
-	//		
-	//		return ownedFieldNames;
-	//	}
+	public String[] getTestliste(){		
+		String[] ownedtestNames = new String[buildingReadyFields.size()];
+		ownedtestNames = buildingReadyFields.toArray(ownedtestNames);		
 
-		public Territory[] getHusliste(){		
-			Territory[] ownedFieldNames = new Territory[OwnedProperties.size()];
-			ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
-	
-			return ownedFieldNames;
-		}
-		
-		public String[] getTestliste(){		
-			String[] ownedtestNames = new String[buildingReadyFields.size()];
-			ownedtestNames = buildingReadyFields.toArray(ownedtestNames);		
-	
-			return ownedtestNames;
-		}
-		
-		public void removeString(String navn) {
-			buildingReadyFields.remove(navn);
-		}
-		
-		public void addHouseList(){
-			if(!buildingReadyFields.contains("Rødovrevej") && !buildingReadyFields.contains("Hvidovrevej")){
-				if(getBlueTerritoryCounter()==2){
-					buildingReadyFields.add("Rødovrevej");
-					buildingReadyFields.add("Hvidovrevej");
-				}
-			}
-			if(!buildingReadyFields.contains("Roskildevej") && !buildingReadyFields.contains("Valby Langgade") && !buildingReadyFields.contains("Allégade")){
-				if(getPinkTerritoryCounter()==3){
-					buildingReadyFields.add("Roskildevej");
-					buildingReadyFields.add("Valby Langgade");
-					buildingReadyFields.add("Allégade");
-				}
-			}
-			if(!buildingReadyFields.contains("Frederiksberg Allé") && !buildingReadyFields.contains("Bülowsvej") && !buildingReadyFields.contains("Gl. Kongevej")){
-				if(getGreenTerritoryCounter()==3){
-					buildingReadyFields.add("Frederiksberg Allé");
-					buildingReadyFields.add("Bülowsvej");
-					buildingReadyFields.add("Gl. Kongevej");
-				}
-			}
-			if(!buildingReadyFields.contains("Bernstoffvej") && !buildingReadyFields.contains("Hellerupvej") && !buildingReadyFields.contains("Strandvej")){
-				if(getGrayTerritoryCounter()==3){
-					buildingReadyFields.add("Bernstoffvej");
-					buildingReadyFields.add("Hellerupvej");
-					buildingReadyFields.add("Strandvej");
-				}
-			}
-			if(!buildingReadyFields.contains("Trianglen") && !buildingReadyFields.contains("Østerbrogade") && !buildingReadyFields.contains("Grønningen")){
-				if(getRedTerritoryCounter()==3){
-					buildingReadyFields.add("Trianglen");
-					buildingReadyFields.add("Østerbrogade");
-					buildingReadyFields.add("Grønningen");
-				}
-			}
-			if(!buildingReadyFields.contains("Bredgade") && !buildingReadyFields.contains("Kgs. Nytorv") && !buildingReadyFields.contains("Østergade")){
-				if(getWhiteTerritoryCounter()==3){
-					buildingReadyFields.add("Bredgade");
-					buildingReadyFields.add("Kgs. Nytorv");
-					buildingReadyFields.add("Østergade");
-				}
-			}
-			if(!buildingReadyFields.contains("Amagertorv") && !buildingReadyFields.contains("Vimmelskaftet") && !buildingReadyFields.contains("Nygade")){
-				if(getYellowTerritoryCounter()==3){
-					buildingReadyFields.add("Amagertorv");
-					buildingReadyFields.add("Vimmelskaftet");
-					buildingReadyFields.add("Nygade");
-				}
-			}
-			if(!buildingReadyFields.contains("Frederiksberggade") && !buildingReadyFields.contains("Rådhuspladsen")){
-				if(getMagentaTerritoryCounter()==2){
-					buildingReadyFields.add("Frederiksberggade");
-					buildingReadyFields.add("Rådhuspladsen");
-				}
-			}	
-		}
+		return ownedtestNames;
+	}
 
-		public void resetTurnCounter() {
-			turnCounter = 0;
+	public void removeString(String navn) {
+		buildingReadyFields.remove(navn);
+	}
+
+	public void addHouseList(){
+		if(!buildingReadyFields.contains("Rødovrevej") && !buildingReadyFields.contains("Hvidovrevej")){
+			if(getBlueTerritoryCounter()==2){
+				buildingReadyFields.add("Rødovrevej");
+				buildingReadyFields.add("Hvidovrevej");
+			}
 		}
+		if(!buildingReadyFields.contains("Roskildevej") && !buildingReadyFields.contains("Valby Langgade") && !buildingReadyFields.contains("Allégade")){
+			if(getPinkTerritoryCounter()==3){
+				buildingReadyFields.add("Roskildevej");
+				buildingReadyFields.add("Valby Langgade");
+				buildingReadyFields.add("Allégade");
+			}
+		}
+		if(!buildingReadyFields.contains("Frederiksberg Allé") && !buildingReadyFields.contains("Bülowsvej") && !buildingReadyFields.contains("Gl. Kongevej")){
+			if(getGreenTerritoryCounter()==3){
+				buildingReadyFields.add("Frederiksberg Allé");
+				buildingReadyFields.add("Bülowsvej");
+				buildingReadyFields.add("Gl. Kongevej");
+			}
+		}
+		if(!buildingReadyFields.contains("Bernstoffvej") && !buildingReadyFields.contains("Hellerupvej") && !buildingReadyFields.contains("Strandvej")){
+			if(getGrayTerritoryCounter()==3){
+				buildingReadyFields.add("Bernstoffvej");
+				buildingReadyFields.add("Hellerupvej");
+				buildingReadyFields.add("Strandvej");
+			}
+		}
+		if(!buildingReadyFields.contains("Trianglen") && !buildingReadyFields.contains("Østerbrogade") && !buildingReadyFields.contains("Grønningen")){
+			if(getRedTerritoryCounter()==3){
+				buildingReadyFields.add("Trianglen");
+				buildingReadyFields.add("Østerbrogade");
+				buildingReadyFields.add("Grønningen");
+			}
+		}
+		if(!buildingReadyFields.contains("Bredgade") && !buildingReadyFields.contains("Kgs. Nytorv") && !buildingReadyFields.contains("Østergade")){
+			if(getWhiteTerritoryCounter()==3){
+				buildingReadyFields.add("Bredgade");
+				buildingReadyFields.add("Kgs. Nytorv");
+				buildingReadyFields.add("Østergade");
+			}
+		}
+		if(!buildingReadyFields.contains("Amagertorv") && !buildingReadyFields.contains("Vimmelskaftet") && !buildingReadyFields.contains("Nygade")){
+			if(getYellowTerritoryCounter()==3){
+				buildingReadyFields.add("Amagertorv");
+				buildingReadyFields.add("Vimmelskaftet");
+				buildingReadyFields.add("Nygade");
+			}
+		}
+		if(!buildingReadyFields.contains("Frederiksberggade") && !buildingReadyFields.contains("Rådhuspladsen")){
+			if(getMagentaTerritoryCounter()==2){
+				buildingReadyFields.add("Frederiksberggade");
+				buildingReadyFields.add("Rådhuspladsen");
+			}
+		}	
+	}
+
+	public void resetTurnCounter() {
+		turnCounter = 0;
+	}
 
 
 }
