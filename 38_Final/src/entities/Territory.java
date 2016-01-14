@@ -16,9 +16,9 @@ public class Territory extends Ownable {
 	private String buy;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
-	public Territory(int price, int rent, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
+	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 		super(price, feltNavn, gb);
-		this.td = new TerritoryData(rent, feltNavn, owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice, rents);
+		this.td = new TerritoryData(feltNavn, owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice, rents);
 	}
 
 	@Override
@@ -219,8 +219,7 @@ public class Territory extends Ownable {
 		private int[] rents;
 
 
-		private TerritoryData(int rent, String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
-			this.rent = rent;
+		private TerritoryData(String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 			this.buy = buy;
 			this.owner = owner;
 			this.rb = rb;
