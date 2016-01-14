@@ -21,7 +21,7 @@ public class Territory extends Ownable {
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 		super(price, feltNavn, gb);
-		this.td = new TerritoryData(feltNavn, owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice, rents);
+		this.td = new TerritoryData(owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice, rents);
 	}
 
 	@Override
@@ -60,13 +60,13 @@ public class Territory extends Ownable {
 
 	@Override
 	public void setOwner(Player player) {
-		owner = player;
+		td.setOwner(player);
 	}
 
 
 	@Override
 	public Player getOwner() {	
-		return owner;
+		return td.getOwner();
 	}
 
 	//This method is used when a player lands on a Territory field.
@@ -140,11 +140,6 @@ public class Territory extends Ownable {
 		}
 	}
 
-	public void sellHouse(Player player) {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void buyHouse(Player player) {
 		if(getHouseCounter()>4){
 			player.adjustBalance(player, -getHousePrice());
@@ -167,6 +162,7 @@ public class Territory extends Ownable {
 
 		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
 	}
+	
 	public void removeFromHouseList(Player player) {
 		if(getHouseCounter() > 4) {
 			player.removeString(getFeltNavn());
@@ -175,7 +171,7 @@ public class Territory extends Ownable {
 	}
 
 	public int getPrice() {
-		return td.price;
+		return td.getPrice();
 	}
 
 	public int getFieldNumber(){
@@ -217,10 +213,8 @@ public class Territory extends Ownable {
 	private class TerritoryData {
 
 
-		private String getBuy;
 		private int rent;
 		private int houseCounter, hotelCounter;
-		private String buy;
 		private Player owner;
 		private ResourceBundle rb;
 		private int price;
@@ -232,8 +226,7 @@ public class Territory extends Ownable {
 		private int[] rents;
 
 
-		private TerritoryData(String buy, Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
-			this.buy = buy;
+		private TerritoryData(Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 			this.owner = owner;
 			this.rb = rb;
 			this.price = price;
@@ -246,10 +239,7 @@ public class Territory extends Ownable {
 			houseCounter = 0;
 			hotelCounter = 0;
 		}
-		public void removeHouseCounter() {
-			houseCounter -= 4;
-			
-		}
+
 		public int getHotelCounter() {
 			return hotelCounter;
 		}
@@ -302,39 +292,6 @@ public class Territory extends Ownable {
 		private void addHouseCounter() {
 			houseCounter++;
 		}
-
-		private int maxAntalBlue() {
-			return 2;
-		}
-
-		private int maxAntalPink() {
-			return 3;
-		}
-
-		private int maxAntalGreen() {
-			return 3;
-		}
-
-		private int maxAntalGrey() {
-			return 3;
-		}
-
-		private int maxAntalRed() {
-			return 3;
-		}
-
-		private int maxAntalWhite() {
-			return 3;
-		}
-
-		private int maxAntalYellow() {
-			return 3;
-		}
-
-		private int maxAntalMagenta() {
-			return 2;
-		}
-
 	}
 
 }
