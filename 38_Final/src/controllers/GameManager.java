@@ -317,6 +317,7 @@ public class GameManager
 			GUI.removeAllCars(player.getPlayerName());
 			player.setCurrentField(10);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
+			player.resetTurnCounter();
 		}
 	} 
 	//A simple counter to see how many players are bankrupt.

@@ -331,5 +331,9 @@ public class Player
 			}	
 		}
 
+		public void resetTurnCounter() {
+			turnCounter = 0;
+		}
+
 
 }
