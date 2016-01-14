@@ -2,6 +2,7 @@ package entities;
 
 import desktop_resources.GUI;
 
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import controllers.GameBoard;
@@ -14,6 +15,8 @@ public class Territory extends Ownable {
 	//which also called fields.
 	//This private fields can only be seen in this class.
 	private String buy;
+
+	private ArrayList<String> buildingReadyList;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
 	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
@@ -157,8 +160,15 @@ public class Territory extends Ownable {
 			td.addHotelCounter();
 			player.addHotelCounter();
 		}
+		removeFromHouseList(player);
 
 		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
+	}
+	public void removeFromHouseList(Player player) {
+		if(getHouseCounter() > 4) {
+			player.removeString(getFeltNavn());
+		}
+			
 	}
 
 	public int getPrice() {

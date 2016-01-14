@@ -257,8 +257,14 @@ public class Player
 	
 			return ownedtestNames;
 		}
+		public ArrayList<String> getHouseList() {
+			return buildingReadyFields;
+		}
 		
-
+		public void removeString(String navn) {
+			buildingReadyFields.remove(navn);
+		}
+		
 		public void addHouseList(){
 			if(!buildingReadyFields.contains("Rødovrevej")){
 				if(getBlueTerritoryCounter()==2){
