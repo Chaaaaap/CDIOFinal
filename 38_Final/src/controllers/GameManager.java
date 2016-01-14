@@ -41,6 +41,7 @@ public class GameManager
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
+		initPlayers();
 		cc = new ChanceCard[29];
 		chanceCardController = new ChanceCardController(cc);
 		initChanceCards();
@@ -87,7 +88,6 @@ public class GameManager
 	public void startGameEngine()
 	{
 		//Setup game
-		initPlayers();
 		boolean gameIsNotWon = true;
 
 		//Selects starting player
