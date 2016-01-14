@@ -160,6 +160,7 @@ public class Territory extends Ownable {
 			td.addHotelCounter();
 			player.removeHouseCounter();
 			player.addHotelCounter();
+			td.removeHouseCounter();
 		}
 		removeFromHouseList(player);
 
@@ -243,6 +244,10 @@ public class Territory extends Ownable {
 			this.rents = rents;
 			houseCounter = 0;
 			hotelCounter = 0;
+		}
+		public void removeHouseCounter() {
+			houseCounter -= 4;
+			
 		}
 		public int getHotelCounter() {
 			return hotelCounter;
