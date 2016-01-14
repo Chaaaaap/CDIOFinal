@@ -157,10 +157,11 @@ public class Territory extends Ownable {
 			player.adjustPropertyValue(player, getPrice());
 		}
 		if(getHouseCounter()==4){
+			td.addHouseCounter();
 			td.addHotelCounter();
 			player.removeHouseCounter();
 			player.addHotelCounter();
-			td.removeHouseCounter();
+			player.adjustPropertyValue(player, getPrice());
 		}
 		removeFromHouseList(player);
 
