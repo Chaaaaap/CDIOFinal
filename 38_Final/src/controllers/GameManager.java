@@ -308,9 +308,12 @@ public class GameManager
 			}
 		}
 		player.addTurnCounter();
+		if(player.getTurnCounter()<3)
+		GUI.showMessage(player.getPlayerName()+rb.getString("ToEns"));
 	} while(diceCup.getDiceOne() == diceCup.getDiceTwo() && player.getTurnCounter() < 3);
-		if(player.getTurnCounter() == 2) {
+		if(player.getTurnCounter() == 3) {
 			player.isJailed = true;
+			GUI.showMessage(player.getPlayerName()+rb.getString("Jail11"));
 			GUI.removeAllCars(player.getPlayerName());
 			player.setCurrentField(10);
 			GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
@@ -374,7 +377,7 @@ public class GameManager
 					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 					GUI.removeAllCars(player.getPlayerName());
 					player.setCurrentField(player.getCurrentField()+sum);
-					GUI.setCar(player.getCurrentField(), player.getPlayerName());
+					GUI.setCar(player.getCurrentField()+1, player.getPlayerName());
 					gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 				}
 
