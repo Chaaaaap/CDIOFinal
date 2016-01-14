@@ -12,13 +12,11 @@ public class ChanceRecieveFromAll extends ChanceCard {
 	
 	private int amount;
 	private Player[] players;
-	private Player player;
 
 	public ChanceRecieveFromAll(String cardName, int amount, Player[] players) {
 		super(cardName);
 		this.amount = amount;
 		this.players = players;
-//		this.player = player;
 	}
 
 	@Override
