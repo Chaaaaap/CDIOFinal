@@ -143,10 +143,6 @@ public class Territory extends Ownable {
 	}
 
 	public void buyHouse(Player player) {
-		if(getHouseCounter()==4){
-			td.addHotelCounter();
-			player.addHotelCounter();
-		}
 		if(getHouseCounter()>4){
 			player.adjustBalance(player, -getHousePrice());
 			player.adjustPropertyValue(player, getPrice());
@@ -156,6 +152,10 @@ public class Territory extends Ownable {
 			td.addHouseCounter();
 			player.addHouseCounter();
 			player.adjustPropertyValue(player, getPrice());
+		}
+		if(getHouseCounter()==4){
+			td.addHotelCounter();
+			player.addHotelCounter();
 		}
 
 		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
