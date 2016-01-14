@@ -309,7 +309,7 @@ public class GameManager
 		}
 		player.addTurnCounter();
 	} while(diceCup.getDiceOne() == diceCup.getDiceTwo() && player.getTurnCounter() < 3);
-		if(player.getTurnCounter() == 3) {
+		if(player.getTurnCounter() == 2) {
 			player.isJailed = true;
 			GUI.removeAllCars(player.getPlayerName());
 			player.setCurrentField(10);
