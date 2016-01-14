@@ -58,8 +58,9 @@ public class Brewery extends Ownable {
 			this.owner = player;
 			player.addBreweryCounter();
 			player.adjustPropertyValue(player, price);
-			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
 		}
+		gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
+
 	}
 
 	@Override
@@ -97,8 +98,6 @@ public class Brewery extends Ownable {
 		} else  if (owner.getPlayerAccount().isBankrupt() == true){
 			
 		} else {
-//			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
-//			diceCup.shake();
 			sum = diceCup.getSumResult();
 			rentModifier = owner.getBreweryCounter(owner);
 			
