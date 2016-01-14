@@ -47,6 +47,7 @@ public class Brewery extends Ownable {
 	public void buyFieldOption(Player player) {
 		buy = GUI.getUserButtonPressed(rb.getString("Købe")+" "+pris+" kr?", rb.getString("Ja"), rb.getString("Nej"));
 		if(buy.equals(rb.getString("Ja"))) {
+			GUI.setOwner(player.getCurrentField()+1, player.getPlayerName());
 			player.getPlayerAccount().adjustBalance(-pris);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
