@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import desktop_fields.Chance;
 import desktop_fields.Field;
-import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_resources.GUI;
@@ -21,7 +20,6 @@ public class GameBoard {
 	private String languageChosen;
 	private String language;
 	private String country;
-	private LanguageSelector ls;
 	private Felt[] territoryList;
 
 
@@ -31,7 +29,7 @@ public class GameBoard {
 		diceCup = cup;
 		initFields();
 		logicFields = createLogicFields();
-		initGUI();
+		GUI.create(guiFields);
 		
 	}
 
@@ -39,7 +37,7 @@ public class GameBoard {
 		guiFields = createGUIFields();;
 		diceCup = cup;
 		initFields();
-		initGUI();	
+		GUI.create(guiFields);	
 		languageChosen = GUI.getUserButtonPressed("Vælg Sprog / Select Language", "Dansk", "English");
 		languageSelect(languageChosen);
 		rb = ls.selectLanguage(language, country);
@@ -66,12 +64,12 @@ public class GameBoard {
 		Felt[] logiskeFelter = new Felt[40];
 		logiskeFelter[0] = new StartField("Start", this, rb);
 		logiskeFelter[1] = new Territory(1200, "Rødovrevej", this, rb, "blue",2, 1000, new int[] {50,250,750,2250,4000,6000});
-		logiskeFelter[2] = new ChanceField("Prøv Lykken", this, rb);
+		logiskeFelter[2] = new ChanceField("Prøv Lykken");
 		logiskeFelter[3] = new Territory(1200, "Hvidovrevej", this, rb, "blue",4, 1000, new int[] {50,250,750,2250,4000,6000});
-		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat", this, rb);
+		logiskeFelter[4] = new Tax(4000, "Betal indkomstskat", rb);
 		logiskeFelter[5] = new ShippingCompany(4000, "SFL-Færgerne", this, rb);
 		logiskeFelter[6] = new Territory(2000, "Roskildevej", this, rb, "pink",7, 1000, new int[] {100, 600, 1800, 5400, 8000, 11000});
-		logiskeFelter[7] = new ChanceField("Prøv Lykken", this, rb);
+		logiskeFelter[7] = new ChanceField("Prøv Lykken");
 		logiskeFelter[8] = new Territory(2000, "Valby Langgade", this, rb, "pink",9, 1000, new int[] {100, 600, 1800, 5400, 8000, 11000});
 		logiskeFelter[9] = new Territory(2400, "Allégade", this, rb, "pink",10, 1000, new int[] {150, 800, 2000, 6000, 9000, 12000});
 		logiskeFelter[10] = new Jail("I Fængsel", this, rb);
@@ -81,12 +79,12 @@ public class GameBoard {
 		logiskeFelter[14] = new Territory(3200, "Gl. Kongevej", this, rb, "green",15, 2000, new int[] {250, 1250, 3750, 10000, 14000, 18000});
 		logiskeFelter[15] = new ShippingCompany(4000, "DSB Kalundborg/Århus", this, rb);
 		logiskeFelter[16] = new Territory(3600, "Bernstorffsvej", this, rb, "gray",17, 2000, new int[] {300, 1400, 4000, 11000, 15000, 19000});
-		logiskeFelter[17] = new ChanceField("Prøv Lykken", this, rb);
+		logiskeFelter[17] = new ChanceField("Prøv Lykken");
 		logiskeFelter[18] = new Territory(3600, "Hellerupvej", this, rb, "gray",19, 2000, new int[] {300, 1400, 4000, 11000, 15000, 19000});
 		logiskeFelter[19] = new Territory(4000, "Strandvej", this, rb, "gray",20, 2000, new int[] {350, 1600, 4400, 12000, 16000, 20000});
-		logiskeFelter[20] = new Parking("Parkering", this, rb);
+		logiskeFelter[20] = new Parking("Parkering", rb);
 		logiskeFelter[21] = new Territory(4400, "Trianglen", this, rb, "red",22, 3000, new int[] {350, 1800, 5000, 14000, 17500, 21000});
-		logiskeFelter[22] = new ChanceField("Prøv Lykken", this, rb);
+		logiskeFelter[22] = new ChanceField("Prøv Lykken");
 		logiskeFelter[23] = new Territory(4400, "Østerbrogade", this, rb, "red",24, 3000, new int[] {350, 1800, 5000, 14000, 17500, 21000});
 		logiskeFelter[24] = new Territory(4800, "Grønningen", this, rb, "red",25, 3000, new int[] {400, 2000, 6000, 15000, 18500, 22000});
 		logiskeFelter[25] = new ShippingCompany(4000, "DFDS Seaways", this, rb);
@@ -97,12 +95,12 @@ public class GameBoard {
 		logiskeFelter[30] = new GoToJail("De Fængsles", this, rb);
 		logiskeFelter[31] = new Territory(6000, "Amagertorv", this, rb, "yellow",32, 4000, new int[] {550, 2600, 7800, 18000, 22000, 25000});
 		logiskeFelter[32] = new Territory(6000, "Vimmelskaftet", this, rb, "yellow",33, 4000, new int[] {550, 2600, 7800, 18000, 22000, 25000});
-		logiskeFelter[33] = new ChanceField("Prøv Lykken", this, rb);
+		logiskeFelter[33] = new ChanceField("Prøv Lykken");
 		logiskeFelter[34] = new Territory(6400,  "Nygade", this, rb, "yellow",35, 4000, new int[] {600, 3000, 9000, 20000, 24000, 28000});
 		logiskeFelter[35] = new ShippingCompany(4000, "DSB Halsskov/Knudshoved", this, rb);
-		logiskeFelter[36] = new ChanceField("Prøv Lykken", this, rb);
+		logiskeFelter[36] = new ChanceField("Prøv Lykken");
 		logiskeFelter[37] = new Territory(7000, "Frederiksberggade", this, rb, "magenta",38, 4000, new int[] {700, 3500, 10000, 22000, 26000, 30000});
-		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat", this, rb);
+		logiskeFelter[38] = new Tax(2000, "Ekstraordinær statsskat", rb);
 		logiskeFelter[39] = new Territory(8000, "Rådhuspladsen", this, rb, "magenta",40, 4000, new int[] {1000, 4000, 12000, 28000, 34000, 40000});
 
 		return logiskeFelter;
@@ -206,22 +204,6 @@ public class GameBoard {
 		guiFields[37].setTitle("Frederiks- berggade"); guiFields[37].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 700 <BR> Leje 1 hus: 3500<BR> Leje 2 hus: 10000<BR> Leje 3 hus: 22000<BR> Leje 4 hus: 26000 <BR> Leje hotel: 30000"); guiFields[37].setSubText("Pris: 7000");
 		guiFields[38].setTitle("Ekstraordinær statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
 		guiFields[39].setTitle("Rådhus- pladsen"); guiFields[39].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 1000 <BR> Leje 1 hus: 4000<BR> Leje 2 hus: 12000<BR> Leje 3 hus: 28000<BR> Leje 4 hus: 34000 <BR> Leje hotel: 40000"); guiFields[39].setSubText("Pris: 8000");
-
-
-
-
-	}
-
-	//Plotting the fields into the GUI and showing welcome message.
-	private void initGUI() 
-	{
-
-		//		for (Field field : guiFields) {
-		//			System.out.println(field);
-		//		}
-		//		System.out.println(guiFields.length);
-
-		GUI.create(guiFields);
 	}
 
 	public void landOnField(int i, Player player){
@@ -233,7 +215,6 @@ public class GameBoard {
 	}
 
 	public Felt[] getlogicFields() {
-		// TODO Auto-generated method stub
 		return logicFields;
 	}
 	
