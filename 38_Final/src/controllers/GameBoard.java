@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import desktop_fields.Chance;
 import desktop_fields.Field;
+import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_resources.GUI;
@@ -150,7 +151,7 @@ public class GameBoard {
 		newGuiFields[35] = new Start.Builder().setBgColor(Color.LIGHT_GRAY).build();
 		newGuiFields[36] = new Chance.Builder().setBgColor(Color.CYAN).build();
 		newGuiFields[37] = new Street.Builder().setBgColor(Color.MAGENTA).build();
-		newGuiFields[38] = new Start.Builder().setBgColor(Color.DARK_GRAY).build();
+		newGuiFields[38] = new Street.Builder().setBgColor(Color.DARK_GRAY).build();
 		newGuiFields[39] = new Street.Builder().setBgColor(Color.MAGENTA).build();
 
 
@@ -170,17 +171,17 @@ public class GameBoard {
 		guiFields[2].setTitle("Prøv Lykken"); guiFields[2].setDescription("Træk et kort"); guiFields[2].setSubText(" ");
 		guiFields[3].setTitle("Hvidovrevej"); guiFields[3].setDescription("Hus/Hotel pris: 1000 <BR> Leje uden hus: 50 <BR> Leje 1 hus: 250<BR> Leje 2 hus: 750<BR> Leje 3 hus: 2250<BR> Leje 4 hus: 4000 <BR> Leje hotel: 6000"); guiFields[3].setSubText("Pris: 1200");
 		guiFields[4].setTitle("Betal indkomst skat"); guiFields[4].setDescription("Betal indkomstskat 10% eller kr. 4000"); guiFields[4].setSubText("Tax");
-		guiFields[5].setTitle("SFL Færgerne"); guiFields[5].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[5].setSubText("Shipping Company");
+		guiFields[5].setTitle("SFL Færgerne"); guiFields[5].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[5].setSubText("Pris: 4000");
 		guiFields[6].setTitle("Roskildevej"); guiFields[6].setDescription("Hus/Hotel pris: 1000 <BR> Leje uden hus: 100 <BR> Leje 1 hus: 600<BR> Leje 2 hus: 1800<BR> Leje 3 hus: 5400<BR> Leje 4 hus: 8000 <BR> Leje hotel: 11000"); guiFields[6].setSubText("Pris: 2000");
 		guiFields[7].setTitle("Prøv Lykken"); guiFields[7].setDescription("Træk et kort"); guiFields[7].setSubText(" ");
 		guiFields[8].setTitle("Valby Langgade"); guiFields[8].setDescription("Hus/Hotel pris: 1000 <BR> Leje uden hus: 100 <BR> Leje 1 hus: 600<BR> Leje 2 hus: 1800<BR> Leje 3 hus: 5400<BR> Leje 4 hus: 8000 <BR> Leje hotel: 11000"); guiFields[8].setSubText("Pris: 2000");
 		guiFields[9].setTitle("Allégade"); guiFields[9].setDescription("Hus/Hotel pris: 1000 <BR> Leje uden hus: 150 <BR> Leje 1 hus: 800<BR> Leje 2 hus: 2000<BR> Leje 3 hus: 6000<BR> Leje 4 hus: 9000 <BR> Leje hotel: 12000"); guiFields[9].setSubText("Pris: 2400");
 		guiFields[10].setTitle("I Fængsel"); guiFields[10].setDescription("I Fængsel"); guiFields[10].setSubText("Jail");
 		guiFields[11].setTitle("Frederiksberg Allé"); guiFields[11].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 200 <BR> Leje 1 hus: 1000<BR> Leje 2 hus: 3000<BR> Leje 3 hus: 9000<BR> Leje 4 hus: 12500 <BR> Leje hotel: 15000"); guiFields[11].setSubText("Pris: 2800");
-		guiFields[12].setTitle("Tuborg Bryggeri"); guiFields[12].setDescription("Leje: 100 x antal øjne"); guiFields[12].setSubText("Brewery");
+		guiFields[12].setTitle("Tuborg Bryggeri"); guiFields[12].setDescription("Leje m. ét Bryggeri: 100 x antal øjne <BR> Leje m. to Bryggerier: 200 x antal øjne"); guiFields[12].setSubText("Pris: 3000");
 		guiFields[13].setTitle("Bülowsvej"); guiFields[13].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 200 <BR> Leje 1 hus: 1000<BR> Leje 2 hus: 3000<BR> Leje 3 hus: 9000<BR> Leje 4 hus: 12500 <BR> Leje hotel: 15000"); guiFields[13].setSubText("Pris: 2800");
 		guiFields[14].setTitle("Gl. Kongevej"); guiFields[14].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 250 <BR> Leje 1 hus: 1250<BR> Leje 2 hus: 3750<BR> Leje 3 hus: 10000<BR> Leje 4 hus: 14000 <BR> Leje hotel: 18000"); guiFields[14].setSubText("Pris: 3200");
-		guiFields[15].setTitle("DSB Kalundborg/ Århus"); guiFields[15].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[15].setSubText("Shipping Company");
+		guiFields[15].setTitle("DSB Kalundborg/ Århus"); guiFields[15].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[15].setSubText("Pris: 4000");
 		guiFields[16].setTitle("Bernstorffvej"); guiFields[16].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 300 <BR> Leje 1 hus: 1400<BR> Leje 2 hus: 4000<BR> Leje 3 hus: 11000<BR> Leje 4 hus: 15000 <BR> Leje hotel: 19000"); guiFields[16].setSubText("Pris: 3600");
 		guiFields[17].setTitle("Prøv Lykken"); guiFields[17].setDescription("Træk et kort"); guiFields[17].setSubText(" ");
 		guiFields[18].setTitle("Hellerupvej"); guiFields[18].setDescription("Hus/Hotel pris: 2000 <BR> Leje uden hus: 300 <BR> Leje 1 hus: 1400<BR> Leje 2 hus: 4000<BR> Leje 3 hus: 11000<BR> Leje 4 hus: 15000 <BR> Leje hotel: 19000"); guiFields[18].setSubText("Pris: 3600");
@@ -190,17 +191,17 @@ public class GameBoard {
 		guiFields[22].setTitle("Prøv Lykken"); guiFields[22].setDescription("Træk et kort"); guiFields[22].setSubText(" ");
 		guiFields[23].setTitle("Østerbrogade"); guiFields[23].setDescription("Hus/Hotel pris: 3000 <BR> Leje uden hus: 350 <BR> Leje 1 hus: 1800<BR> Leje 2 hus: 5000<BR> Leje 3 hus: 14000<BR> Leje 4 hus: 17500 <BR> Leje hotel: 21000"); guiFields[23].setSubText("Pris: 4400");
 		guiFields[24].setTitle("Grønningen"); guiFields[24].setDescription("Hus/Hotel pris: 3000 <BR> Leje uden hus: 400 <BR> Leje 1 hus: 2000<BR> Leje 2 hus: 6000<BR> Leje 3 hus: 15000<BR> Leje 4 hus: 18500 <BR> Leje hotel: 22000"); guiFields[24].setSubText("Pris: 4800");
-		guiFields[25].setTitle("DFDS Seaways"); guiFields[25].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[25].setSubText("Shipping Company");
+		guiFields[25].setTitle("DFDS Seaways"); guiFields[25].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[25].setSubText("Pris: 4000");
 		guiFields[26].setTitle("Bredgade"); guiFields[26].setDescription("Hus/Hotel pris: 3000 <BR> Leje uden hus: 450 <BR> Leje 1 hus: 2200<BR> Leje 2 hus: 6600<BR> Leje 3 hus: 16000<BR> Leje 4 hus: 19500 <BR> Leje hotel: 23000"); guiFields[26].setSubText("Pris: 5200");
 		guiFields[27].setTitle("Kgs. Nytorv"); guiFields[27].setDescription("Hus/Hotel pris: 3000 <BR> Leje uden hus: 450 <BR> Leje 1 hus: 2200<BR> Leje 2 hus: 6600<BR> Leje 3 hus: 16000<BR> Leje 4 hus: 19500 <BR> Leje hotel: 23000"); guiFields[27].setSubText("Pris: 5200");
-		guiFields[28].setTitle("Coca-Cola Tapperi"); guiFields[28].setDescription("Leje: 100 x antal øjne"); guiFields[28].setSubText("Brewery");
+		guiFields[28].setTitle("Coca-Cola Tapperi"); guiFields[28].setDescription("Leje m. ét Bryggeri: 100 x antal øjne <BR> Leje m. to Bryggerier: 200 x antal øjne"); guiFields[28].setSubText("Pris: 3000");
 		guiFields[29].setTitle("Østergade"); guiFields[29].setDescription("Hus/Hotel pris: 3000 <BR> Leje uden hus: 500 <BR> Leje 1 hus: 2400<BR> Leje 2 hus: 7200<BR> Leje 3 hus: 17000<BR> Leje 4 hus: 20500 <BR> Leje hotel: 24000"); guiFields[29].setSubText("Pris: 5600");
 		guiFields[30].setTitle("De Fængsles"); guiFields[30].setDescription("Du bliver overflyttet til fængslet"); guiFields[30].setSubText("GoToJail");
 		guiFields[31].setTitle("Amagertorv"); guiFields[31].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 550 <BR> Leje 1 hus: 2600<BR> Leje 2 hus: 7800<BR> Leje 3 hus: 18000<BR> Leje 4 hus: 22000 <BR> Leje hotel: 25000"); guiFields[31].setSubText("Pris: 6000");
 		guiFields[32].setTitle("Vimmel- skaftet"); guiFields[32].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 550 <BR> Leje 1 hus: 2600<BR> Leje 2 hus: 7800<BR> Leje 3 hus: 18000<BR> Leje 4 hus: 22000 <BR> Leje hotel: 25000"); guiFields[32].setSubText("Pris: 6000");
 		guiFields[33].setTitle("Prøv Lykken"); guiFields[33].setDescription("Træk et kort"); guiFields[33].setSubText(" ");
 		guiFields[34].setTitle("Nygade"); guiFields[34].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 600 <BR> Leje 1 hus: 3000<BR> Leje 2 hus: 9000<BR> Leje 3 hus: 20000<BR> Leje 4 hus: 24000 <BR> Leje hotel: 28000"); guiFields[34].setSubText("Pris: 6400");
-		guiFields[35].setTitle("DSB Halsskov/ Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje: 500"); guiFields[35].setSubText("Shipping Company");
+		guiFields[35].setTitle("DSB Halsskov/ Knudshoved"); guiFields[35].setDescription("Pris: 4000 <BR> Leje m. 1 grund: 500<BR> Leje m. 2 grunde: 1000<BR> Leje m. 3 grunde: 2000<BR> Leje m. 4 grunde: 4000"); guiFields[35].setSubText("Pris: 4000");
 		guiFields[36].setTitle("Prøv Lykken"); guiFields[36].setDescription("Træk et kort"); guiFields[36].setSubText(" ");
 		guiFields[37].setTitle("Frederiks- berggade"); guiFields[37].setDescription("Hus/Hotel pris: 4000 <BR> Leje uden hus: 700 <BR> Leje 1 hus: 3500<BR> Leje 2 hus: 10000<BR> Leje 3 hus: 22000<BR> Leje 4 hus: 26000 <BR> Leje hotel: 30000"); guiFields[37].setSubText("Pris: 7000");
 		guiFields[38].setTitle("Ekstra ordinær statsskat"); guiFields[38].setDescription("Ekstraordinær statsskat <BR> Betal kr. 2000"); guiFields[38].setSubText("Tax");
