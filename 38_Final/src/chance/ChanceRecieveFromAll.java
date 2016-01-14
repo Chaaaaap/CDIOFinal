@@ -1,7 +1,13 @@
 package chance;
 
 import entities.Player;
-
+/************************************************************************
+ * @author Mikkel
+ * 
+ * Denne klasse bliver ikke brugt, da jeg ikke kunne
+ *  få den til at virke ordenligt
+ *
+ ************************************************************************/
 public class ChanceRecieveFromAll extends ChanceCard {
 	
 	private int amount;
