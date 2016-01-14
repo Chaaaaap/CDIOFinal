@@ -9,17 +9,17 @@ import java.util.ResourceBundle;
 public class Brewery extends Ownable {
 
 
-	private int rent, pris, sum,rentModifier;
+	private int rent, price, sum,rentModifier;
 	private String buy, feltNavn;
-	private Player owner, player;
+	private Player owner;
 	private DiceCup diceCup;
 	private GameBoard gameBoard;
 	private ResourceBundle rb;
 	
 	
-	public Brewery(int pris, String feltNavn, DiceCup cup, GameBoard gameBoard, ResourceBundle rb) {
-		super(pris, feltNavn, gameBoard);
-		this.pris = pris;
+	public Brewery(int price, String feltNavn, DiceCup cup, GameBoard gameBoard, ResourceBundle rb) {
+		super(price, feltNavn, gameBoard);
+		this.price = price;
 		this.feltNavn = feltNavn;
 		owner = null;
 		diceCup = cup;
@@ -29,7 +29,12 @@ public class Brewery extends Ownable {
 
 	@Override
 	public int getRent(Player player) {
-	return 0;
+		return rent;
+	}
+	
+	@Override
+	public int getPrice() {
+		return price;
 	}
 
 	@Override
@@ -45,14 +50,14 @@ public class Brewery extends Ownable {
 
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(rb.getString("Købe")+" "+pris+" kr.?", rb.getString("Ja"), rb.getString("Nej"));
+		buy = GUI.getUserButtonPressed(rb.getString("Købe")+" "+price+" kr.?", rb.getString("Ja"), rb.getString("Nej"));
 		if(buy.equals(rb.getString("Ja"))) {
 			GUI.setOwner(player.getCurrentField()+1, player.getPlayerName());
-			player.getPlayerAccount().adjustBalance(-pris);
+			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 			player.addBreweryCounter();
-			player.adjustPropertyValue(player, pris);
+			player.adjustPropertyValue(player, price);
 			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
 		}
 	}
@@ -85,7 +90,6 @@ public class Brewery extends Ownable {
 	@Override
 	public void landOnField(Player player) {
 		GUI.showMessage(getFeltBesked(player));
-		this.player = player;
 		if(owner == null) {
 			buyFieldOption(player);
 		} else if(owner.getPlayerName().equalsIgnoreCase(player.getPlayerName())) {
