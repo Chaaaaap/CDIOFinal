@@ -1,25 +1,19 @@
 package entities;
 
 import java.util.ResourceBundle;
-
-import controllers.GameBoard;
 import desktop_resources.GUI;
 
 public class Parking extends Felt {
 
-	private Player player;
 	private ResourceBundle rb;
-	private GameBoard gameBoard;
 
-	public Parking(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
+	public Parking(String feltNavn, ResourceBundle rb) {
 		super(feltNavn);
-		this.gameBoard = gameBoard;
-		this.rb = gameBoard.getBundle();
+		this.rb = rb;
 	}
 
 	@Override
 	public void landOnField(Player player) {
-		this.player = player;
 		GUI.showMessage(getFeltBesked(player));
 		
 	}
