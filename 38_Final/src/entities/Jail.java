@@ -8,12 +8,10 @@ import desktop_resources.GUI;
 public class Jail extends Felt {
 	
 	private ResourceBundle rb;
-	private GameBoard gameBoard;
 
 	public Jail(String feltNavn, GameBoard gameBoard, ResourceBundle rb) {
 		super(feltNavn);
-		this.gameBoard = gameBoard;
-		this.rb = gameBoard.getBundle();
+		this.rb = rb;
 	}
 
 	@Override
