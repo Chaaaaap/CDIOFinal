@@ -266,7 +266,7 @@ public class Player
 		}
 		
 		public void addHouseList(){
-			if(!buildingReadyFields.contains("Rødovrevej")){
+			if(!buildingReadyFields.contains("Rødovrevej") && !buildingReadyFields.contains("Hvidovrevej")){
 				if(getBlueTerritoryCounter()==2){
 					buildingReadyFields.add("Rødovrevej");
 					buildingReadyFields.add("Hvidovrevej");
