@@ -53,7 +53,7 @@ public class Brewery extends Ownable {
 			this.owner = player;
 			player.addBreweryCounter();
 			player.adjustPropertyValue(player, pris);
-			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
+			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
 		}
 	}
 

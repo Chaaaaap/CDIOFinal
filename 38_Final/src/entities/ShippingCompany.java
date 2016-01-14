@@ -58,7 +58,7 @@ public class ShippingCompany extends Ownable {
 			this.owner = player;
 			player.addFleetCounter();
 			player.adjustPropertyValue(player, pris);
-			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(player.getPlayerName());
+			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "player.getPlayerName());
 		}
 	}
 
