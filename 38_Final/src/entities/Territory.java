@@ -89,7 +89,7 @@ public class Territory extends Ownable {
 	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(getResourceBundle().getString("Købe")+" "+getPrice()+"$?", getResourceBundle().getString("Ja"),getResourceBundle().getString("Nej"));
+		buy = GUI.getUserButtonPressed(getResourceBundle().getString("Købe")+" "+getPrice()+" kr.?", getResourceBundle().getString("Ja"),getResourceBundle().getString("Nej"));
 		if(buy.equals(getResourceBundle().getString("Ja"))) {
 			GUI.setOwner(player.getCurrentField()+1, player.getPlayerName());
 			player.adjustBalance(player, -getPrice());

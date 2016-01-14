@@ -50,7 +50,7 @@ public class ShippingCompany extends Ownable {
 
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(rb.getString("Købe") + " " + pris + "$?", rb.getString("Ja"), rb.getString("Nej"));
+		buy = GUI.getUserButtonPressed(rb.getString("Købe") + " " + pris + " kr.?", rb.getString("Ja"), rb.getString("Nej"));
 		if(buy.equals(rb.getString("Ja"))) {
 			GUI.setOwner(player.getCurrentField()+1, player.getPlayerName());
 			player.getPlayerAccount().adjustBalance(-pris);
