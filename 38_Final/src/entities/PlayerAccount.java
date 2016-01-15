@@ -60,6 +60,7 @@ public class PlayerAccount {
 		}
 	}
 	
+	//This method adjusts the total value of the player.
 	public void adjustPropertyValue(int amount) {
 		if(amount > 0)
 			propertyValue += amount;
@@ -70,5 +71,4 @@ public class PlayerAccount {
 	public int getPropertyValue() {
 		return propertyValue;
 	}
-
 }
