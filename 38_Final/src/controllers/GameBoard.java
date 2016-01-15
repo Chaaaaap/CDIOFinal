@@ -62,7 +62,7 @@ public class GameBoard {
 	//Initializes the fields as their respective type.
 	private Felt[] createLogicFields() {
 		Felt[] logiskeFelter = new Felt[40];
-		logiskeFelter[0] = new StartField("Start", this, rb);
+		logiskeFelter[0] = new StartField("Start");
 		logiskeFelter[1] = new Territory(1200, "Rødovrevej", this, rb, "blue",2, 1000, new int[] {50,250,750,2250,4000,6000});
 		logiskeFelter[2] = new ChanceField("Prøv Lykken");
 		logiskeFelter[3] = new Territory(1200, "Hvidovrevej", this, rb, "blue",4, 1000, new int[] {50,250,750,2250,4000,6000});
