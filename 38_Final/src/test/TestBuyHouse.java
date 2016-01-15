@@ -49,6 +49,10 @@ public class TestBuyHouse {
 		expected = 29000;
 		actual = player.getBalance(player);
 		assertEquals(expected, actual);
+		
+		int houseExpected = 1;
+		int houseActual = territory1.getHouseCounter();
+		assertEquals(houseExpected, houseActual);
 	}
 	@Test
 	public void testBuyHotel() {
@@ -69,6 +73,10 @@ public class TestBuyHouse {
 		expected = 25000;
 		actual = player.getBalance(player);
 		assertEquals(expected, actual);
+		
+		int hotelExpected = 1;
+		int hotelActual = territory1.getHotelCounter();
+		assertEquals(hotelExpected, hotelActual);
 		
 	}
 
