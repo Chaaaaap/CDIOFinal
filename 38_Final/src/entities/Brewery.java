@@ -24,7 +24,7 @@ public class Brewery extends Ownable {
 		owner = null;
 		diceCup = cup;
 		this.gameBoard = gameBoard;
-		this.rb = gameBoard.getBundle();
+		this.rb = rb;
 	}
 
 	@Override
