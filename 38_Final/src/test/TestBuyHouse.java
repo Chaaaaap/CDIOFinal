@@ -37,13 +37,9 @@ public class TestBuyHouse {
 		
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void testBuyHouse() {
-		int expected = 20000;
+		int expected = 30000;
 		int actual = player.getBalance(player);
 		assertEquals(expected, actual);
 		
@@ -51,7 +47,7 @@ public class TestBuyHouse {
 		territory2.setOwner(player);
 		territory1.buyHouse(player);
 		
-		expected = 19000;
+		expected = 29000;
 		actual = player.getBalance(player);
 		assertEquals(expected, actual);
 	}
