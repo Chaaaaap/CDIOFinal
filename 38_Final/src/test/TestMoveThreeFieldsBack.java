@@ -18,12 +18,9 @@ public class TestMoveThreeFieldsBack {
 	private DiceCup diceCup;
 	private ResourceBundle rb;
 	private LanguageSelector ls;
-
 	private ChanceCard[] cc;
 	private ChanceCardController chanceCardController;
-
 	private ChanceField PrøvLykken;
-
 
 	@Before
 	public void setUp() throws Exception {
@@ -33,18 +30,14 @@ public class TestMoveThreeFieldsBack {
 		player = new Player();
 		player.getPlayerAccount().setBalance(30000);
 		player.setPlayerName("Player");
-
 		cc = new ChanceCard[1];
 		chanceCardController = new ChanceCardController(cc);
 		cc[0] = new ChanceMove("ChanceMove", -3, gb, chanceCardController, rb);
-
 		PrøvLykken = new ChanceField("Prøv Lykken");
-
 	}
 
 	@Test
 	public void testMoveCard() {
-
 
 		player.setCurrentField(2);
 		PrøvLykken.landOnField(player);

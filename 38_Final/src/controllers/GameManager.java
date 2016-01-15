@@ -119,6 +119,7 @@ public class GameManager
 		}
 		//Displays the winner at the GUI.
 		GUI.showMessage(rb.getString("Vinder")+" "+winner+" "+rb.getString("Vinder2"));
+		GUI.close();
 	}
 
 	private void initPlayers() 
