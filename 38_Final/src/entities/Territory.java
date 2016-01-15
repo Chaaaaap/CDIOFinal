@@ -13,7 +13,7 @@ public class Territory extends Ownable {
 	//This private fields can only be seen in this class.
 	private TerritoryData td;
 
-	//The Territory constructor takes three parameters, price, rent and feltNavn.
+	//The Territory constructor takes eight parameters.
 	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 		super(price, feltNavn, gb);
 		this.td = new TerritoryData(owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice, rents);
