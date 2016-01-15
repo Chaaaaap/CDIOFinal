@@ -18,6 +18,11 @@ public class DiceCup
 		this.diceOne = new Dice();
 		this.diceTwo = new Dice();
 	}
+	
+	public DiceCup(Dice diceOne, Dice diceTwo){
+		this.diceOne = diceOne;
+		this.diceTwo = diceTwo;
+	}
 
 	//This Shake method is used to randomly choose
 	//a number between the numbers of the dice.
