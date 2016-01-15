@@ -13,6 +13,7 @@ import entities.*;
 
 public class TestMoveThreeFieldsBack {
 
+	//Variables
 	private Player player;
 	private GameBoard gb;
 	private DiceCup diceCup;
@@ -22,6 +23,7 @@ public class TestMoveThreeFieldsBack {
 	private ChanceCardController chanceCardController;
 	private ChanceField PrøvLykken;
 
+	//This is where we set up the test.
 	@Before
 	public void setUp() throws Exception {
 		ls = new LanguageSelector("da", "DK");
@@ -36,9 +38,12 @@ public class TestMoveThreeFieldsBack {
 		PrøvLykken = new ChanceField("Prøv Lykken");
 	}
 
+	//The test, where we test that when a player, 
+	//gets the chancecard "move 3 back fields back"
+	//when he start on the chancefield on index 2, then he lands
+	//on Rådhuspladsen, at index 40.
 	@Test
 	public void testMoveCard() {
-
 		player.setCurrentField(2);
 		PrøvLykken.landOnField(player);
 		cc[0].executeCard(player);
@@ -48,5 +53,4 @@ public class TestMoveThreeFieldsBack {
 
 		assertEquals(expected, actual);
 	}
-
 }
