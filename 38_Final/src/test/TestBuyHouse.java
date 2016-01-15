@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.ResourceBundle;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,13 +36,9 @@ public class TestBuyHouse {
 		
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void testBuyHouse() {
-		int expected = 20000;
+		int expected = 30000;
 		int actual = player.getBalance(player);
 		assertEquals(expected, actual);
 		
@@ -51,9 +46,30 @@ public class TestBuyHouse {
 		territory2.setOwner(player);
 		territory1.buyHouse(player);
 		
-		expected = 19000;
+		expected = 29000;
 		actual = player.getBalance(player);
 		assertEquals(expected, actual);
+	}
+	@Test
+	public void testBuyHotel() {
+		int expected = 30000;
+		int actual = player.getBalance(player);
+		assertEquals(expected, actual);
+		
+		territory1.setOwner(player);
+		territory2.setOwner(player);
+		
+		//5 houses = 1 hotel
+		territory1.buyHouse(player);
+		territory1.buyHouse(player);
+		territory1.buyHouse(player);
+		territory1.buyHouse(player);
+		territory1.buyHouse(player);
+		
+		expected = 25000;
+		actual = player.getBalance(player);
+		assertEquals(expected, actual);
+		
 	}
 
 }
