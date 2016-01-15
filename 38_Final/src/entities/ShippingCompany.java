@@ -16,6 +16,7 @@ public class ShippingCompany extends Ownable {
 	private GameBoard gameBoard;
 	private ResourceBundle rb;
 
+	//The constructor for this class.
 	public ShippingCompany(int price, String feltNavn, GameBoard gb, ResourceBundle rb) {
 		super(price, feltNavn, gb);
 		this.price = price;
@@ -25,6 +26,8 @@ public class ShippingCompany extends Ownable {
 		this.rb = gameBoard.getBundle();
 	}
 
+	//sets the rent for the field depending on how many other Shipping fields
+	//the current player have.
 	@Override
 	public int getRent(Player player) {
 		switch(owner.getFleetCounter(owner)) {
@@ -32,11 +35,11 @@ public class ShippingCompany extends Ownable {
 		case 2: rent = RENT_2; break;
 		case 3: rent = RENT_3; break;
 		case 4: rent = RENT_4; break;
-
 		}
 		return rent;
 	}
 
+	//Sets the owner and add 1 to the fleetCounter.
 	@Override
 	public void setOwner(Player player) {
 		owner = player;
@@ -48,6 +51,8 @@ public class ShippingCompany extends Ownable {
 		return owner;
 	}
 
+	//This method gives the player the opportunity to buy the ShippingCompany field,
+	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
 		buy = GUI.getUserButtonPressed(rb.getString("Købe") + " " + price + " kr.?", rb.getString("Ja"), rb.getString("Nej"));
@@ -67,6 +72,8 @@ public class ShippingCompany extends Ownable {
 		return price;
 	}
 
+	//This method makes the text, that are being showed in the GUI
+	//when a player lands on the ShippingCompany fields.
 	@Override
 	public String getFeltBesked(Player player) {
 		if (owner == null)
@@ -89,6 +96,9 @@ public class ShippingCompany extends Ownable {
 					getRent(owner)+" kr.";
 	}	
 
+	//This method is used when a player lands on a ShippingCompany field.
+	//If the field is not owned by an player, then the player have the buyFieldOption,
+	//but if the field is owned, then the player have to pay the rent to the owner.
 	public void landOnField(Player player) {
 		GUI.showMessage(getFeltBesked(player));
 		if(owner == null)
@@ -101,7 +111,6 @@ public class ShippingCompany extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
 		}
-
 	}
 }
 

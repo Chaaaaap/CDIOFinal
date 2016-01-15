@@ -11,10 +11,9 @@ import controllers.*;
 import desktop_resources.GUI;
 import entities.*;
 
-
-
 public class TestJailOptions {
 
+	//Variables
 	private Player player;
 	private GameBoard gb;
 	private DiceCup diceCup;
@@ -24,6 +23,7 @@ public class TestJailOptions {
 	private String jailedOption;
 	private Dice diceOne, diceTwo;
 
+	//This is where we set up the test.
 	@Before
 	public void setUp() throws Exception {
 		diceOne = new Dice(1,1);
@@ -38,6 +38,9 @@ public class TestJailOptions {
 		gtj = new GoToJail("De Fængsles", gb, rb);
 	}
 
+	//The first test.
+	//Here we test that you go to jail when you land on
+	//the GoToJail field.
 	@Test
 	public void testGoToJail() {
 		boolean expected = false;
@@ -49,9 +52,12 @@ public class TestJailOptions {
 		expected = true;
 		actual = player.isJailed;
 		assertEquals(expected, actual);
-
 	}
 
+	//The second test.
+	//This test shows the pay opportunity when a player is jailed,
+	//we test that the players account is adjusted with 1000, 
+	//which are the price to go out of jail.
 	@Test
 	public void testJailOptionPay() {
 
@@ -76,8 +82,9 @@ public class TestJailOptions {
 		expected1 = 29000;
 		actual1 = player.getBalance(player);
 		assertEquals(expected1, actual1);
-
 	}
+	//Third test.
+	//Test the diceroll opportunity.
 	@Test
 	public void testJailOptionDiceRoll() {
 
@@ -98,7 +105,8 @@ public class TestJailOptions {
 		boolean actual = player.isJailed;
 		assertEquals(expected, actual);
 	}
-
+	//Fourth test.
+	//Shows the freecard opportunity works.
 	@Test
 	public void testJailOptionFreeCard() {
 
@@ -122,9 +130,6 @@ public class TestJailOptions {
 		
 		boolean expected = false;
 		boolean actual = player.isJailed;
-		assertEquals(expected, actual);
-		
-		
+		assertEquals(expected, actual);	
 	}
-
 }

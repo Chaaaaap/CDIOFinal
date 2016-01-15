@@ -29,7 +29,7 @@ public class TestJail {
 	}
 
 	@Test
-	public void test() {
+	public void test2Ens() {
 		
 		boolean expected2 = false;
 		boolean actual = player.isJailed;

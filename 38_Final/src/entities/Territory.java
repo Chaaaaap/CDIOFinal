@@ -8,14 +8,12 @@ import controllers.GameBoard;
 
 public class Territory extends Ownable {
 
-	private TerritoryData td;
-
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-	private String buy;
+	private TerritoryData td;
 
-	//The Territory constructor takes three parameters, price, rent and feltNavn.
+	//The Territory constructor takes eight parameters.
 	public Territory(int price, String feltNavn, GameBoard gb, ResourceBundle rb, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 		super(price, feltNavn, gb);
 		this.td = new TerritoryData(owner, rb, price, gb, feltNavn, fieldColour, fieldNumber, housePrice, rents);
@@ -25,7 +23,6 @@ public class Territory extends Ownable {
 	public int getRent(Player player) {
 		return td.getRent();
 	}
-
 
 	//This method makes the text, that are being showed in the GUI
 	//when a player lands on the Territory fields.
@@ -51,7 +48,6 @@ public class Territory extends Ownable {
 				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHouseCounter()+" "+getResourceBundle().getString("Owned8")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
 			else 
 				return player.getPlayerName()+", "+getResourceBundle().getString("Owned")+" "+getFeltNavn()+", "+ getResourceBundle().getString("Owned6")+" "+getHotelCounter()+" "+getResourceBundle().getString("Owned9")+" "+getResourceBundle().getString("Owned1")+" "+owner.getPlayerName()+"\n"+ getResourceBundle().getString("Owned3")+" "+getRents(player)[getHouseCounter()]+" kr.";
-
 		}
 	}
 
@@ -59,7 +55,6 @@ public class Territory extends Ownable {
 	public void setOwner(Player player) {
 		td.setOwner(player);
 	}
-
 
 	@Override
 	public Player getOwner() {	
@@ -74,7 +69,6 @@ public class Territory extends Ownable {
 		GUI.showMessage(getFeltBesked(player));
 		if(owner == null) {
 			buyFieldOption(player);
-
 		}
 		else  if (owner.isBankrupt(player) == true){
 
@@ -89,7 +83,7 @@ public class Territory extends Ownable {
 	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
-		buy = GUI.getUserButtonPressed(getResourceBundle().getString("Købe")+" "+getPrice()+" kr.?", getResourceBundle().getString("Ja"),getResourceBundle().getString("Nej"));
+		String buy = GUI.getUserButtonPressed(getResourceBundle().getString("Købe")+" "+getPrice()+" kr.?", getResourceBundle().getString("Ja"),getResourceBundle().getString("Nej"));
 		if(buy.equals(getResourceBundle().getString("Ja"))) {
 			GUI.setOwner(player.getCurrentField()+1, player.getPlayerName());
 			player.adjustBalance(player, -getPrice());
@@ -97,7 +91,7 @@ public class Territory extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 			this.owner = player;
 			player.addProperty(this);
-
+			
 			if (getColour() == "blue") {
 				player.addBlueTerritoryCounter();
 			}
@@ -122,13 +116,13 @@ public class Territory extends Ownable {
 			else {
 				player.addMagentaTerritoryCounter();
 			}
-
 			player.addHouseList();
-
 			getGb().getGUIFields()[player.getCurrentField()].setSubText(getResourceBundle().getString("Ejer")+" "+ player.getPlayerName());
 		}
 	}
 
+	//This method sets the houses/hotel on the player and the territory, it also adjust
+	//the money from the players account.
 	public void buyHouse(Player player) {
 		if(getHouseCounter()>4){
 			player.adjustBalance(player, -getHousePrice());
@@ -148,61 +142,55 @@ public class Territory extends Ownable {
 			player.adjustPropertyValue(player, getPrice());
 		}
 		removeFromHouseList(player);
-
-		//		getGb().getGUIFields()[player.getCurrentField()].setDescription("test");
 	}
 	
+	//This method removes the territory from the HusListe when the player has more than 4
+	//houses on it.
 	public void removeFromHouseList(Player player) {
 		if(getHouseCounter() > 4) {
 			player.removeString(getFeltNavn());
-		}
-			
+		}	
 	}
 
 	@Override
 	public int getPrice() {
 		return td.getPrice();
 	}
-
 	public int getFieldNumber(){
 		return td.getFieldNumber();
 	}
-
 	public int getHousePrice() {
 		return td.getHousePrice();
 	}
-
 	public int getHouseCounter(){
 		return td.getHouseCounter();
 	}
 	public int getHotelCounter(){
 		return td.getHotelCounter();
 	}
-
 	public String getFeltNavn() {
 		return td.getFeltNavn();
 	}
-
 	public ResourceBundle getResourceBundle() {
 		return td.getResourceBundle();
 	}
-
 	public GameBoard getGb() {
 		return td.getGb();
 	}
-
 	public String getColour() {
 		return td.getColour();
 	}
-
 	public int[] getRents(Player player){
 		return td.getRents();
 	}
 
-
+	//We made this class so we could split the territory class into a controller class
+	//and an entity class.
 	private class TerritoryData {
 
-
+		//Global variables of this class,
+		//which also called fields.
+		//This private fields can only be seen in this class.
 		private int rent;
 		private int houseCounter, hotelCounter;
 		private Player owner;
@@ -215,7 +203,7 @@ public class Territory extends Ownable {
 		private int housePrice;
 		private int[] rents;
 
-
+		//The TerritoryData constructor.
 		private TerritoryData(Player owner, ResourceBundle rb, int price, GameBoard gb, String feltNavn, String fieldColour, int fieldNumber, int housePrice, int[] rents) {
 			this.owner = owner;
 			this.rb = rb;
@@ -229,7 +217,6 @@ public class Territory extends Ownable {
 			houseCounter = 0;
 			hotelCounter = 0;
 		}
-
 		public int getHotelCounter() {
 			return hotelCounter;
 		}
@@ -251,37 +238,29 @@ public class Territory extends Ownable {
 		private int getHouseCounter() {
 			return houseCounter;
 		}
-
 		private int getPrice() {
 			return price;
 		}
-
 		private int[] getRents() {
 			return rents;
 		}
-
 		private int getHousePrice() {
 			return housePrice;
 		}
-
 		private String getColour() {
 			return colour;
 		}
-
 		private ResourceBundle getResourceBundle() {
 			return rb;
 		}
 		private GameBoard getGb() {
 			return gb;
 		}
-
 		private int getFieldNumber(){
 			return fieldNumber;
 		}
-
 		private void addHouseCounter() {
 			houseCounter++;
 		}
 	}
-
 }
