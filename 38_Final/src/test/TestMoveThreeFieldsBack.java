@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.ResourceBundle;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,12 +42,8 @@ public class TestMoveThreeFieldsBack {
 
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
-	public void testBuyHouse() {
+	public void testMoveCard() {
 
 
 		player.setCurrentField(2);
