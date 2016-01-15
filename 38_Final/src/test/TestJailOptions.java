@@ -22,7 +22,6 @@ public class TestJailOptions {
 	private LanguageSelector ls;
 	private GoToJail gtj;
 	private String jailedOption;
-	private int sum;
 	private Dice diceOne, diceTwo;
 
 	@Before
