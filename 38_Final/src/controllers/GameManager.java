@@ -228,16 +228,14 @@ public class GameManager
 
 								}
 
-
-
-								String s = GUI.getUserSelection(rb.getString("KøbHus"),territoryNamesForDDMenu );
-								if(s.equals(ownedTerritoryNamesAsArray[0])){
+								String choiceForANewHouse = GUI.getUserSelection(rb.getString("KøbHus"),territoryNamesForDDMenu );
+								if(choiceForANewHouse.equals(ownedTerritoryNamesAsArray[0])){
 								}
 
 								else{
 
 									for (int i = 1; i < ownedTerritoryNamesAsArray.length; i++) 
-										if (ownedTerritoryNamesAsArray[i]==s){
+										if (ownedTerritoryNamesAsArray[i]==choiceForANewHouse){
 											ownedTerritoriesAsArray[i-1].buyHouse(player);
 											GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 											if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
