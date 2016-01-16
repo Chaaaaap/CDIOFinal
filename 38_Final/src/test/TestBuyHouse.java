@@ -15,6 +15,7 @@ import entities.Territory;
 
 public class TestBuyHouse {
 
+	//Variables
 	private Player player;
 	private GameBoard gb;
 	private DiceCup diceCup;
@@ -22,6 +23,7 @@ public class TestBuyHouse {
 	private ResourceBundle rb;
 	private LanguageSelector ls;
 	
+	//This is where we set up the test.
 	@Before
 	public void setUp() throws Exception {
 		ls = new LanguageSelector("da", "DK");
@@ -31,10 +33,11 @@ public class TestBuyHouse {
 		player.getPlayerAccount().setBalance(30000);
 		player.setPlayerName("Player");
 		territory1 = new Territory(1200, "Rødovrevej", gb, rb, "blue",2, 1000, new int[] {50,250,750,2250,4000,6000});
-		
-		
 	}
 	
+	//Test 1.
+	//Here we test that you can buy a house, and that the housecounter,
+	//on the territory works, and that the price is adjusted from the players account.
 	@Test
 	public void testBuyHouse() {
 		int expected = 30000;
@@ -52,6 +55,8 @@ public class TestBuyHouse {
 		int houseActual = territory1.getHouseCounter();
 		assertEquals(houseExpected, houseActual);
 	}
+	//Test 2. 
+	//Test that you can buy a hotel, and the hotelcounter on the territory works.
 	@Test
 	public void testBuyHotel() {
 		int expected = 30000;
@@ -74,7 +79,5 @@ public class TestBuyHouse {
 		int hotelExpected = 1;
 		int hotelActual = territory1.getHotelCounter();
 		assertEquals(hotelExpected, hotelActual);
-		
 	}
-
 }
