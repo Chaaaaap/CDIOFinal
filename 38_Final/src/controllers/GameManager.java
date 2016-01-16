@@ -26,6 +26,8 @@ public class GameManager
 	private boolean[] bankruptPlayers;
 	private String winner,jailedOption;
 	private LanguageSelector ls;
+	private String language;
+	private String country;
 	private ResourceBundle rb;
 	private ChanceCard[] cc;
 	private ChanceCardController chanceCardController;
@@ -34,6 +36,11 @@ public class GameManager
 	//GameManager constructor
 	public GameManager()
 	{
+		this.ls = new LanguageSelector(language, country);
+		
+		
+		
+		
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
