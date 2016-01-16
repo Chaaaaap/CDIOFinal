@@ -36,7 +36,6 @@ public class GameManager
 	//GameManager constructor
 	public GameManager()
 	{
-		this.ls = new LanguageSelector(language, country);
 		this.diceCup = new DiceCup();
 		this.gameBoard = new GameBoard(diceCup, ls);
 		rb = gameBoard.getBundle();
