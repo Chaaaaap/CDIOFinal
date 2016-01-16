@@ -198,17 +198,17 @@ public class Player
 	}
 	//
 	public Territory[] getHusliste(){		
-		Territory[] ownedFieldNames = new Territory[OwnedProperties.size()];
-		ownedFieldNames = OwnedProperties.toArray(ownedFieldNames);		
+		Territory[] ownedTerritories = new Territory[OwnedProperties.size()];
+		ownedTerritories = OwnedProperties.toArray(ownedTerritories);		
 
-		return ownedFieldNames;
+		return ownedTerritories;
 	}
 	//
-	public String[] getTestliste(){		
-		String[] ownedtestNames = new String[buildingReadyFields.size()];
-		ownedtestNames = buildingReadyFields.toArray(ownedtestNames);		
+	public String[] getListOfHouseReadyTerritories(){		
+		String[] stringFieldNames = new String[buildingReadyFields.size()];
+		stringFieldNames = buildingReadyFields.toArray(stringFieldNames);		
 
-		return ownedtestNames;
+		return stringFieldNames;
 	}
 	//
 	public void removeString(String navn) {

@@ -209,36 +209,36 @@ public class GameManager
 							if(!player.getProperty().isEmpty()){
 
 
-								String[] tilsaalg = player.getTestliste();
-								String[] tilladteStringssss = new String[1 + tilsaalg.length];
-								tilladteStringssss[0] = rb.getString("Gå");
+								String[] houseReadyTerritories = player.getListOfHouseReadyTerritories();
+								String[] territoryNamesForDDMenu = new String[1 + houseReadyTerritories.length];
+								territoryNamesForDDMenu[0] = rb.getString("Gå");
 
-								for (int i = 1; i < tilsaalg.length+1; i++) {
-									tilladteStringssss[i] = tilsaalg[i-1];
+								for (int i = 1; i < houseReadyTerritories.length+1; i++) {
+									territoryNamesForDDMenu[i] = houseReadyTerritories[i-1];
 								}
 
 
-								Territory[] tilsalg = player.getHusliste();
-								String[] tilladteStrings = new String[1 + tilsalg.length];
-								tilladteStrings[0] = rb.getString("Gå");
+								Territory[] ownedTerritoriesAsArray = player.getHusliste();
+								String[] ownedTerritoryNamesAsArray = new String[1 + ownedTerritoriesAsArray.length];
+								ownedTerritoryNamesAsArray[0] = rb.getString("Gå");
 
-								for (int i = 1; i < tilsalg.length+1; i++) {
+								for (int i = 1; i < ownedTerritoriesAsArray.length+1; i++) {
 
-									tilladteStrings[i] = tilsalg[i-1].getFeltNavn();
+									ownedTerritoryNamesAsArray[i] = ownedTerritoriesAsArray[i-1].getFeltNavn();
 
 								}
 
 
 
-								String s = GUI.getUserSelection(rb.getString("KøbHus"),tilladteStringssss );
-								if(s.equals(tilladteStrings[0])){
+								String s = GUI.getUserSelection(rb.getString("KøbHus"),territoryNamesForDDMenu );
+								if(s.equals(ownedTerritoryNamesAsArray[0])){
 								}
 
 								else{
 
-									for (int i = 1; i < tilladteStrings.length; i++) 
-										if (tilladteStrings[i]==s){
-											tilsalg[i-1].buyHouse(player);
+									for (int i = 1; i < ownedTerritoryNamesAsArray.length; i++) 
+										if (ownedTerritoryNamesAsArray[i]==s){
+											ownedTerritoriesAsArray[i-1].buyHouse(player);
 											GUI.setBalance(player.getPlayerName(), player.getBalance(player));
 											if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
 												GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
