@@ -343,7 +343,7 @@ public class GameManager
 
 			GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), "Okay");
 
-			if(player.getFreeCard() > 0){
+			if(player.getFreeCardCounter() > 0){
 				jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail3"), rb.getString("Jail5"), rb.getString("Jail6"), rb.getString("Jail7"));
 			}
 			else{

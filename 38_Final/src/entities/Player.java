@@ -116,6 +116,8 @@ public class Player
 	public int getMagentaTerritoryCounter() {
 		return magentaTerritoryCounter;
 	}
+	
+	
 	public void addFleetCounter() {
 		fleetCounter++;
 	}
@@ -154,8 +156,7 @@ public class Player
 	public void addJailRollCounter() {
 		jailRollCounter++;
 	}
-	public int getFreeCard()
-	{
+	public int getFreeCardCounter(){
 		return freeCardCounter;
 	}
 	public void addFreeCard() {
@@ -188,22 +189,24 @@ public class Player
 	public void adjustPropertyValue(Player player, int amount) {
 		player.getPlayerAccount().adjustPropertyValue(amount);
 	}
-	//Adds territories to the arraylist
+	
+	//Adds territories that you buy to the arraylist
 	public void addProperty(Territory territory) {
 		OwnedProperties.add(territory);
 	}
-	//
+	
 	public ArrayList<Territory>  getProperty(){
 		return OwnedProperties;
 	}
-	//
+	
+	//This method converts the ArrayList of owned territories to an Array
 	public Territory[] getHusliste(){		
 		Territory[] ownedTerritories = new Territory[OwnedProperties.size()];
 		ownedTerritories = OwnedProperties.toArray(ownedTerritories);		
 
 		return ownedTerritories;
 	}
-	//
+	//This method converts the ArrayList of territories ready for buildings to an Array
 	public String[] getListOfHouseReadyTerritories(){		
 		String[] stringFieldNames = new String[buildingReadyFields.size()];
 		stringFieldNames = buildingReadyFields.toArray(stringFieldNames);		
@@ -214,7 +217,7 @@ public class Player
 	public void removeString(String navn) {
 		buildingReadyFields.remove(navn);
 	}
-	//
+	//This method adds the names of territories to an arraylist if they are ready to get builded on
 	public void addHouseList(){
 		if(!buildingReadyFields.contains("Rødovrevej") && !buildingReadyFields.contains("Hvidovrevej")){
 			if(getBlueTerritoryCounter()==2){

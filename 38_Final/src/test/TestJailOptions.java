@@ -114,7 +114,7 @@ public class TestJailOptions {
 		player.addFreeCard();
 		
 		int expected1 = 1;
-		int actual1 = player.getFreeCard();
+		int actual1 = player.getFreeCardCounter();
 		assertEquals(expected1, actual1);
 
 		jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail3"), rb.getString("Jail7"));
@@ -125,7 +125,7 @@ public class TestJailOptions {
 		}
 
 		expected1 = 0;
-		actual1 = player.getFreeCard();
+		actual1 = player.getFreeCardCounter();
 		assertEquals(expected1, actual1);
 		
 		boolean expected = false;
