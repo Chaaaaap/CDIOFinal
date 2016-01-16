@@ -190,7 +190,7 @@ public class GameManager
 		if(player.getPlayerAccount().isBankrupt() == false) {
 
 
-			Jailed(player,  diceCup);
+			Jailed(player);
 
 			if(!player.isJailed){
 
@@ -339,7 +339,7 @@ public class GameManager
 		}
 	}
 
-	public void Jailed(Player player, DiceCup diceCup){
+	public void Jailed(Player player){
 
 		if(player.isJailed){
 
