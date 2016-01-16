@@ -25,7 +25,7 @@ public class GameBoard {
 
 	//GameBoard constructor
 	public GameBoard(DiceCup cup) {
-		guiFields = createGUIFields();;
+		guiFields = createGUIFields();
 		diceCup = cup;
 		initFields();
 		logicFields = createLogicFields();
@@ -34,7 +34,7 @@ public class GameBoard {
 	}
 
 	public GameBoard(DiceCup cup, LanguageSelector ls) {
-		guiFields = createGUIFields();;
+		guiFields = createGUIFields();
 		diceCup = cup;
 		initFields();
 		GUI.create(guiFields);	
