@@ -350,7 +350,7 @@ public class GameManager
 				jailedOption = GUI.getUserButtonPressed(player.getPlayerName()+", "+rb.getString("Jail4"), rb.getString("Jail5"), rb.getString("Jail6"));
 			}
 			if(jailedOption.equals(rb.getString("Jail5"))) {
-				player.getPlayerAccount().adjustBalance(-1000);
+				player.adjustBalance(player, -1000);
 				GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 				player.isJailed = false;
 				player.setJailRoll(0);
