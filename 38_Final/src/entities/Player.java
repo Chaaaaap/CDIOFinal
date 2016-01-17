@@ -11,7 +11,7 @@ public class Player
 	private String playerName;
 	private PlayerAccount playerAccount;
 	private int currentField=1, fleetCounter,breweryCounter,jailRollCounter,freeCardCounter, blueTerritoryCounter, pinkTerritoryCounter, 
-				greenTerritoryCounter, grayTerritoryCounter, redTerritoryCounter, whiteTerritoryCounter, yellowTerritoryCounter, magentaTerritoryCounter;
+			greenTerritoryCounter, grayTerritoryCounter, redTerritoryCounter, whiteTerritoryCounter, yellowTerritoryCounter, magentaTerritoryCounter;
 	public boolean isJailed;
 	private int hotelCounter;
 	private int houseCounter;
@@ -116,8 +116,8 @@ public class Player
 	public int getMagentaTerritoryCounter() {
 		return magentaTerritoryCounter;
 	}
-	
-	
+
+
 	public void addFleetCounter() {
 		fleetCounter++;
 	}
@@ -189,16 +189,12 @@ public class Player
 	public void adjustPropertyValue(Player player, int amount) {
 		player.getPlayerAccount().adjustPropertyValue(amount);
 	}
-	
+
 	//Adds territories that you buy to the arraylist
 	public void addProperty(Territory territory) {
 		OwnedProperties.add(territory);
 	}
-	
-	public ArrayList<Territory>  getProperty(){
-		return OwnedProperties;
-	}
-	
+
 	//This method converts the ArrayList of owned territories to an Array
 	public Territory[] getHusliste(){		
 		Territory[] ownedTerritories = new Territory[OwnedProperties.size()];
