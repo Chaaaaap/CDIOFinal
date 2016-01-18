@@ -236,12 +236,12 @@ public class GameManager
 										if (ownedTerritoryNamesAsArray[i]==choiceForANewHouse){
 											ownedTerritoriesAsArray[i-1].buyHouse(player);
 											GUI.setBalance(player.getPlayerName(), player.getBalance(player));
-											if(player.getHusliste()[i-1].getHouseCounter() < 5 ){
-												GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), player.getHusliste()[i-1].getHouseCounter());
+											if(ownedTerritoriesAsArray[i-1].getHouseCounter() < 5 ){
+												GUI.setHouses(ownedTerritoriesAsArray[i-1].getFieldNumber(), ownedTerritoriesAsArray[i-1].getHouseCounter());
 											}
-											else if (player.getHusliste()[i-1].getHouseCounter() ==5){
-												GUI.setHouses(player.getHusliste()[i-1].getFieldNumber(), 0);
-												GUI.setHotel(player.getHusliste()[i-1].getFieldNumber(), true);
+											else if (ownedTerritoriesAsArray[i-1].getHouseCounter() ==5){
+												GUI.setHouses(ownedTerritoriesAsArray[i-1].getFieldNumber(), 0);
+												GUI.setHotel(ownedTerritoriesAsArray[i-1].getFieldNumber(), true);
 											}
 										}
 								}
