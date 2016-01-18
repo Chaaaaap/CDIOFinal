@@ -60,8 +60,8 @@ public class Brewery extends Ownable {
 			this.owner = player;
 			player.addBreweryCounter();
 			player.adjustPropertyValue(player, price);
+			gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
 		}
-		gameBoard.getGUIFields()[player.getCurrentField()].setSubText(rb.getString("Ejer")+" "+player.getPlayerName());
 	}
 
 	//This method makes the text, that are being showed in the GUI
