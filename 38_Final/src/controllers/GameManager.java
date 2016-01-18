@@ -13,8 +13,7 @@ import entities.Player;
 import entities.Territory;
 import chance.*;
 
-public class GameManager 
-{
+public class GameManager {
 
 	//Global variables of this class,
 	//which also called fields.
@@ -45,10 +44,7 @@ public class GameManager
 		chanceCardController = new ChanceCardController(cc);
 		initChanceCards();
 		chanceCardController.shuffle();
-
-
 	}
-
 
 	private void initChanceCards() {
 		cc[0] = new ChanceGoToJail("ChanceJail");
@@ -101,7 +97,6 @@ public class GameManager
 				//If all but one player is bankrupt, the game has been won.
 				if(bankruptCounter == playerCount-1)
 					gameIsNotWon = false;
-
 			}
 			//Makes sure the forloop starts at index 0 after the first runthrough.
 			i=0;
@@ -159,9 +154,7 @@ public class GameManager
 			player.setCurrentField(0);
 			//Makes sure the game knows that the player is NOT bankrupt.
 			bankruptPlayers[i] = false;
-
 		}
-
 		GUI.getUserButtonPressed(rb.getString("HvemStarter"), rb.getString("Kast"));
 
 		//Decides who's starting
@@ -183,30 +176,42 @@ public class GameManager
 
 	private void playerTurn(Player player) 
 	{
+		//This do/while loop, runs one turn and if diceOne==diceTwo, 
+		//the the player earn another turn.
+		//If the player roll this 3 times, he goes in jail.
 		do {
 			//Tests to see how many players are bankrupt
 			isPlayersBankrupt(players);
 			//Makes sure bankrupts players are skipped
 			if(player.getPlayerAccount().isBankrupt() == false) {
 
-
+				//Uses this method if the player is Jailed
 				Jailed(player);
 
+				//this if runs while the player isn't jailed
 				if(!player.isJailed){
 
 					boolean loop =true;
 
+					//This while loop runs while our boolean loop is true
 					while(loop){
+						//if/else.
+						//if makes sure that you own all territories in the same colour,
+						//and if you do, you got an extra opportunity "Buy house/hotel"
+						//else gives you only the opportunity "Roll Dice"
 						if(player.getBlueTerritoryCounter()==2 || player.getPinkTerritoryCounter()==3 || player.getGreenTerritoryCounter()==3 || player.getGrayTerritoryCounter()==3 || player.getRedTerritoryCounter()==3 || player.getWhiteTerritoryCounter()==3 || player.getYellowTerritoryCounter()==3 || player.getMagentaTerritoryCounter()==2){
 							String Choices = GUI.getUserButtonPressed(player.getPlayerName() + rb.getString("Tur"), rb.getString("DiceRoll"),rb.getString("Køb"));
-
+							//if the player choose "Roll Dice", the boolean loop are false, 
+							//and then breaks out of the loop.
 							if(Choices.equals(rb.getString("DiceRoll")))
 							{
 								loop=false;
 							}
-
+							//else if the player choose "Buy house/hotel", 
+							//the player got the opportunity to buy houses.
 							else if(Choices.equals(rb.getString("Køb"))){
 
+								//This is an array of strings from the territories a player earns.
 								String[] houseReadyTerritories = player.getListOfHouseReadyTerritories();
 								String[] territoryNamesForDDMenu = new String[1 + houseReadyTerritories.length];
 								territoryNamesForDDMenu[0] = rb.getString("Gå");
@@ -215,21 +220,21 @@ public class GameManager
 									territoryNamesForDDMenu[i] = houseReadyTerritories[i-1];
 								}
 
-
+								//this is an array og territories, which are converted to an String[],
+								//so we could compare the two arrays and build houses.
 								Territory[] ownedTerritoriesAsArray = player.getHusliste();
 								String[] ownedTerritoryNamesAsArray = new String[1 + ownedTerritoriesAsArray.length];
 								ownedTerritoryNamesAsArray[0] = rb.getString("Gå");
 
 								for (int i = 1; i < ownedTerritoriesAsArray.length+1; i++) {
-
 									ownedTerritoryNamesAsArray[i] = ownedTerritoriesAsArray[i-1].getFeltNavn();
-
 								}
-
+								//The drop down menu in the GUI.
 								String choiceForANewHouse = GUI.getUserSelection(rb.getString("KøbHus"),territoryNamesForDDMenu );
+								//If you choose index 0, which are "Go Back", then nothing happens.
 								if(choiceForANewHouse.equals(ownedTerritoryNamesAsArray[0])){
 								}
-
+								//All other index you choose, you build a house
 								else{
 
 									for (int i = 1; i < ownedTerritoryNamesAsArray.length; i++) 
@@ -255,7 +260,7 @@ public class GameManager
 							}
 						}
 					}
-
+					//Now the player shakes the dies and get a sum.
 					diceCup.shake();
 					sum = diceCup.getSumResult();
 					GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
@@ -266,7 +271,7 @@ public class GameManager
 							GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 						}
 					}
-					//Moves the car around the board.
+					//Moves the car around the board. Moves as long as the sum showed.
 					GUI.removeAllCars(player.getPlayerName());
 					player.setCurrentField((player.getCurrentField()+sum)%40);
 					GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
@@ -274,7 +279,8 @@ public class GameManager
 					//Gets the landOnField from whatever field the player landed on.
 					Felt currentField = gameBoard.getlogicFields()[player.getCurrentField()];
 
-
+					//If you land on a field and it is an instance of ChanceField, 
+					//then you draw a card and execute it.
 					if (currentField instanceof ChanceField){
 						GUI.showMessage(rb.getString(gameBoard.getlogicFields()[player.getCurrentField()].getFeltBesked(player)));
 						chanceCard = chanceCardController.drawCard();
@@ -282,6 +288,7 @@ public class GameManager
 						GUI.showMessage(rb.getString(chanceCard.toString()));
 						chanceCard.executeCard(player);
 					} 
+					//else you got the landOnField method from the current field.
 					else {
 						gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 					}
@@ -290,12 +297,20 @@ public class GameManager
 						GUI.removeAllCars(player.getPlayerName());
 				}
 			}
+			//belongs in the do/while loop, and first add one to the turnCounter(), 
+			//and if diceOne==diceTwo, then it shows a string in the GUI.
+			//but if diceOne!=diceTwo, it resets the players turnCounter().
 			player.addTurnCounter();
 			if(player.getTurnCounter()<3 && diceCup.getDiceOne() == diceCup.getDiceTwo()) 
 				GUI.showMessage(player.getPlayerName()+rb.getString("ToEns"));
 			if(diceCup.getDiceOne() != diceCup.getDiceTwo())
 				player.resetTurnCounter();
-		} while(diceCup.getDiceOne() == diceCup.getDiceTwo() && player.getTurnCounter() < 3);
+		} 
+		//the while of the do/while loop.
+		//if diceOne==diceTwo < 3 then the player earns another turn,
+		//but if the turnCounter=3, then the player is jailed and the turnCounter
+		//resets.
+		while(diceCup.getDiceOne() == diceCup.getDiceTwo() && player.getTurnCounter() < 3);
 		if(player.getTurnCounter() == 3) {
 			player.isJailed = true;
 			GUI.showMessage(player.getPlayerName()+rb.getString("Jail11"));
