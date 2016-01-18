@@ -124,7 +124,13 @@ public class Territory extends Ownable {
 	//This method sets the houses/hotel on the player and the territory, it also adjust
 	//the money from the players account.
 	public void buyHouse(Player player) {
-		if(getHouseCounter()>4){
+		if(getHouseCounter()==4){
+			td.addHotelCounter();
+			player.addHotelCounter();
+		}
+		if(getHouseCounter()==5){
+			td.addHouseCounter();
+			player.addHouseCounter();
 			player.adjustBalance(player, -getHousePrice());
 			player.adjustPropertyValue(player, getPrice());
 		}
@@ -132,13 +138,6 @@ public class Territory extends Ownable {
 			player.adjustBalance(player, -getHousePrice());
 			td.addHouseCounter();
 			player.addHouseCounter();
-			player.adjustPropertyValue(player, getPrice());
-		}
-		if(getHouseCounter()==4){
-			td.addHouseCounter();
-			td.addHotelCounter();
-			player.removeHouseCounter();
-			player.addHotelCounter();
 			player.adjustPropertyValue(player, getPrice());
 		}
 		removeFromHouseList(player);
