@@ -174,8 +174,7 @@ public class GameManager {
 		GUI.showMessage(players[startingPlayer-1].getPlayerName() + " " + rb.getString("Starter"));
 	}
 
-	private void playerTurn(Player player) 
-	{
+	private void playerTurn(Player player) {
 		//This do/while loop, runs one turn and if diceOne==diceTwo, 
 		//the the player earn another turn.
 		//If the player roll this 3 times, he goes in jail.
